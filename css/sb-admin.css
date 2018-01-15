@@ -348,3 +348,13 @@ footer.sticky-footer {
 #logo{
   width: 200px;
 }
+
+.elementArea{
+  float: left;
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
+.buttonElement{
+  margin: 0 auto;
+}
