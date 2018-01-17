@@ -1,7 +1,0 @@
-INDEX VERSION 1.3+C:\Users\Giovanni\Documents\GitHub\E-Train\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-1856637207.index
-4048699364.index
-1016604288.index
-2057626707.index
-3760633771.index
-2435795308.index
