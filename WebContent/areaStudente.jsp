@@ -53,31 +53,31 @@
       <div class="card elementArea" style="width: 18rem;">
         <img class="card-img-top" src="img/azienda.png" alt="Card image cap">
         <div class="card-body buttonElement">
-          <a href="/visualizzaAzienda.html" class="btn btn-primary">Visualizza Azienda</a>
+          <a href="./visualizzaAziendaStudente.jsp" class="btn btn-primary">Visualizza Azienda</a>
         </div>
       </div>  
         <div class="card elementArea" style="width: 18rem;">
           <img class="card-img-top" src="img/tutor.png" alt="Card image cap">
           <div class="card-body buttonElement">
-            <a href="/visualizzaTutor.html" class="btn btn-primary">Visualizza Tutor</a>
+            <a href="./visualizzaTutor.jsp" class="btn btn-primary">Visualizza Tutor</a>
           </div>
         </div>
           <div class="card  elementArea" style="width: 18rem;">
             <img class="card-img-top" src="img/tirocinio.png" alt="Card image cap">
             <div class="card-body buttonElement">
-              <a href="/visualizzaTirocinio.html" class="btn btn-primary">Visualizza Tirocinio</a>
+              <a href="./visualizzaTirocinio.jsp" class="btn btn-primary">Visualizza Tirocinio</a>
             </div>
           </div>
             <div class="card  elementArea" style="width: 18rem;">
               <img class="card-img-top" src="img/file.png" alt="Card image cap">
               <div class="card-body buttonElement">
-                <a href="/gestioneFile.html" class="btn btn-primary">Gestione File</a>
+                <a href="./gestioneFileStudente.jsp" class="btn btn-primary">Gestione File</a>
               </div>
             </div>
               <div class="card  elementArea" style="width: 18rem;">
                 <img class="card-img-top" src="img/presenze.png" alt="Card image cap">
                 <div class="card-body buttonElement">
-                  <a href="/gestionePresenze.html" class="btn btn-primary">Gestione Presenze</a>
+                  <a href="./gestionePresenzeStudente.jsp" class="btn btn-primary">Gestione Presenze</a>
               </div>
             </div>
       </div>
