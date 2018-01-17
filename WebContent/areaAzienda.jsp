@@ -34,7 +34,7 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
          <li class="nav-item">
-          <a class="nav-link" href="home.html">
+          <a class="nav-link" href="home.jsp">
             <i class="fa fa-fw"></i>Home</a>
         </li>
         <li class="nav-item">

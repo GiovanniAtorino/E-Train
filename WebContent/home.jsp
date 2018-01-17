@@ -24,7 +24,7 @@
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <div class="navbar-brand">
-      <a class="" href="index.html">
+      <a class="" href="home.jsp">
         <img src="img/logo.png">
         <img src="img/unisa.png">
         <img src="img/logov1.2.jpg" id="logo">
@@ -147,15 +147,7 @@
     
       </div>
     </div>
-    <!-- /.container-fluid-->
-    <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
-        <div class="text-center">
-          <small>Copyright Â© Your Website 2017</small>
-        </div>
-      </div>
-    </footer>
+    
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
@@ -192,6 +184,6 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
-  </div>
+ 
 </body>
 </html>
