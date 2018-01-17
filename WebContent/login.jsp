@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,7 +79,7 @@
   <footer class="sticky-footer" style="width:100%">
     <div class="container">
       <div class="text-center">
-        <small>Copyright © E-Train Website 2017</small>
+        <small>Copyright Â© E-Train Website 2017</small>
       </div>
     </div>
   </footer>
