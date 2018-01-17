@@ -29,7 +29,7 @@
       </a>
     </div>
     <ul class="navbar-nav">
-        <a class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fa"></i>Area Studente</a>
+        <a class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fa"></i>Area Segreteria</a>
     </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
@@ -48,30 +48,42 @@
   
   <div class="content-wrapper" style="margin-left: 0px;">
     <div class="contentArea">
+    
       <div class="card elementArea" style="width: 18rem;">
+        <img class="card-img-top" src="img/azienda.png" alt="Card image cap">
+        <div class="card-body buttonElement">
+          <a href="/visualizzaAzienda.html" class="btn btn-primary">Ricerca studente</a>
+        </div>
+      </div>  
+      
+       <div class="card elementArea" style="width: 18rem;">
         <img class="card-img-top" src="img/azienda.png" alt="Card image cap">
         <div class="card-body buttonElement">
           <a href="/visualizzaAzienda.html" class="btn btn-primary">Visualizza Azienda</a>
         </div>
       </div>  
+      
         <div class="card elementArea" style="width: 18rem;">
           <img class="card-img-top" src="img/tutor.png" alt="Card image cap">
           <div class="card-body buttonElement">
             <a href="/visualizzaTutor.html" class="btn btn-primary">Visualizza Tutor</a>
           </div>
         </div>
+        
           <div class="card  elementArea" style="width: 18rem;">
             <img class="card-img-top" src="img/tirocinio.png" alt="Card image cap">
             <div class="card-body buttonElement">
               <a href="/visualizzaTirocinio.html" class="btn btn-primary">Visualizza Tirocinio</a>
             </div>
           </div>
+          
             <div class="card  elementArea" style="width: 18rem;">
               <img class="card-img-top" src="img/file.png" alt="Card image cap">
               <div class="card-body buttonElement">
                 <a href="/gestioneFile.html" class="btn btn-primary">Gestione File</a>
               </div>
             </div>
+            
               <div class="card  elementArea" style="width: 18rem;">
                 <img class="card-img-top" src="img/presenze.png" alt="Card image cap">
                 <div class="card-body buttonElement">
