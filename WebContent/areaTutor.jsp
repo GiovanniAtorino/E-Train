@@ -29,7 +29,7 @@
       </a>
     </div>
     <ul class="navbar-nav">
-        <a class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fa"></i>Area Segreteria</a>
+        <a class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fa"></i>Area Tutor</a>
     </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
@@ -50,46 +50,27 @@
     <div class="contentArea">
     
       <div class="card elementArea" style="width: 18rem;">
-        <img class="card-img-top" src="img/azienda.png" alt="Card image cap">
+        <img class="card-img-top" src="img/tutor.png" alt="Card image cap">
         <div class="card-body buttonElement">
-          <a href="./visualizzaAzienda.jsp" class="btn btn-primary">Ricerca studente</a>
+          <a href="/visualizzaAzienda.html" class="btn btn-primary">Visualizza Studente</a>
         </div>
       </div>  
       
        <div class="card elementArea" style="width: 18rem;">
         <img class="card-img-top" src="img/azienda.png" alt="Card image cap">
         <div class="card-body buttonElement">
-          <a href="./visualizzaAzienda.jsp" class="btn btn-primary">Visualizza Azienda</a>
+          <a href="/visualizzaAzienda.html" class="btn btn-primary">Visualizza Azienda</a>
         </div>
       </div>  
       
         <div class="card elementArea" style="width: 18rem;">
-          <img class="card-img-top" src="img/tutor.png" alt="Card image cap">
+          <img class="card-img-top" src="img/file.png" alt="Card image cap">
           <div class="card-body buttonElement">
-            <a href="./visualizzaTutor.jsp" class="btn btn-primary">Visualizza Tutor</a>
+            <a href="/visualizzaTutor.html" class="btn btn-primary">Gestione File</a>
           </div>
         </div>
-        
-          <div class="card  elementArea" style="width: 18rem;">
-            <img class="card-img-top" src="img/tirocinio.png" alt="Card image cap">
-            <div class="card-body buttonElement">
-              <a href="./visualizzaTirocinio.jsp" class="btn btn-primary">Visualizza Tirocinio</a>
-            </div>
-          </div>
-          
-            <div class="card  elementArea" style="width: 18rem;">
-              <img class="card-img-top" src="img/file.png" alt="Card image cap">
-              <div class="card-body buttonElement">
-                <a href="./gestioneFile.jsp" class="btn btn-primary">Gestione File</a>
-              </div>
-            </div>
-            
-              <div class="card  elementArea" style="width: 18rem;">
-                <img class="card-img-top" src="img/presenze.png" alt="Card image cap">
-                <div class="card-body buttonElement">
-                  <a href="./gestionePresenze.jsp" class="btn btn-primary">Gestione Presenze</a>
-              </div>
-            </div>
+                    
+             
       </div>
     </div>  
     
