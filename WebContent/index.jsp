@@ -26,6 +26,7 @@
 			<%@ include file="header.jsp"%>
 			<%@ include file="sidenav.jsp"%>
 		</nav>
+		
   <!-- Navigation-->
   <div class="content-wrapper">
     <div class="container-fluid">

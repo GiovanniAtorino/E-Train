@@ -22,7 +22,7 @@
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <div class="navbar-brand">
-      <a class="" href="index.html">
+      <a class="" href="home.jsp">
         <img src="img/logo.png">
         <img src="img/unisa.png">
         <img src="img/logov1.2.jpg" id="logo">
@@ -34,15 +34,18 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
          <li class="nav-item">
-          <a class="nav-link" href="home.html">
+          <a class="nav-link" href="home.jsp">
             <i class="fa fa-fw"></i>Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./logout.html">
-            <i class="fa fa-fw"></i>Logout</a>
+         <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+         <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
         </li>
       </ul>
-    </div>
+      </ul>
+    
   </nav>
 
   
@@ -52,51 +55,79 @@
       <div class="card elementArea" style="width: 18rem;">
         <img class="card-img-top" src="img/azienda.png" alt="Card image cap">
         <div class="card-body buttonElement">
-          <a href="./visualizzaAzienda.jsp" class="btn btn-primary">Ricerca studente</a>
+          <a href="./ricercaStudenteSegreteria.jsp" class="btn btn-primary">Ricerca studente</a>
         </div>
       </div>  
       
        <div class="card elementArea" style="width: 18rem;">
         <img class="card-img-top" src="img/azienda.png" alt="Card image cap">
         <div class="card-body buttonElement">
-          <a href="./visualizzaAzienda.jsp" class="btn btn-primary">Visualizza Azienda</a>
+          <a href="./visualizzaAziendaSegreteria.jsp" class="btn btn-primary">Visualizza Azienda</a>
         </div>
       </div>  
       
         <div class="card elementArea" style="width: 18rem;">
           <img class="card-img-top" src="img/tutor.png" alt="Card image cap">
           <div class="card-body buttonElement">
-            <a href="./visualizzaTutor.jsp" class="btn btn-primary">Visualizza Tutor</a>
+            <a href="./visualizzaTutorSegreteria.jsp" class="btn btn-primary">Visualizza Tutor</a>
           </div>
         </div>
         
           <div class="card  elementArea" style="width: 18rem;">
             <img class="card-img-top" src="img/tirocinio.png" alt="Card image cap">
             <div class="card-body buttonElement">
-              <a href="./visualizzaTirocinio.jsp" class="btn btn-primary">Visualizza Tirocinio</a>
+              <a href="./visualizzaTirocinioSegreteria.jsp" class="btn btn-primary">Visualizza Tirocinio</a>
             </div>
           </div>
           
             <div class="card  elementArea" style="width: 18rem;">
               <img class="card-img-top" src="img/file.png" alt="Card image cap">
               <div class="card-body buttonElement">
-                <a href="./gestioneFile.jsp" class="btn btn-primary">Gestione File</a>
+                <a href="./gestioneFileSegreteria.jsp" class="btn btn-primary">Gestione File</a>
               </div>
             </div>
             
               <div class="card  elementArea" style="width: 18rem;">
                 <img class="card-img-top" src="img/presenze.png" alt="Card image cap">
                 <div class="card-body buttonElement">
-                  <a href="./gestionePresenze.jsp" class="btn btn-primary">Gestione Presenze</a>
+                  <a href="./gestionePresenzeSegreteria.jsp" class="btn btn-primary">Gestione Presenze</a>
               </div>
             </div>
       </div>
     </div>  
-    
-   
-  </div>
 
   
+  <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Your Website 2017</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Pronto a partire?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Sei sicuro di volerti disconnettere?</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancella</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -111,6 +142,6 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
-  </div>
+ 
 </body>
 </html>

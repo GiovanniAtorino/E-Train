@@ -26,7 +26,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
         <div class="navbar-brand">
-          <a class="" href="index.html">
+          <a class="" href="home.jsp">
             <img src="img/logo.png">
             <img src="img/unisa.png">
             <img src="img/logov1.2.jpg" id="logo">
@@ -40,7 +40,7 @@
                   <i class="fa fa-fw"></i>Login</a>
             </li>
           </ul>
-        </div>
+  
       </nav>
 
 
@@ -53,8 +53,9 @@
     <div class="modal-content">
         <div class="modal-header"><h4>Logout <i class="fa fa-lock"></i></h4></div>
         <div class="modal-body"><i class="fa fa-question-circle"></i> Sei sicuro di voler uscire?</div>
-        <div class="modal-footer"><a href="login.html" class="btn btn-primary btn-block">Logout</a></div>
+        <div class="modal-footer"><a href="sceltaUtente.jsp" class="btn btn-primary btn-block">Logout</a></div>
       </div>
+    </div>
     </div>
     </div>
 
