@@ -29,8 +29,7 @@
       </a>
     </div>
     <ul class="navbar-nav">
-        <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-          <i class="fa"></i>Area Studente</a>
+        <a class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fa"></i>Area Studente</a>
     </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
