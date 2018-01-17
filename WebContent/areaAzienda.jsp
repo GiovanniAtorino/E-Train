@@ -42,7 +42,6 @@
             <i class="fa fa-fw"></i>Logout</a>
         </li>
       </ul>
-    </div>
   </nav>
 
   
@@ -52,35 +51,33 @@
       <div class="card elementArea" style="width: 18rem;">
         <img class="card-img-top" src="img/tirocinio.png" alt="Card image cap">
         <div class="card-body buttonElement">
-          <a href="/visualizzaAzienda.html" class="btn btn-primary">Richiesta tirocinio</a>
+          <a href="./richiestaTirocinioAzienda.jsp" class="btn btn-primary">Richiesta tirocinio</a>
         </div>
       </div>  
       
        <div class="card elementArea" style="width: 18rem;">
         <img class="card-img-top" src="img/file.png" alt="Card image cap">
         <div class="card-body buttonElement">
-          <a href="/visualizzaAzienda.html" class="btn btn-primary">Gestione File</a>
+          <a href="./gestioneFileAzienda.jsp" class="btn btn-primary">Gestione File</a>
         </div>
       </div>  
       
         <div class="card elementArea" style="width: 18rem;">
           <img class="card-img-top" src="img/tutor.png" alt="Card image cap">
           <div class="card-body buttonElement">
-            <a href="/visualizzaTutor.html" class="btn btn-primary">Visualizza Partecipanti</a>
+            <a href="./visualizzaPartecipantiAzienda.jsp" class="btn btn-primary">Visualizza Partecipanti</a>
           </div>
         </div>
                     
               <div class="card  elementArea" style="width: 18rem;">
                 <img class="card-img-top" src="img/presenze.png" alt="Card image cap">
                 <div class="card-body buttonElement">
-                  <a href="/gestionePresenze.html" class="btn btn-primary">Gestione Presenze</a>
+                  <a href="./gestionePresenzeAzienda.jsp" class="btn btn-primary">Gestione Presenze</a>
               </div>
             </div>
       </div>
     </div>  
-    
-   
-  </div>
+
 
   
     <!-- Bootstrap core JavaScript-->

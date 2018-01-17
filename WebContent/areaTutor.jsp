@@ -38,21 +38,21 @@
       <div class="card elementArea" style="width: 18rem;">
         <img class="card-img-top" src="img/tutor.png" alt="Card image cap">
         <div class="card-body buttonElement">
-          <a href="/visualizzaAzienda.html" class="btn btn-primary">Visualizza Studente</a>
+          <a href="./visualizzaStudenteTutor.jsp" class="btn btn-primary">Visualizza Studente</a>
         </div>
       </div>  
       
        <div class="card elementArea" style="width: 18rem;">
         <img class="card-img-top" src="img/azienda.png" alt="Card image cap">
         <div class="card-body buttonElement">
-          <a href="/visualizzaAzienda.html" class="btn btn-primary">Visualizza Azienda</a>
+          <a href="./visualizzaAziendaTutor.jsp" class="btn btn-primary">Visualizza Azienda</a>
         </div>
       </div>  
       
         <div class="card elementArea" style="width: 18rem;">
           <img class="card-img-top" src="img/file.png" alt="Card image cap">
           <div class="card-body buttonElement">
-            <a href="./visualizzaTutor.jsp" class="btn btn-primary">Gestione File</a>
+            <a href="./gestioneFileTutor.jsp" class="btn btn-primary">Gestione File</a>
           </div>
         </div>
                     

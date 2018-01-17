@@ -59,13 +59,13 @@
         <div class="card elementArea" style="width: 18rem;">
           <img class="card-img-top" src="img/tutor.png" alt="Card image cap">
           <div class="card-body buttonElement">
-            <a href="./visualizzaTutor.jsp" class="btn btn-primary">Visualizza Tutor</a>
+            <a href="./visualizzaTutorStudente.jsp" class="btn btn-primary">Visualizza Tutor</a>
           </div>
         </div>
           <div class="card  elementArea" style="width: 18rem;">
             <img class="card-img-top" src="img/tirocinio.png" alt="Card image cap">
             <div class="card-body buttonElement">
-              <a href="./visualizzaTirocinio.jsp" class="btn btn-primary">Visualizza Tirocinio</a>
+              <a href="./visualizzaTirocinioStudente.jsp" class="btn btn-primary">Visualizza Tirocinio</a>
             </div>
           </div>
             <div class="card  elementArea" style="width: 18rem;">
@@ -82,10 +82,6 @@
             </div>
       </div>
     </div>  
-    
-   
-  </div>
-
   
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
