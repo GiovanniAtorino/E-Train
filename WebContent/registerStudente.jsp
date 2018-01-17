@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,37 +45,37 @@
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Registra Account Studente</div>
       <div class="card-body">
-        <form>
+       <form action="RegisterServlet" method="post" id="form">
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputName">Nome: </label>
-                <input class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci un Nome">
+                <input class="form-control" name="studente_nome" id="studente_nome" type="text" aria-describedby="nameHelp" placeholder="Inserisci un Nome">
               </div>
               <div class="col-md-6">
                 <label for="exampleInputLastName">Cognome: </label>
-                <input class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="Inserisci Cognome">
+                <input class="form-control" name="studente_cognome" id="studente_cognome" type="text" aria-describedby="nameHelp" placeholder="Inserisci Cognome">
               </div>
             </div>
           </div>
           <div class="form-group">
-              <label for="exampleInputEmail1">Data Di Nascita:</label><br>
-              <input id="form-control" id="exampleInputDate" type="date" aria-describedby="dateHelp" placeholder="Inserisci Data">
+              <label for="exampleInputEmail1">Dipartimento:</label><br>
+              <input id="form-control" name="studente_dipartimento" id="studente_dipartimento" type="date" aria-describedby="dateHelp" placeholder="Inserisci Dipartimento">
             </div>
 
             <div class="form-group">
             <label for="exampleInputName">Numero Matricola: </label>
-                <input class="form-control" id="exampleInputNumber" type="number" pattern="[0-9]" aria-describedby="numberHelp" placeholder="Inserisci Numero Matricola">
+                <input class="form-control" name="studente_matricola" id="studente_matricola" type="number" pattern="[0-9]" aria-describedby="numberHelp" placeholder="Inserisci Numero Matricola">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email Accademica: </label>
-            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Inserisci Email">
+            <input class="form-control" name="studente_email" id="studente_email" type="email" aria-describedby="emailHelp" placeholder="Inserisci Email">
           </div>
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputPassword1">Password: </label>
-                <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
+                <input class="form-control" name="studente_password" id="studente_password" type="password" placeholder="Password">
               </div>
               <div class="col-md-6">
                 <label for="exampleConfirmPassword">Conferma password: </label>
@@ -82,7 +83,8 @@
               </div>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="login.html">Register</a>
+          <input class="submit" type="submit"
+								name="contact_submitted" value="Registrati" />
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="login.html">Login Page</a>

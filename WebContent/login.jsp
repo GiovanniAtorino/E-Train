@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*" %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,14 +45,14 @@
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">Login</div>
       <div class="card-body">
-        <form>
+      <form action="LoginServlet" method="post">
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <input class="form-control" name="studente_email" id="studente_email" type="email" aria-describedby="emailHelp" placeholder="Enter email">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
+            <input class="form-control" name="studente_password" id="studente_password" type="password" placeholder="Password">
           </div>
           <div class="form-group">
             <div class="form-check">
@@ -60,7 +60,8 @@
                 <input class="form-check-input" type="checkbox"> Remember Password</label>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="index.html">Login</a>
+         <input class="submit" type="submit"
+								name="contact_submitted" value="login" />
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="sceltaUtente.html">Register an Account</a>
@@ -79,7 +80,7 @@
   <footer class="sticky-footer" style="width:100%">
     <div class="container">
       <div class="text-center">
-        <small>Copyright Â© E-Train Website 2017</small>
+        <small>Copyright © E-Train Website 2017</small>
       </div>
     </div>
   </footer>
