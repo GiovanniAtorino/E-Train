@@ -27,11 +27,11 @@
 		</nav>
 		
   <!-- Navigation-->
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="margin-left: 0px;">
     <div class="container-fluid">
 
   
-  <div class="content-wrapper" style="margin-left: 0px;">
+  <div class="content-wrapper">
     <div class="contentArea">
     
       <div class="card elementArea" style="width: 18rem;">
