@@ -71,7 +71,9 @@
 			</div>
 		</div>
   </form>
-</body>
-
+  
+  <!-- FOOTER -->
+  <%@ include file="footer.jsp" %> 
+    
 </body>
 </html>

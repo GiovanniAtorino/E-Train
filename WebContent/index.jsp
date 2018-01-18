@@ -24,11 +24,10 @@
 	<!-- HEADER + SIDENAV -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
 			<%@ include file="header.jsp"%>
-			<%@ include file="sidenav.jsp"%>
 		</nav>
 		
   <!-- Navigation-->
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="margin-left: 0px;">
     <div class="container-fluid">
       <!-- Example DataTables Card-->
       <div class="card mb-3">
