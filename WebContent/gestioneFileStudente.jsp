@@ -23,7 +23,11 @@
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- HEADER + NAVIGAZIONE MOBILE -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
 	<%@ include file="header.jsp"%>
+  	<%@ include file="sidenavStudente.jsp"%>
+  	
+  </nav>	
 	
   <div class="content-wrapper">
     <div class="container-fluid">
@@ -67,15 +71,11 @@
         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>
     </div>
-    <!-- /.container-fluid-->
-    <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
-        <div class="text-center">
-          <small>Copyright Â© Your Website 2017</small>
-        </div>
-      </div>
-    </footer>
+    
+    <!-- FOOTER -->
+    <%@ include file="footer.jsp" %> 
+    
+    
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>

@@ -138,6 +138,7 @@
     </div>
     <!-- /.container-fluid-->
     
+    <!-- FOOTER -->
     <%@ include file="footer.jsp" %> 
     
     <!-- Scroll to Top Button-->

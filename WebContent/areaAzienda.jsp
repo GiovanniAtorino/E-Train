@@ -19,18 +19,13 @@
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
-  <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <div class="navbar-brand">
-      <a class="" href="index.html">
-        <img src="img/logo.png">
-        <img src="img/unisa.png">
-        <img src="img/logov1.2.jpg" id="logo">
-      </a>
-    </div>
-    <ul class="navbar-nav">
-        <a class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fa"></i>Area Azienda</a>
-    </ul>
+  <!-- HEADER + SIDENAV -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+		<%@ include file="header.jsp"%>
+		
+		<ul class="navbar-nav">
+        	<a class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fa"></i>Area Azienda</a>
+    	</ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
          <li class="nav-item">
@@ -42,7 +37,7 @@
             <i class="fa fa-fw"></i>Logout</a>
         </li>
       </ul>
-  </nav>
+	</nav>
 
   
   <div class="content-wrapper" style="margin-left: 0px;">
@@ -78,7 +73,9 @@
       </div>
     </div>  
 
-
+	<!-- FOOTER -->
+    <%@ include file="footer.jsp" %> 
+    
   
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

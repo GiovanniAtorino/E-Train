@@ -21,33 +21,12 @@
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
-  <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <div class="navbar-brand">
-      <a class="" href="home.jsp">
-        <img src="img/logo.png">
-        <img src="img/unisa.png">
-        <img src="img/logov1.2.jpg" id="logo">
-      </a>
-    </div>
-    <ul class="navbar-nav">
-        <a class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fa"></i>Area Studente</a>
-    </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-         <li class="nav-item">
-          <a class="nav-link" href="home.jsp">
-            <i class="fa fa-fw"></i>Home</a>
-        </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-         <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
-      </ul>
-    
-  </nav>
+
+  <!-- HEADER + SIDENAV -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+		<%@ include file="header.jsp"%>
+	</nav>
+
 
   
   <div class="content-wrapper" style="margin-left: 0px;">
@@ -84,6 +63,9 @@
             </div>
       </div>
     </div>  
+    
+    <!-- FOOTER -->
+    <%@ include file="footer.jsp" %> 
     
     
      <!-- Scroll to Top Button-->
