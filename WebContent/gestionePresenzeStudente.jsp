@@ -22,9 +22,13 @@
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  
   <!-- HEADER + NAVIGAZIONE MOBILE -->
-		<%@ include file="header.jsp"%>
-	
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+	<%@ include file="header.jsp"%>
+  	<%@ include file="sidenavStudente.jsp"%>
+  </nav>
+  
 	<div class="content-wrapper">
     <div class="container-fluid">
       <!-- Example DataTables Card-->

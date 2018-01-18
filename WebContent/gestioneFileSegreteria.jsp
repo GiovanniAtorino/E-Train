@@ -25,7 +25,7 @@
 	<%@ include file="header.jsp"%>
   	<%@ include file="sidenavSegreteria.jsp"%>
   	
-  </nav>
+  	</nav>
  
   <div class="content-wrapper">
     <div class="container-fluid">
