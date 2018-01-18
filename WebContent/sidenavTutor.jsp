@@ -5,20 +5,20 @@
 
 <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="index.html">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Visualizza Studente">
+          <a class="nav-link" href="visualizzaStudenteTutor.jsp">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Visualizza Studente</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="charts.html">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Visualizza Azienda">
+          <a class="nav-link" href="visualizzaAziendaTutor.jsp">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Visualizza Azienda</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link" href="">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Gestione File">
+          <a class="nav-link" href="gestioneFileTutor.jsp">
             <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">Gestione File</span>
           </a>

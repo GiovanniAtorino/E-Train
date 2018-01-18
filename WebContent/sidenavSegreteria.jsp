@@ -5,38 +5,38 @@
 
 <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="index.html">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Ricerca Studente">
+          <a class="nav-link" href="home.jsp">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Ricerca Studente</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="charts.html">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Visualizza Azienda">
+          <a class="nav-link" href="visualizzaAziendaSegreteria.jsp">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Visualizza Azienda</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="tables.html">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Visualizza Tutor">
+          <a class="nav-link" href="visualizzaTutorSegreteria.jsp">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Visualizza Tutor</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link" href="">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Visualizza Tirocinio">
+          <a class="nav-link" href="visualizzaTirocinioSegreteria.jsp">
             <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">Visualizza Tirocinio</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link" href="">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Gestione File">
+          <a class="nav-link" href="gestioneFileSegreteria.jsp">
             <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">Gestione File</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link" href="">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Gestione Presenze">
+          <a class="nav-link" href="gestionePresenzeSegreteria.jsp">
             <i class="fa fa-fw fa-file"></i>
             <span class="nav-link-text">Gestione Presenze</span>
           </a>

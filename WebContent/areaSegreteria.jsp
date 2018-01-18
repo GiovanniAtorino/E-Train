@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>SB Admin - Start Bootstrap Template</title>
+  <title>E-Train</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -89,7 +91,7 @@
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Pronto a partire?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
+              <span aria-hidden="true">Ã</span>
             </button>
           </div>
           <div class="modal-body">Sei sicuro di volerti disconnettere?</div>
