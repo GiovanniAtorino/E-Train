@@ -37,7 +37,6 @@
                   <i class="fa fa-fw"></i>Login</a>
             </li>
           </ul>
-        </div>
       </nav>
       
 <body class="bg-dark">
@@ -59,7 +58,7 @@
             </div>
           </div>
           <div class="form-group">
-              <label for="exampleInputEmail1">Dipartimento:</label><br>
+              <label for="exampleInputEmail1">Data:</label><br>
               <input id="form-control" name="studente_dipartimento" id="studente_dipartimento" type="date" aria-describedby="dateHelp" placeholder="Inserisci Dipartimento">
             </div>
 

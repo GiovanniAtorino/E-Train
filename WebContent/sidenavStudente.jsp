@@ -6,7 +6,7 @@
 <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Visualizza Azienda">
-          <a class="nav-link" href="visualizzaAziendaStudente">
+          <a class="nav-link" href="visualizzaAziendaStudente.jsp">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Visualizza Azienda</span>
           </a>

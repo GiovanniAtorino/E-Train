@@ -23,11 +23,11 @@
     function sceltaUtente(listindex)
     {
       if(listindex=='Studente')
-       location.href="registerStudente.html";
+       location.href="registerStudente.jsp";
       else if(listindex=='Tutor')
-        location.href="registerTutor.html";
+        location.href="registerTutor.jsp";
       else if(listindex=='Azienda')
-       location.href="registerAzienda.html";
+       location.href="registerAzienda.jsp";
     }
   </script>
 </head>
@@ -73,7 +73,7 @@
   </form>
   
   <!-- FOOTER -->
-  <%@ include file="footer.jsp" %> 
+ 
     
 </body>
 </html>

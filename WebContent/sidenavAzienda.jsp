@@ -6,7 +6,7 @@
 <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Richiesta Tirocinio">
-          <a class="nav-link" href="gestionePresenzeAzienda.jsp">
+          <a class="nav-link" href="richiestaTirocinioAzienda.jsp">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Richiesta Tirocinio</span>
           </a>
