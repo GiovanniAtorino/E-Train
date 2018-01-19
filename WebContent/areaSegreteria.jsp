@@ -41,7 +41,7 @@
     <div class="contentArea">
     
       <div class="card elementArea" style="width: 18rem;">
-        <img class="card-img-top" src="img/azienda.png" alt="Card image cap">
+        <img class="card-img-top" src="img/studente.png" alt="Card image cap">
         <div class="card-body buttonElement">
           <a href="./ricercaStudenteSegreteria.jsp" class="btn btn-primary">Ricerca studente</a>
         </div>

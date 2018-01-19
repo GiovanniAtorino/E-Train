@@ -41,7 +41,7 @@
 	<!-- Navigation-->
 	<div class="content-wrapper" style="margin-left: 0px;">
 		<div class="card elementArea" style="width: 18rem;">
-						<img class="card-img-top" src="img/tutor.png" alt="Card image cap">
+						<img class="card-img-top" src="img/tirocinio.png" alt="Card image cap">
 						<div class="card-body buttonElement">
 					<a href="./richiestaTirocinioAzienda.jsp" class="btn btn-primary">Richiesta
 						tirocinio</a>
