@@ -24,6 +24,15 @@
  
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
 	<%@ include file="header.jsp"%>
+	
+	<ul class="navbar-nav">
+        <li class="nav-item dropdown">
+         <li class="nav-item">
+          <a class="nav-link" href="areaSegreteria.jsp">
+            <i class="fa fa-fw fa-university"></i>Area Segreteria</a>
+        </li>
+      </ul>
+	
   	<%@ include file="sidenavSegreteria.jsp"%>
 </nav> 
  

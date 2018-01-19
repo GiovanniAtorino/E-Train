@@ -25,6 +25,15 @@
   <!-- HEADER + NAVIGAZIONE MOBILE -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
 	<%@ include file="header.jsp"%>
+	
+	<ul class="navbar-nav">
+        <li class="nav-item dropdown">
+         <li class="nav-item">
+          <a class="nav-link" href="areaStudente.jsp">
+            <i class="fa fa-fw fa-graduation-cap"></i>Area Studente</a>
+        </li>
+      </ul>
+	
   	<%@ include file="sidenavStudente.jsp"%>
   	
   </nav>	

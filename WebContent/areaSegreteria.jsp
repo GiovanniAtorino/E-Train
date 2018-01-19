@@ -26,10 +26,18 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
 		<%@ include file="header.jsp"%>
 		
+		<ul class="navbar-nav">
+        <li class="nav-item dropdown">
+         <li class="nav-item">
+          <a class="nav-link">
+            <i class="fa fa-fw fa-university"></i>Area Segreteria</a>
+        </li>
+      </ul>
+		
 		<ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
          <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+          <a class="nav-link" href="">
             <i class="fa fa-fw fa-sign-out"></i>Logout</a>
         </li>
       </ul>
