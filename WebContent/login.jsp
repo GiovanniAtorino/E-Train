@@ -20,25 +20,12 @@
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
+ <!-- HEADER + NAVIGAZIONE MOBILE -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <div class="navbar-brand">
-      <a class="" href="index.html">
-        <img src="img/logo.png">
-        <img src="img/unisa.png">
-        <img src="img/logov1.2.jpg" id="logo">
-      </a>
-    </div>
-    
-    </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-         <li class="nav-item">
-          <a class="nav-link" href="home.html">
-            <i class="fa fa-fw"></i>Home</a>
-        </li>
-      </ul>
-    </div>
+	<%@ include file="header.jsp"%>
+  	
   </nav>
+  
 
 <body class="bg-dark">
   <div class="container">

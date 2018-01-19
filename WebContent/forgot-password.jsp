@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,6 +18,13 @@
   <link href="css/sb-admin.css" rel="stylesheet">
 </head>
 
+ <!-- HEADER + NAVIGAZIONE MOBILE -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+	<%@ include file="header.jsp"%>
+  </nav>
+  
+  
+    <div class="container-fluid">
 <body class="bg-dark">
   <div class="container">
     <div class="card card-login mx-auto mt-5">
@@ -33,10 +42,12 @@
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="register.html">Register an Account</a>
-          <a class="d-block small" href="login.html">Login Page</a>
+          <a class="d-block small" href="login.jsp">Login Page</a>
         </div>
       </div>
     </div>
+  </div>
+  </div>
   </div>
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>

@@ -2,12 +2,12 @@
  
       <br><br>
       
-
     <div class="card card-register mx-auto mt-5">
+    
       <div class="card-header">NEWS</div>
      
             <div class="form-row">
-              <div class="col-md-6">
+            <div class="col-md-6">
      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -32,4 +32,4 @@
   <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
- </a></div></div></div></div></div></div>
+ </a></div></div></div></div></div>
