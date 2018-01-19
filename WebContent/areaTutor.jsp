@@ -25,9 +25,16 @@
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 	<!-- HEADER + SIDENAV -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
-		id="mainNav">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
 		<%@ include file="header.jsp"%>
+		
+		<ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+         <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+        </li>
+      </ul>
 	</nav>
 
 	<!-- Navigation-->
