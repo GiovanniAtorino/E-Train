@@ -57,21 +57,18 @@
 
 
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+	id="mainNav">
+	<%@ include file="header.jsp"%>
+</nav>
 
-	<!-- HEADER + SIDENAV -->
-<body class="sceltaUtente">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
-		id="mainNav">
-		<%@ include file="header.jsp"%>
-	</nav>
-	<div class="content-wrapper" style="margin-left: 0px;">
-		<div class="container-fluid">
-			<div class="card card-register mx-auto mt-5">
-				<form action="SceltaUtente" method="get">
-					<div class="scelta">
-						<div class="category_div" id="category_div">
-							Seleziona Utente:<br>
-							<br> <select id="utente"
+		
+			<div class="card card-login mx-auto mt-5">
+				<div class="card-header">Scelta Utente</div>
+				<div class="card-body">
+					<form action="LoginServlet" method="post">
+						<div class="form-group">
+						<select id="utente"
 								onchange="javascript: sceltaUtente(this.options[this.selectedIndex].value);">
 
 								<option>Seleziona Utente</option>
@@ -80,12 +77,16 @@
 								<option onClick="sceltaUtente(this.id);" id="Tutor">Tutor</option>
 							</select>
 						</div>
-						<div class="sub_category_div" id="sub_category_div"></div>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+						</form>
+						</div>
+						</div>
+						
+
+
+
+
+
+	
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
 		id="mainNav"></nav>

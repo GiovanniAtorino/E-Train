@@ -74,7 +74,7 @@
 
 					
 <!-- FOOTER -->
-					<%@ include file="footer.jsp"%>
+<%@ include file="footer.jsp"%>
 
 					<!-- Scroll to Top Button-->
 					<a class="scroll-to-top rounded" href="#page-top"> <i
