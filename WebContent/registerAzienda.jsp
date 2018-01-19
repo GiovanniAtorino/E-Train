@@ -36,7 +36,6 @@
                   <i class="fa fa-fw"></i>Login</a>
             </li>
           </ul>
-        </div>
       </nav>
       
 <body class="bg-dark">

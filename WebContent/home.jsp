@@ -29,7 +29,7 @@
 	<!-- HEADER + SIDENAV -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
 		id="mainNav">
-		<%@ include file="header.jsp"%>
+		<%@ include file="headerHome.jsp"%>
 	</nav>
 	<!-- NEWS -->
 	<%@ include file="news.jsp"%>

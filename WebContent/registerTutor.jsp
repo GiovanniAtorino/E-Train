@@ -20,24 +20,11 @@
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-        <div class="navbar-brand">
-          <a class="" href="index.html">
-            <img src="img/logo.png">
-            <img src="img/unisa.png">
-            <img src="img/logov1.2.jpg" id="logo">
-          </a>
-        </div>
-
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-             <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-                  <i class="fa fa-fw"></i>Login</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+<!-- HEADER + SIDENAV -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+	id="mainNav">
+	<%@ include file="headerRegister.jsp"%>
+</nav>
       
 <body class="bg-dark">
   <div class="container">
@@ -86,8 +73,8 @@
           <a class="btn btn-primary btn-block" href="login.html">Register</a>
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="login.html">Login Page</a>
-          <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
+          <a class="d-block small mt-3" href="login.jsp">Login Page</a>
+          <a class="d-block small" href="forgot-password.jsp">Forgot Password?</a>
         </div>
       </div>
     </div>

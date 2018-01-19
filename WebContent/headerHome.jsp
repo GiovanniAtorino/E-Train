@@ -4,6 +4,7 @@
       <a class="" href="home.jsp">
         <img src="img/logo.png">
         <img src="img/unisa.png">
-        <img src="img/logov1.2.jpg" id="logo">
+        <img src="img/logov1.2.jpg" id="logo">   
       </a>
+      
     </div>
