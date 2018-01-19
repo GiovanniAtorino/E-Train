@@ -32,7 +32,6 @@
 	<%@ include file="header.jsp"%>
 </nav>
 <div class="container-fluid">
-	<div class="card card-register mx-auto mt-5">
 		<div class="container">
 			<div class="card card-login mx-auto mt-5">
 				<div class="card-header">Login</div>
@@ -67,7 +66,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
 	</div>
 </div>
 
