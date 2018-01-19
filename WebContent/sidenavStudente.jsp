@@ -7,31 +7,31 @@
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Visualizza Azienda">
           <a class="nav-link" href="visualizzaAziendaStudente.jsp">
-            <i class="fa fa-fw fa-dashboard"></i>
+            <i class="fa fa-fw fa-building"></i>
             <span class="nav-link-text">Visualizza Azienda</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Visualizza Tutor">
           <a class="nav-link" href="visualizzaTutorStudente.jsp">
-            <i class="fa fa-fw fa-area-chart"></i>
+            <i class="fa fa-fw fa-user"></i>
             <span class="nav-link-text">Visualizza Tutor</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Visualizza Tirocinio">
           <a class="nav-link" href="visualizzaTirocinioStudente">
-            <i class="fa fa-fw fa-table"></i>
+            <i class="fa fa-fw fa-briefcase"></i>
             <span class="nav-link-text">Visualizza Tirocinio</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Gestione File">
           <a class="nav-link" href="gestioneFileStudente.jsp">
-            <i class="fa fa-fw fa-wrench"></i>
+            <i class="fa fa-fw fa-file"></i>
             <span class="nav-link-text">Gestione File</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Gestione Presenze">
           <a class="nav-link" href="gestionePresenzeStudente.jsp">
-            <i class="fa fa-fw fa-file"></i>
+            <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Gestione Presenze</span>
           </a>
         </li>

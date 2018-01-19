@@ -7,25 +7,25 @@
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Richiesta Tirocinio">
           <a class="nav-link" href="richiestaTirocinioAzienda.jsp">
-            <i class="fa fa-fw fa-dashboard"></i>
+            <i class="fa fa-fw fa-briefcase"></i>
             <span class="nav-link-text">Richiesta Tirocinio</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Gestione File">
           <a class="nav-link" href="gestioneFileAzienda.jsp">
-            <i class="fa fa-fw fa-area-chart"></i>
+            <i class="fa fa-fw fa-file"></i>
             <span class="nav-link-text">Gestione File</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Visualizza Partecipanti">
           <a class="nav-link" href="visualizzaPartecipantiAzienda.jsp">
-            <i class="fa fa-fw fa-table"></i>
+            <i class="fa fa-fw fa-users"></i>
             <span class="nav-link-text">Visualizza Partecipanti</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Gestione Presenze">
           <a class="nav-link" href="gestionePresenzeAzienda.jsp">
-            <i class="fa fa-fw fa-wrench"></i>
+            <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Gestione Presenze</span>
           </a>
         </li>

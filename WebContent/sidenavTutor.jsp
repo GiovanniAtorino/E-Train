@@ -7,19 +7,19 @@
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Visualizza Studente">
           <a class="nav-link" href="visualizzaStudenteTutor.jsp">
-            <i class="fa fa-fw fa-dashboard"></i>
+            <i class="fa fa-fw fa-user"></i>
             <span class="nav-link-text">Visualizza Studente</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Visualizza Azienda">
           <a class="nav-link" href="visualizzaAziendaTutor.jsp">
-            <i class="fa fa-fw fa-area-chart"></i>
+            <i class="fa fa-fw fa-building"></i>
             <span class="nav-link-text">Visualizza Azienda</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Gestione File">
           <a class="nav-link" href="gestioneFileTutor.jsp">
-            <i class="fa fa-fw fa-wrench"></i>
+            <i class="fa fa-fw fa-file"></i>
             <span class="nav-link-text">Gestione File</span>
           </a>
         </li>
