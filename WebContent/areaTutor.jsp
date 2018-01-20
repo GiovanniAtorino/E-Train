@@ -3,29 +3,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-<title>E-Train</title>
-<!-- Bootstrap core CSS-->
-<link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
-<!-- Custom fonts for this template-->
-<link href="vendor/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-<!-- Page level plugin CSS-->
-<link href="vendor/datatables/dataTables.bootstrap4.css"
-	rel="stylesheet">
-<!-- Custom styles for this template-->
-<link href="css/sb-admin.css" rel="stylesheet">
-</head>
+<%@ include file="head.jsp"%>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
-	<!-- HEADER + SIDENAV -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+	
+<!-- HEADER + SIDENAV -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
 		<%@ include file="header.jsp"%>
 		
 		<ul class="navbar-nav">
@@ -39,7 +22,7 @@
 		<ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
          <li class="nav-item">
-          <a class="nav-link" href="">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-fw fa-sign-out"></i>Logout</a>
         </li>
       </ul>

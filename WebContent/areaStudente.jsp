@@ -19,10 +19,10 @@
         </li>
       </ul>
 		
-		<ul class="navbar-nav ml-auto">
+	<ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
          <li class="nav-item">
-          <a class="nav-link" href="home.jsp">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-fw fa-sign-out"></i>Logout</a>
         </li>
       </ul>
@@ -69,11 +69,13 @@
     <%@ include file="footer.jsp" %> 
     
     
-     <!-- Scroll to Top Button-->
+  <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
-     <!-- Logout Modal-->
+    
+
+<!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -91,6 +93,8 @@
         </div>
       </div>
     </div>
+    
+    
       <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

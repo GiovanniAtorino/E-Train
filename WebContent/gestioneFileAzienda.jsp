@@ -4,8 +4,11 @@
 <html lang="en">
 
 <%@ include file="head.jsp"%>
+
+
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
 	<%@ include file="header.jsp"%>
 	
@@ -53,6 +56,7 @@
         </div>
       </div>
     </div>
+    
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
