@@ -10,7 +10,7 @@
 		<ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
          <li class="nav-item">
-          <a class="nav-link" href="login.jsp">
+          <a class="nav-link" href="sceltaLogin.jsp">
             <i class="fa fa-fw fa-sign-in"></i>Login</a>
             
             <a class="nav-link" href="sceltaUtente.jsp">

@@ -3,43 +3,23 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <title>E-Train</title>
-  <!-- Bootstrap core CSS-->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom fonts for this template-->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <!-- Custom styles for this template-->
-  <link href="css/sb-admin.css" rel="stylesheet">
-</head>
+<%@ include file="head.jsp" %>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-        <div class="navbar-brand">
-          <a class="" href="index.html">
-            <img src="img/logo.png">
-            <img src="img/unisa.png">
-            <img src="img/logov1.2.jpg" id="logo">
-          </a>
-        </div>
-
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-             <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-                  <i class="fa fa-fw"></i>Login</a>
-            </li>
-          </ul>
-      </nav>
+<!-- HEADER + SIDENAV -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+		<%@ include file="header.jsp"%>
+		
+		<ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+         <li class="nav-item">
+          <a class="nav-link" href="sceltaLogin.jsp">
+            <i class="fa fa-fw fa-sign-out"></i>Login</a>
+        </li>
+      </ul>
+	</nav>
       
-<body class="bg-dark">
-  <div class="container">
+      
+<div class="content-wrapper" style="margin-left: 0px;">
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Registrazione Account Aziendale </div>
       <div class="card-body">
@@ -70,11 +50,11 @@
               </div>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="login.html">Registrati</a>
+          <a class="btn btn-primary btn-block" href="sceltaUtente.jsp">Registrati</a>
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="login.html">Login</a>
-          <a class="d-block small" href="forgot-password.html">Password Dimenticata?</a>
+          <a class="d-block small mt-3" href="login.jsp">Login</a>
+          <a class="d-block small" href="forgot-password.jsp">Password Dimenticata?</a>
         </div>
       </div>
     </div>
