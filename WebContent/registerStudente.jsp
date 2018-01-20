@@ -5,8 +5,6 @@
 
 <%@ include file="head.jsp"%>
 
-
-
   <!-- HEADER + SIDENAV -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
 		<%@ include file="header.jsp"%>
@@ -73,8 +71,16 @@
     </div>
    </div>
    
+    <!-- FOOTER -->
+  <%@ include file="footer.jsp" %>
   
-  <!-- Bootstrap core JavaScript-->
+   <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    
+    
+    <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
@@ -90,5 +96,4 @@
     <script src="js/sb-admin-charts.min.js"></script>
   
 </body>
-
 </html>
