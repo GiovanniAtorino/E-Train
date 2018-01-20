@@ -36,12 +36,52 @@
 		<%@ include file="sidenavStudente.jsp"%>
 	</nav>
   
-  <div class="content-wrapper">
+  
+    <div class="content-wrapper">
     <div class="container-fluid">
-      
-    
+      <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Aziende Disponibili al Tirocinio</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                       <th>Azienda</th>
+                  <th>Sede</th>
+                  <th>Giorni Tirocinio</th>
+                  <th>Ore Tirocinio</th>
+                  <th>Scelta Azienda<th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                    <th>Azienda</th>
+                    <th>Sede</th>
+                    <th>Giorni Tirocinio</th>
+                    <th>Ore Tirocinio</th>
+                    <th>Scelta Azienda<th>
+                </tr>
+              </tfoot>
+              <tbody>
+                <tr>
+                  <td>Tiger Nixon</td>
+                  <td>System Architect</td>
+                  <td>25</td>
+                  <td>150</td>
+                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
+                </tr>
+               
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Ultimo aggiornamento alle 11:59 </div>
       </div>
-    </div>
+    </div>  
+    
+   
     
     <!-- FOOTER -->
     <%@ include file="footer.jsp" %> 

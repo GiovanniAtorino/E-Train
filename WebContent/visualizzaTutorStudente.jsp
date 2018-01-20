@@ -38,10 +38,121 @@
  
   <div class="content-wrapper">
     <div class="container-fluid">
-      
-    
+      <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Tutor Disponibili al Tirocinio</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Tutor</th>
+                  <th>Laurea in</th>
+                  <th>Email</th>
+                  <th>Scegli Tutor<th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                    <th>Tutor</th>
+                    <th>Laurea in</th>
+                    <th>Email</th>
+                    <th>Scegli Tutor<th>
+                </tr>
+              </tfoot>
+              <tbody>
+                <tr>
+                  <td>Giovanni Atorino</td>
+                  <td>System Architect</td>
+                  <td>giovanni-atorino@live.com</td>
+                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
+                </tr>
+                
+                <tr>
+                  <td>Giovanni Atorino</td>
+                  <td>System Architect</td>
+                  <td>giovanni-atorino@live.com</td>
+                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
+                </tr>
+                
+                <tr>
+                  <td>Giovanni Atorino</td>
+                  <td>System Architect</td>
+                  <td>giovanni-atorino@live.com</td>
+                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
+                </tr>
+                
+                <tr>
+                  <td>Giovanni Atorino</td>
+                  <td>System Architect</td>
+                  <td>giovanni-atorino@live.com</td>
+                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
+                </tr>
+                
+                <tr>
+                  <td>Giovanni Atorino</td>
+                  <td>System Architect</td>
+                  <td>giovanni-atorino@live.com</td>
+                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
+                </tr>
+                
+                <tr>
+                  <td>Giovanni Atorino</td>
+                  <td>System Architect</td>
+                  <td>giovanni-atorino@live.com</td>
+                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
+                </tr>
+                
+                <tr>
+                  <td>Giovanni Atorino</td>
+                  <td>System Architect</td>
+                  <td>giovanni-atorino@live.com</td>
+                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
+                </tr>
+                
+                <tr>
+                  <td>Giovanni Atorino</td>
+                  <td>System Architect</td>
+                  <td>giovanni-atorino@live.com</td>
+                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
+                </tr>
+                
+                <tr>
+                  <td>Giovanni Atorino</td>
+                  <td>System Architect</td>
+                  <td>giovanni-atorino@live.com</td>
+                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
+                </tr>
+                
+                <tr>
+                  <td>Giovanni Atorino</td>
+                  <td>System Architect</td>
+                  <td>giovanni-atorino@live.com</td>
+                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
+                </tr>
+                
+                <tr>
+                  <td>Giovanni Atorino</td>
+                  <td>System Architect</td>
+                  <td>giovanni-atorino@live.com</td>
+                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
+                </tr>
+                
+                <tr>
+                  <td>Giovanni Atorino</td>
+                  <td>System Architect</td>
+                  <td>giovanni-atorino@live.com</td>
+                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Ultimo aggiornamento alle 11:59 </div>
       </div>
-    </div>
+    </div>  
     
     <!-- FOOTER -->
     <%@ include file="footer.jsp" %> 
