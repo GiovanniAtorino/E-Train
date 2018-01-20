@@ -14,6 +14,8 @@
         location.href="loginTutor.jsp";
       else if(listindex=='Azienda')
        location.href="loginAzienda.jsp";
+      else if(listindex=='Segreteria')
+          location.href="loginSegreteria.jsp";
     }
   </script>
 
@@ -33,6 +35,7 @@
 					<option onClick="sceltaUtente(this.id);" id="Studente">Studente</option>
 					<option onClick="sceltaUtente(this.id);" id="Azienda">Azienda</option>
 					<option onClick="sceltaUtente(this.id);" id="Tutor">Tutor</option>
+					<option onClick="sceltaUtente(this.id);" id="Segreteria">Segreteria</option>
 				</select>
 			</div>
 		</form>
