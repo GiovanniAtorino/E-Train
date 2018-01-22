@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import Bean.Azienda;
+import Bean.Segreteria;
 import Bean.Studente;
 import Bean.Tutor;
 
@@ -17,6 +18,7 @@ public class DatabaseQuery {
     private static String queryGetAzienda;
 	private static String queryAdd_Tutor;
 	private static String queryGetTutor;
+	private static String queryAdd_Segreteria;
 	
 	
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
@@ -230,6 +232,37 @@ public class DatabaseQuery {
 			return tutor;
 	}
 	
+	public synchronized static boolean addSegreteria(Segreteria segreteria) throws SQLException{
+		Connection connection = null;
+		PreparedStatement psAddUtente = null;
+
+		try{
+			connection = Database.getConnection();
+			psAddUtente = connection.prepareStatement(queryAdd_Segreteria);
+			psAddUtente.setString(1, segreteria.getNomeS());
+			psAddUtente.setString(2, segreteria.getDipartimentoS());
+			psAddUtente.setString(3, segreteria.getFacS());
+			psAddUtente.setString(4, segreteria.getEmailS());
+		
+			psAddUtente.setString(5, segreteria.getPassS());
+			psAddUtente.setString(6, segreteria.getNumTS());
+			
+			System.out.println(psAddUtente.toString());
+
+			psAddUtente.executeUpdate();
+
+			connection.commit();
+			System.out.println("GU Connessione...");
+		} finally {
+			try{
+				if(psAddUtente != null)
+					psAddUtente.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+
+		return true;}
 	
 	static {
 		queryAdd_Studente = "INSERT INTO studente (matricola, nome, cognome,  email,password,dipartimento) VALUES (?,?,?,?,?,?);";
@@ -238,6 +271,7 @@ public class DatabaseQuery {
 		queryGetAzienda="SELECT * FROM azienda where email=?";
 		queryAdd_Tutor = "INSERT INTO tutor (matricola_tutor, nome, cognome,  email,password,nome_azienda) VALUES (?,?,?,?,?,?);";
 		queryGetTutor = "SELECT * FROM tutor WHERE email=?";
+		queryAdd_Segreteria = "INSERT INTO segreteria (nome, dipartimento,facolta,  email,password,numero_telefono) VALUES (?,?,?,?,?,?);";
 }
 
 
