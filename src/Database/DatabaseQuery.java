@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import Bean.Azienda;
 import Bean.Studente;
+import Bean.Tutor;
 
 public class DatabaseQuery {
 
@@ -14,7 +15,8 @@ public class DatabaseQuery {
 	private static String queryGetStudente;
     private static String queryAddAzienda;
     private static String queryGetAzienda;
-	
+	private static String queryAdd_Tutor;
+	private static String queryGetTutor;
 	
 	
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
@@ -158,7 +160,75 @@ public class DatabaseQuery {
 			return azienda;
 	}
 	
-	
+	public static boolean addTutor(Tutor t) throws SQLException {
+		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement psAddTutor = null;
+        
+		try{
+			connection = Database.getConnection();
+			psAddTutor = connection.prepareStatement(queryAdd_Tutor);
+			psAddTutor.setString(1, t.getMatricolaT());
+			psAddTutor.setString(2, t.getNomeT());
+			psAddTutor.setString(3, t.getCognomeT());
+			psAddTutor.setString(4, t.getEmailT());
+			psAddTutor.setString(5, t.getPasswordT());
+			psAddTutor.setString(6, t.getNomeAT());
+		
+			
+
+			psAddTutor.executeUpdate();
+
+			connection.commit();
+			System.out.println("GU Connessione...");
+		} finally {
+			try{
+				if(psAddTutor != null)
+					psAddTutor.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+
+		return true;}
+	public synchronized static Tutor getTutorByEmail(String email) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Tutor tutor = new Tutor();
+
+		try {
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryGetStudente);
+			preparedStatement.setString(1, email);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+				tutor.setEmailT(rs.getString("email"));
+				tutor.setNomeT(rs.getString("nome"));
+				tutor.setCognomeT(rs.getString("cognome"));
+				tutor.setPasswordT(rs.getString("password"));
+			
+				tutor.setMatricolaT(rs.getString("matricola_tutor"));
+				tutor.setNomeAT(rs.getString("nome_azienda"));
+				
+			}
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+		if (tutor.getEmailT() == null)
+			return null;
+		else
+			return tutor;
+	}
 	
 	
 	static {
@@ -166,7 +236,12 @@ public class DatabaseQuery {
 		queryGetStudente = "SELECT * FROM studente WHERE email=?";
 		queryAddAzienda="INSERT INTO azienda(nome,sede,email,password) values (?,?,?,?);";
 		queryGetAzienda="SELECT * FROM azienda where email=?";
+		queryAdd_Tutor = "INSERT INTO tutor (matricola_tutor, nome, cognome,  email,password,nome_azienda) VALUES (?,?,?,?,?,?);";
+		queryGetTutor = "SELECT * FROM tutor WHERE email=?";
 }
+
+
+	
 
 
 

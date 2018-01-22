@@ -2,16 +2,16 @@ package Bean;
 
 public class Tutor {
 	
-	String nome,matricola,cognome,email,username,password;
+	String nome,matricola,cognome,email,nomeazienda,password;
 	
 	public Tutor() {}
 	
-	public Tutor(String n,String m,String c,String e,String p,String u) {
+	public Tutor(String n,String m,String c,String e,String na,String p) {
 		this.nome=n;
 		this.matricola=m;
 		this.cognome=c;
 		this.email=e;
-		this.username=u;
+		this.nomeazienda=na;
 		this.password=p;
 	}
 	
@@ -19,14 +19,14 @@ public class Tutor {
 	public String getCognomeT() {return cognome;}
 	public String getEmailT() {return email;}
 	public String getMatricolaT() {return matricola;}
-	public String getUsernameT() {return username;}
+	public String getNomeAT() {return nomeazienda;}
 	public String getPasswordT() {return password;}
 	
 	public void setNomeT(String n) { this.nome=n;}
 	public void setCognomeT(String c) { this.cognome=c;}
 	public void setMatricolaT(String m) { this.matricola=m;}
 	public void setEmailT(String e) { this.email=e;}
-	public void setUsernameT(String u) {this.username=u;}
+	public void setNomeAT(String u) {this.nomeazienda=u;}
 	public void setPasswordT(String p) {this.password=p;}
 	
 	
