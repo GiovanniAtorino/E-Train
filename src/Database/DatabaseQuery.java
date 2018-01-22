@@ -5,12 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import Bean.Azienda;
 import Bean.Studente;
 
 public class DatabaseQuery {
 
 	private static String queryAdd_Studente;
 	private static String queryGetStudente;
+    private static String queryAddAzienda;
+    private static String queryGetAzienda;
 	
 	
 	
@@ -45,6 +48,7 @@ public class DatabaseQuery {
 		}
 
 		return true;}
+	
 	public synchronized static Studente getStudenteByEmail(String email) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -84,11 +88,92 @@ public class DatabaseQuery {
 			return studente;
 	}
 	
+	public static boolean addAzienda(Azienda a) throws SQLException {
+		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement psAddAzienda = null;
+        
+		try{
+			connection = Database.getConnection();
+			psAddAzienda = connection.prepareStatement(queryAddAzienda);
+			psAddAzienda.setString(1, a.getNomeA());
+			psAddAzienda.setString(2, a.getSedeA());
+			psAddAzienda.setString(3, a.getEmailA());
+			psAddAzienda.setString(4, a.getPassA());
+		
+		
+			
+
+			psAddAzienda.executeUpdate();
+
+			connection.commit();
+			System.out.println("GU Connessione...");
+		} finally {
+			try{
+				if(psAddAzienda != null)
+					psAddAzienda.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+
+		return true;}
+		
+	public synchronized static Azienda getAziendaByEmail(String email) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Azienda azienda = new Azienda();
+
+		try {
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryGetAzienda);
+			preparedStatement.setString(1, email);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+				azienda.setEmailA(rs.getString("email"));
+				azienda.setNomeA(rs.getString("nome"));
+				azienda.setSedeA(rs.getString("sede"));
+				azienda.setPasswordA(rs.getString("password"));
+			
+			
+				
+				
+			}
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+		if (azienda.getEmailA() == null)
+			return null;
+		else
+			return azienda;
+	}
+	
 	
 	
 	
 	static {
 		queryAdd_Studente = "INSERT INTO studente (matricola, nome, cognome,  email,password,dipartimento) VALUES (?,?,?,?,?,?);";
 		queryGetStudente = "SELECT * FROM studente WHERE email=?";
+		queryAddAzienda="INSERT INTO azienda(nome,sede,email,password) values (?,?,?,?);";
+		queryGetAzienda="SELECT * FROM azienda where email=?";
 }
+
+
+
+
+
+
+
+
+
 }
