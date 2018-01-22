@@ -1,12 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*"%>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <%@ include file="head.jsp"%>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
 
 <!-- HEADER + SIDENAV -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"

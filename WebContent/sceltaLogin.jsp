@@ -1,26 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*"%>
 
 <!DOCTYPE html>
 <html>
 
 <%@ include file="head.jsp"%>
 <script language="javascript" type="text/javascript">
-    function sceltaUtente(listindex)
-    {
-      if(listindex=='Studente')
-       location.href="loginStudente.jsp";
-      else if(listindex=='Tutor')
-        location.href="loginTutor.jsp";
-      else if(listindex=='Azienda')
-       location.href="loginAzienda.jsp";
-      else if(listindex=='Segreteria')
-          location.href="loginSegreteria.jsp";
-    }
-  </script>
+	function sceltaUtente(listindex) {
+		if (listindex == 'Studente')
+			location.href = "loginStudente.jsp";
+		else if (listindex == 'Tutor')
+			location.href = "loginTutor.jsp";
+		else if (listindex == 'Azienda')
+			location.href = "loginAzienda.jsp";
+		else if (listindex == 'Segreteria')
+			location.href = "loginSegreteria.jsp";
+	}
+</script>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
-	id="mainNav">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
 	<%@ include file="header.jsp"%>
 </nav>
 
@@ -32,6 +29,7 @@
 				<select id="utente"
 					onchange="javascript: sceltaUtente(this.options[this.selectedIndex].value);">
 					<option>Seleziona Utente Login</option>
+					<option></option>
 					<option onClick="sceltaUtente(this.id);" id="Studente">Studente</option>
 					<option onClick="sceltaUtente(this.id);" id="Azienda">Azienda</option>
 					<option onClick="sceltaUtente(this.id);" id="Tutor">Tutor</option>
@@ -42,8 +40,7 @@
 	</div>
 </div>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
-	id="mainNav"></nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav"></nav>
 
 <!-- FOOTER -->
 <%@ include file="footer.jsp"%>
