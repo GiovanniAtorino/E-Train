@@ -327,7 +327,8 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   max-width: 25rem; }
 
 .card-register {
-  max-width: 40rem; }
+  max-width: 40rem;
+  margin-bottom: 80px }
 
 footer.sticky-footer {
   position: absolute;
