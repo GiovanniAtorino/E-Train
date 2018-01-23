@@ -35,7 +35,7 @@
       <div class="card elementArea" style="width: 18rem;">
         <img class="card-img-top" src="img/azienda.png" alt="Card image cap">
         <div class="card-body buttonElement">
-          <a href="./visualizzaAziendaStudente.jsp" class="btn btn-primary">Crea Account Segreteria</a>
+          <a href="./registrazioneSegreteriaAdmin.jsp" class="btn btn-primary">Crea Account Segreteria</a>
         </div>
         </div>
       </div>
