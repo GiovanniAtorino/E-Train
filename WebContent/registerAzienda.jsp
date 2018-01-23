@@ -23,26 +23,26 @@
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Registrazione Account Aziendale </div>
       <div class="card-body">
-        <form>
+        <form action="RegisterAziendaServlet" method="post" id="form">
           <div class="form-group">
             <div class="form-row">
                 <label for="exampleInputName">Nome Azienda: </label>
-                <input class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci Nome Azienda">
+                <input class="form-control" name="azienda_nome" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci Nome Azienda">
             </div>
             </div>
               <div class="form-group">
                 <label for="exampleInputLastName">Domicilio Azienda</label>
-                <input class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="Inserisci Domicilio Azienda">
+                <input class="form-control" name="azienda_sede" id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="Inserisci Domicilio Azienda">
               </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email :</label>
-            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Inserisci Email">
+            <input class="form-control" name="azienda_email" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Inserisci Email">
           </div>
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputPassword1">Password</label>
-                <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
+                <input class="form-control" name="azienda_password" id="exampleInputPassword1" type="password" placeholder="Password">
               </div>
               <div class="col-md-6">
                 <label for="exampleConfirmPassword">Conferma password</label>
@@ -50,7 +50,7 @@
               </div>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="sceltaUtente.jsp">Registrati</a>
+         <input class="submit" type="submit" name="contact_submitted" value="Registrati" />
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="login.jsp">Login</a>

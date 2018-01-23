@@ -30,7 +30,7 @@
     <div class="contentArea">
      <div class="card-header">Registra Account Studente</div>
       <div class="card-body">
-       <form action="RegisterServlet" method="post" id="form">
+       <form action="RegisterSegreteriaServlet" method="post" id="form">
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
@@ -39,7 +39,7 @@
               </div>
               <div class="col-md-6">
                 <label for="exampleInputLastName">Dipartimento: </label>
-                <input class="form-control" name="segreteria_cognome" id="segreteria_cognome" type="text" aria-describedby="nameHelp" placeholder="Inserisci Cognome">
+                <input class="form-control" name="segreteria_dipartimento" id="segreteria_cognome" type="text" aria-describedby="nameHelp" placeholder="Inserisci Cognome">
               </div>
             </div>
           </div>

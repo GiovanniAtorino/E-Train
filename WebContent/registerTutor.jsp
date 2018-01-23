@@ -23,37 +23,37 @@
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Registra Account Tutor</div>
       <div class="card-body">
-        <form>
+       <form action="RegisterTutorServlet" method="post" id="form">
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputName">Nome</label>
-                <input class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci il Nome">
+                <input class="form-control" name="tutor_nome" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci il Nome">
               </div>
               <div class="col-md-6">
                 <label for="exampleInputLastName">Cognome</label>
-                <input class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="Inserisci il Cognome">
+                <input class="form-control" name="tutor_cognome" id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="Inserisci il Cognome">
               </div>
             </div>
           </div>
           <div class="form-group">
-                <label for="exampleInputEmail1">Data Di Nascita:</label><br>
-                <input id="date" type="date" aria-describedby="dateHelp" placeholder="Inserisci Data">
+                <label for="exampleInputEmail1">Nome azienda:</label><br>
+                <input id="date" name="tutor_nomeazienda" type="date" aria-describedby="dateHelp" placeholder="Inserisci nome azienda">
               </div>
               <div class="form-group">
                     <label for="exampleInputEmail1">Numero Matricola:</label><br>
-                    <input class="form-control" id="exampleInputName" type="text" pattern="[0-9]" aria-describedby="nameHelp" placeholder="Inserisci Numero Matricola">
+                    <input class="form-control" name="tutor_matricola" id="exampleInputName" type="text" pattern="[0-9]" aria-describedby="nameHelp" placeholder="Inserisci Numero Matricola">
               </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email Accademica: </label>
-            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Inserisci Email Accademica">
+            <input class="form-control" name="tutor_email" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Inserisci Email Accademica">
             
           </div>
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputPassword1">Password:</label>
-                <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
+                <input class="form-control" name="tutor_password" id="exampleInputPassword1" type="password" placeholder="Password">
               </div>
               
               <div class="col-md-6">
@@ -62,7 +62,7 @@
               </div>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="sceltaUtente.jsp">Register</a>
+         <input class="submit" type="submit" name="contact_submitted" value="Registrati" />
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="login.jsp">Login Page</a>

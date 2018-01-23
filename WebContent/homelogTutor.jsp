@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
 <%
-Studente utente = (Studente) session.getAttribute("user_stud");
-Azienda azienda=(Azienda) session.getAttribute("user_aziend");
 
-if (utente != null) {
-	String email = utente.getEmail();
+Tutor t=(Tutor) session.getAttribute("user_tutor");
+
+if (t != null) {
+	String nomeT = t.getNomeT();
 } else {
-	response.sendRedirect("login.jsp");
+	response.sendRedirect("loginTutor.jsp");
 }
 	
 %>
