@@ -29,7 +29,6 @@
 	</nav>
 
 
-  
   <div class="content-wrapper" style="margin-left: 0px;">
     <div class="contentArea">
       <div class="card elementArea" style="width: 18rem;">

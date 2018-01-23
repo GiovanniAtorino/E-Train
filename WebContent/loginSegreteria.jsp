@@ -37,8 +37,7 @@
 								</label>
 							</div>
 						</div>
-						<input class="submit" type="submit" name="contact_submitted"
-							value="Login" />
+						<a class="btn btn-primary btn-block" href="areaSegreteria.jsp">Login</a>
 					</form>
 					<div class="text-center">
 						<a class="d-block small mt-3" href="sceltaUtente.jsp">Registra

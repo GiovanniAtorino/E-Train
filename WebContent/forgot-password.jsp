@@ -24,10 +24,10 @@
           <div class="form-group">
             <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Inserisci la tua email">
           </div>
-          <a class="btn btn-primary btn-block" href="login.html">Reset Password</a>
+          <a class="btn btn-primary btn-block" href="sceltaUtente.jsp">Reset Password</a>
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="sceltaUtente.jsp">Register Account</a>
+          <a class="d-block small mt-3" href="sceltaUtente.jsp">Registra Account</a>
           <a class="d-block small" href="login.jsp">Pagina Login</a>
         </div>
       </div>

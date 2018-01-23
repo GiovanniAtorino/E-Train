@@ -32,6 +32,7 @@
 					onchange="javascript: sceltaUtente(this.options[this.selectedIndex].value);">
 
 					<option>Seleziona Utente Registrazione</option>
+					<option>-</option>
 					<option onClick="sceltaUtente(this.id);" id="Studente">Studente</option>
 					<option onClick="sceltaUtente(this.id);" id="Azienda">Azienda</option>
 					<option onClick="sceltaUtente(this.id);" id="Tutor">Tutor</option>

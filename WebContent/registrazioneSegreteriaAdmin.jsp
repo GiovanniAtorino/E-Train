@@ -68,7 +68,7 @@
               </div>
             </div>
           </div>
-          <input class="submit" type="submit" name="contact_submitted" value="Registrati" />
+          <a class="btn btn-primary btn-block" href="home.jsp">Registrati</a>
         </form>
       </div>  
       </div>
