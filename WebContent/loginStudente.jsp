@@ -7,10 +7,10 @@
 
 
 <!-- HEADER + SIDENAV -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
-	id="mainNav">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
 	<%@ include file="header.jsp"%>
 </nav>
+
 <div class="container-fluid">
 		<div class="container">
 			<div class="card card-login mx-auto mt-5">
