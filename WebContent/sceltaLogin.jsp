@@ -29,7 +29,7 @@
 				<select id="utente"
 					onchange="javascript: sceltaUtente(this.options[this.selectedIndex].value);">
 					<option>Seleziona Utente Login</option>
-					<option></option>
+					<option>-</option>
 					<option onClick="sceltaUtente(this.id);" id="Studente">Studente</option>
 					<option onClick="sceltaUtente(this.id);" id="Azienda">Azienda</option>
 					<option onClick="sceltaUtente(this.id);" id="Tutor">Tutor</option>
