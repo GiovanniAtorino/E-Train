@@ -17,17 +17,17 @@
 			<div class="card card-login mx-auto mt-5">
 				<div class="card-header">Login Segreteria</div>
 				<div class="card-body">
-					<form action="LoginServlet" method="post">
+					<form action="LoginSegreteriaServlet" method="post">
 						<div class="form-group">
 							<label for="exampleInputEmail1">Email: </label> <input
-								class="form-control" name="studente_email" id="studente_email"
+								class="form-control" name="segreteria_email" id="studente_email"
 								type="email" aria-describedby="emailHelp"
 								placeholder="Inserisci email">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Password:</label> <input
 								class="form-control" name="studente_password"
-								id="studente_password" type="password" placeholder="Password">
+								id="segreteria_password" type="password" placeholder="Password">
 						</div>
 						<div class="form-group">
 							<div class="form-check">

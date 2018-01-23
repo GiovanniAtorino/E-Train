@@ -19,7 +19,7 @@ public class DatabaseQuery {
 	private static String queryAdd_Tutor;
 	private static String queryGetTutor;
 	private static String queryAdd_Segreteria;
-	
+	private static String queryGetSegreteria;
 	
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
 		Connection connection = null;
@@ -264,6 +264,45 @@ public class DatabaseQuery {
 
 		return true;}
 	
+	public synchronized static Segreteria getSegreteriaByEmail(String email) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Segreteria seg = new Segreteria();
+
+		try {
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryGetSegreteria);
+			preparedStatement.setString(1, email);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+				seg.setEmailS(rs.getString("email"));
+				seg.setNomeS(rs.getString("nome"));
+				seg.setDipartimentoS(rs.getString("dipartimento"));
+				seg.setPasswordS(rs.getString("password"));
+			
+				seg.setFacS(rs.getString("facolta"));
+				seg.setNumTS(rs.getString("num_telefono"));
+				
+			}
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+		if (seg.getEmailS() == null)
+			return null;
+		else
+			return seg;
+	}
+	
 	static {
 		queryAdd_Studente = "INSERT INTO studente (matricola, nome, cognome,  email,password,dipartimento) VALUES (?,?,?,?,?,?);";
 		queryGetStudente = "SELECT * FROM studente WHERE email=?";
@@ -271,14 +310,15 @@ public class DatabaseQuery {
 		queryGetAzienda="SELECT * FROM azienda where email=?";
 		queryAdd_Tutor = "INSERT INTO tutor (matricola_tutor, nome, cognome,  email,password,nome_azienda) VALUES (?,?,?,?,?,?);";
 		queryGetTutor = "SELECT * FROM tutor WHERE email=?";
-		queryAdd_Segreteria = "INSERT INTO segreteria (nome, dipartimento,facolta,  email,password,numero_telefono) VALUES (?,?,?,?,?,?);";
-}
+		queryAdd_Segreteria = "INSERT INTO segreteria (nome, dipartimento,facolta,  email,password,num_telefono) VALUES (?,?,?,?,?,?);";
+		queryGetSegreteria = "SELECT * FROM segreteria WHERE email=?";
+	}
 
 
 	
 
 
-
+	
 
 
 
