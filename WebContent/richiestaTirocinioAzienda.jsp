@@ -1,4 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
+<%
+
+Azienda utenteA=(Azienda) session.getAttribute("user_aziend");
+
+if (utenteA != null) {
+	String nomeA = utenteA.getNomeA();
+} else {
+	response.sendRedirect("loginAzienda.jsp");
+}
+	
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,8 +51,31 @@
   
   <div class="content-wrapper">
     <div class="container-fluid">
-      
-    
+        <form action="InviaRichiestaTirocinioServlet" method="post" id="form">
+        <div class="form-group">
+            <div class="form-row">
+                <label for="exampleInputName">Nome Tirocinio: </label>
+                <input class="form-control" name="tirocinio_nome" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci Nome Azienda">
+            </div>
+        <div class="form-group">
+            <div class="form-row">
+                <label for="exampleInputName">Descrizione Tirocinio: </label>
+                <input class="form-control" name="tirocinio_descrizione" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci Nome Azienda">
+            </div>
+        <div class="form-group">
+            <div class="form-row">
+                <label for="exampleInputName">Data inizio Tirocinio: </label>
+                <input class="form-control" name="tirocinio_datai" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci Nome Azienda">
+            </div>
+              <div class="form-group">
+            <div class="form-row">
+                <label for="exampleInputName">Data fine Tirocinio: </label>
+                <input class="form-control" name="tirocinio_dataf" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci Nome Azienda">
+            </div>
+            	<input class="submit" type="submit"
+								name="contact_submitted" value="login" />
+								</div></div></div></div>
+								</form>
       </div>
     </div>
     

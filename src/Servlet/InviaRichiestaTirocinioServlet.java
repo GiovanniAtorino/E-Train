@@ -12,19 +12,20 @@ import javax.servlet.http.HttpSession;
 
 import Bean.Azienda;
 import Bean.Studente;
+import Bean.Tirocinio;
 import Database.DatabaseQuery;
 
 /**
- * Servlet implementation class LoginAziendaServlet
+ * Servlet implementation class InviaRichiestaTirocinioServlet
  */
-@WebServlet("/LoginAziendaServlet")
-public class LoginAziendaServlet extends HttpServlet {
+@WebServlet("/InviaRichiestaTirocinioServlet")
+public class InviaRichiestaTirocinioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginAziendaServlet() {
+    public InviaRichiestaTirocinioServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,38 +35,35 @@ public class LoginAziendaServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String email = request.getParameter("azienda_email"); 
-		System.out.print(email);
+		HttpSession session = request.getSession();
+		Azienda a = (Azienda) session.getAttribute("user_aziend");
+	    String nomea= a.getNomeA();
+	    String nome = request.getParameter("tirocinio_nome");
+		System.out.println(nome);
 		
-		String Password = request.getParameter("azienda_password");
-		System.out.println(Password);
+		String descrizione = request.getParameter("tirocinio_descrizione"); 
+		System.out.println(descrizione);
 		
-		Azienda a=new Azienda();
-			 try {
-				a = DatabaseQuery.getAziendaByEmail(email);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		String datai = request.getParameter("tirocinio_datai"); 
+		System.out.println(datai);
+		
+		
+		String dataf = request.getParameter("tirocinio_dataf");
+		System.out.println(dataf);
+		
+		Tirocinio t=new Tirocinio(nome,descrizione,datai,dataf,nomea);
+	    
+	    try {
+			if (DatabaseQuery.addRichiestaTirocinio(t)) {
+				System.out.println("Ok");
 			}
-			 System.out.println("Hey " +a.getNomeA());
-			if(a!=null)
-			{
-				System.out.println("Siamo entrati " +a.getNomeA());
-				if(a.getPassA().equals(Password))
-				{
-					
-						
-						
-						HttpSession session = request.getSession();
-						session.setAttribute("user_aziend", a);
-					
-						request.getRequestDispatcher("areaAzienda.jsp").forward(request, response);
-						
-				}
-				else{   }
-			} else {   }
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Richiesta non inviata");
+			e.printStackTrace();
+		}
 	}
-
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

@@ -36,7 +36,8 @@
 								</label>
 							</div>
 						</div>
-						<a class="btn btn-primary btn-block" href="areaStudente.jsp">Login</a>
+					<input class="submit" type="submit"
+								name="contact_submitted" value="login" />
 					</form>
 					<div class="text-center">
 						<a class="d-block small mt-3" href="sceltaUtente.jsp">Registra Account</a> <a class="d-block small" href="forgot-password.jsp"> Password Dimenticata?</a>

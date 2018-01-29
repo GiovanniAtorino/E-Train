@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import Bean.Azienda;
 import Bean.Segreteria;
 import Bean.Studente;
+import Bean.Tirocinio;
 import Bean.Tutor;
 
 public class DatabaseQuery {
@@ -20,6 +21,7 @@ public class DatabaseQuery {
 	private static String queryGetTutor;
 	private static String queryAdd_Segreteria;
 	private static String queryGetSegreteria;
+	private static String queryAdd_Tirocinio;
 	
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
 		Connection connection = null;
@@ -303,6 +305,39 @@ public class DatabaseQuery {
 			return seg;
 	}
 	
+	public synchronized static boolean addRichiestaTirocinio(Tirocinio tirocinio) throws SQLException{
+		Connection connection = null;
+		PreparedStatement psAddUtente = null;
+
+		try{
+			connection = Database.getConnection();
+			psAddUtente = connection.prepareStatement(queryAdd_Tirocinio);
+			psAddUtente.setString(1, tirocinio.getNomeTirocinio());
+			psAddUtente.setString(2, tirocinio.getDescrizioneTirocinio());
+			psAddUtente.setString(3, tirocinio.getDatainizioTirocinio());
+			psAddUtente.setString(4, tirocinio.getDatafineTirocinio());
+		
+			psAddUtente.setString(5, tirocinio.getNomeaziendaTirocinio());
+			
+			
+			System.out.println(psAddUtente.toString());
+
+			psAddUtente.executeUpdate();
+
+			connection.commit();
+			System.out.println("GU Connessione...");
+		} finally {
+			try{
+				if(psAddUtente != null)
+					psAddUtente.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+
+		return true;}
+	
+	
 	static {
 		queryAdd_Studente = "INSERT INTO studente (matricola, nome, cognome,  email,password,dipartimento) VALUES (?,?,?,?,?,?);";
 		queryGetStudente = "SELECT * FROM studente WHERE email=?";
@@ -312,6 +347,8 @@ public class DatabaseQuery {
 		queryGetTutor = "SELECT * FROM tutor WHERE email=?";
 		queryAdd_Segreteria = "INSERT INTO segreteria (nome, dipartimento,facolta,  email,password,num_telefono) VALUES (?,?,?,?,?,?);";
 		queryGetSegreteria = "SELECT * FROM segreteria WHERE email=?";
+		queryAdd_Tirocinio = "INSERT INTO tirocinio (nome, descrizione,data_inizio, data_fine,nome_azienda) VALUES (?,?,?,?,?);";
+	
 	}
 
 

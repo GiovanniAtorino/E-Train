@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
+<%
 
+Azienda utenteA=(Azienda) session.getAttribute("user_aziend");
+
+if (utenteA != null) {
+	String nomeA = utenteA.getNomeA();
+} else {
+	response.sendRedirect("loginAzienda.jsp");
+}
+	
+%>
 <!DOCTYPE html>
 <html lang="en">
 
