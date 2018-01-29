@@ -85,6 +85,7 @@ public class DatabaseQuery {
 			connection.commit();
 
 			while (rs.next()) {
+				studente.setMatricola(rs.getString("matricola"));
 				studente.setEmail(rs.getString("email"));
 				studente.setNome(rs.getString("nome"));
 				studente.setCognome(rs.getString("cognome"));

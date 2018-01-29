@@ -64,8 +64,8 @@ if (utente != null) {
 							
 							<tbody>
 								<tr>
-									<td><%=nomeA%></td>
-									<td><%=matr%></td>
+									<td><%= nomeA.toString()%></td>
+									<td><%=utente.getCognome() %></td>
 									<td> <input class="form-control" name="presenza_data"> </i></td>
 									<td><input class="form-control" name="presenza_orai"> </i></td>
 								<td><input class="form-control" name="presenza_oraf"> </i></td>
