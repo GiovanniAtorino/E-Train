@@ -39,9 +39,9 @@ public class GetRichiestaTirocinioStudenteServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		Azienda a = (Azienda) session.getAttribute("user_aziend");
 		String nomeA=a.getNomeA();
-		ArrayList<Studente> stud=new ArrayList<>();
+		
 		try {
-		stud=DatabaseQuery.GetRichiestaTirocinioStudente(nomeA);
+			ArrayList<Studente> stud =DatabaseQuery.GetRichiestaTirocinioStudente(nomeA);
 		System.out.println("Richiesta studenti" +stud.get(0).getCognome());
 		request.setAttribute("rich_studenti", stud);
 		request.getRequestDispatcher("visualizzaPartecipantiAzienda.jsp").forward(request, response);

@@ -50,7 +50,7 @@ if (a != null) {
  
   <div class="content-wrapper">
     <div class="container-fluid">
-      Richieste Studenti:
+      Richieste Studenti: <br>
       
       <%for(int i=0;i<s.size();i++){ %>
       
@@ -65,7 +65,7 @@ if (a != null) {
 								<button type="button"
 									id="<%=s.get(i).getNome()%>" name="submitta"
 									class="deleteamico" value="deleteamico">
-								</button>
+								</button> <br>
       <%} %>
     
       </div>

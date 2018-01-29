@@ -13,6 +13,7 @@ import Bean.Tirocinio;
 import Bean.Tutor;
 
 public class DatabaseQuery {
+	 static ArrayList<Studente> stu=new ArrayList<>();
 
 	private static String queryAdd_Studente;
 	private static String queryGetStudente;
@@ -31,6 +32,7 @@ public class DatabaseQuery {
 	private static String queryGetRichiestaTirocinioStudente;
 	private static String queryAccettaStudenteTirocinio;
 	private static String queryRifiutaStudenteTirocinio;
+	
 	
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
 		Connection connection = null;
@@ -534,7 +536,7 @@ public class DatabaseQuery {
 	public synchronized static ArrayList GetRichiestaTirocinioStudente(String nomeA) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-        ArrayList<Studente> stu=new ArrayList<>();
+       
 		Studente studente = new Studente();
 
 		try {
@@ -636,7 +638,7 @@ public class DatabaseQuery {
 		queryAccettaTirocinio="update tirocineo set accettata='si' where nome=?;";
 		queryRifiutaTirocinio="update tirocineo set accettata='no' where nome=?;";
 		queryGetTirocinioAccettato = "SELECT * FROM tirocineo WHERE accettata='si'";
-		queryGetRichiestaTirocinioStudente="select * from studente1 where nome_azienda='?' and accettato='no'";
+		queryGetRichiestaTirocinioStudente="select * from studente1 where nome_azienda=? and accettato='no'";
 		queryAccettaStudenteTirocinio="update studente1 set accettato='si' where nome=?;";
 		queryRifiutaStudenteTirocinio="update studente1 set accettato='no' where nome=?;";
 	}
