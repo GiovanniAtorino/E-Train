@@ -59,7 +59,7 @@ public class LoginSegreteriaServlet extends HttpServlet {
 						HttpSession session = request.getSession();
 						session.setAttribute("user_segreteria", u);
 					
-						request.getRequestDispatcher("homelogSegreteria.jsp").forward(request, response);
+						request.getRequestDispatcher("areaSegreteria.jsp").forward(request, response);
 						
 				}
 				else{   }

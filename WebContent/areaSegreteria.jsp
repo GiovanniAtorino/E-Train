@@ -1,5 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
+<%
 
+Segreteria utenteS=(Segreteria) session.getAttribute("user_segreteria");
+
+if (utenteS != null) {
+	String nomeS = utenteS.getNomeS();
+} else {
+	response.sendRedirect("loginSegreteria.jsp");
+}
+	
+%>
 <!DOCTYPE html>
 <html lang="en">
 
