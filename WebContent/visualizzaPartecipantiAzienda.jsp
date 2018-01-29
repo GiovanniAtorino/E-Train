@@ -30,6 +30,7 @@ if (a != null) {
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -112,7 +113,7 @@ if (a != null) {
     <script src="js/sb-admin-charts.min.js"></script>
      	<script type="text/javascript">
 	$(".addamico").click(function(){
-		var nomet=$(this).attr("id");
+		var nomeS=$(this).attr("id");
 		
 		$.ajax({
 			type:"get",
@@ -131,7 +132,7 @@ if (a != null) {
 	</script>
 	<script type="text/javascript">
 	$(".deleteamico").click(function(){
-		var nomet=$(this).attr("id");
+		var nomeS=$(this).attr("id");
 		
 		$.ajax({
 			type:"get",

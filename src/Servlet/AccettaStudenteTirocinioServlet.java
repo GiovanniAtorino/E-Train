@@ -38,7 +38,7 @@ public class AccettaStudenteTirocinioServlet extends HttpServlet {
 		Azienda a = (Azienda) session.getAttribute("user_aziend");
 		String nomeS=request.getParameter("nomeS");	
 		try {
-			DatabaseQuery.queryAccettaTirocinio(nomeS);
+			DatabaseQuery.AccettaStudenteTirocinio(nomeS);
 			System.out.println("Tirocinio accettato:" +nomeS);
 			request.getRequestDispatcher("areaAzienda.jsp").forward(request, response);
 		} catch (SQLException e) {

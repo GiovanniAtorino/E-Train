@@ -536,18 +536,18 @@ public class DatabaseQuery {
 	public synchronized static ArrayList GetRichiestaTirocinioStudente(String nomeA) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-       
+      
 		Studente studente = new Studente();
 
 		try {
 			connection = Database.getConnection();
 			preparedStatement = connection.prepareStatement(queryGetRichiestaTirocinioStudente);
 			preparedStatement.setString(1, nomeA);
-
+ 
 			ResultSet rs = preparedStatement.executeQuery();
-
+            
 			connection.commit();
-
+               
 			while (rs.next()) {
 				studente.setEmail(rs.getString("email"));
 				studente.setNome(rs.getString("nome"));

@@ -43,6 +43,7 @@ public class GetRichiestaTirocinioStudenteServlet extends HttpServlet {
 		try {
 			ArrayList<Studente> stud =DatabaseQuery.GetRichiestaTirocinioStudente(nomeA);
 		System.out.println("Richiesta studenti" +stud.get(0).getCognome());
+		
 		request.setAttribute("rich_studenti", stud);
 		request.getRequestDispatcher("visualizzaPartecipantiAzienda.jsp").forward(request, response);
 		} catch (SQLException e) {
