@@ -10,20 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import Bean.Studente;
+import Bean.Azienda;
+import Bean.Segreteria;
 import Database.DatabaseQuery;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class RifiutaStudenteTirocinio
  */
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/RifiutaStudenteTirocinio")
+public class RifiutaStudenteTirocinio extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public RifiutaStudenteTirocinio() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,36 +34,18 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String email = request.getParameter("studente_email"); 
-		System.out.print(email);
-		
-		String Password = request.getParameter("studente_password");
-		System.out.println(Password);
-		
+		HttpSession session = request.getSession();
+		Azienda a = (Azienda) session.getAttribute("user_aziend");
+		String nomeS=request.getParameter("nomeS");	
 		try {
-		Studente u=new Studente();
-			 u = DatabaseQuery.getStudenteByEmail(email);
-			 System.out.println("Hey " +u.getCognome());
-			if(u!=null)
-			{
-				System.out.println("Siamo entrati " +u.getCognome());
-				if(u.getPassword().equals(Password))
-				{
-					
-						
-						
-						HttpSession session = request.getSession();
-						session.setAttribute("user_stud", u);
-					
-						request.getRequestDispatcher("areaStudente.jsp").forward(request, response);
-						
-				}
-				else{   }
-			} else {   }
-			
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			DatabaseQuery.queryRifiutaTirocinio(nomeS);
+			System.out.println("Tirocinio accettato:" +nomeS);
+			request.getRequestDispatcher("areaAzienda.jsp").forward(request, response);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
 	}
 
 	/**

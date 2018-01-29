@@ -1,4 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
+<%
+Studente utente = (Studente) session.getAttribute("user_stud");
+ArrayList<Tirocinio> t=(ArrayList) request.getAttribute("tir_accettati");
+
+if (utente != null) {
+	String email = utente.getEmail();
+} else {
+	response.sendRedirect("login.jsp");
+}
+	
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,6 +41,18 @@
   
   <div class="content-wrapper">
     <div class="container-fluid">
+         Lista Tirocini:
+      
+      <%for(int i=0;i<t.size();i++){ %>
+      
+     Nome: <%=t.get(i).getNomeTirocinio() %> <br>
+       Descrizione: <%=t.get(i).getDescrizioneTirocinio() %> <br>
+       Nome azienda: <%=t.get(i).getNomeaziendaTirocinio() %> <br>
+       	 <a href="RichistaTirocinioStudenteServlet?action=<%=t.get(i).getNomeaziendaTirocinio() %>&nomet=<%=t.get(i).getNomeTirocinio()%>">Invia Richiesta </a>
+								</input>
+								
+							
+      <%} %>
       
     
       </div>

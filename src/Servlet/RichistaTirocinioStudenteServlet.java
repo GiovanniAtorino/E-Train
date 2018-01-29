@@ -13,17 +13,18 @@ import javax.servlet.http.HttpSession;
 import Bean.Studente;
 import Database.DatabaseQuery;
 
+
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class RichistaTirocinioStudenteServlet
  */
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/RichistaTirocinioStudenteServlet")
+public class RichistaTirocinioStudenteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public RichistaTirocinioStudenteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,38 +34,30 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String email = request.getParameter("studente_email"); 
-		System.out.print(email);
+		HttpSession session = request.getSession();
+		Studente u = (Studente) session.getAttribute("user_stud");
 		
-		String Password = request.getParameter("studente_password");
-		System.out.println(Password);
-		
-		try {
-		Studente u=new Studente();
-			 u = DatabaseQuery.getStudenteByEmail(email);
-			 System.out.println("Hey " +u.getCognome());
-			if(u!=null)
-			{
-				System.out.println("Siamo entrati " +u.getCognome());
-				if(u.getPassword().equals(Password))
-				{
-					
-						
-						
-						HttpSession session = request.getSession();
-						session.setAttribute("user_stud", u);
-					
-						request.getRequestDispatcher("areaStudente.jsp").forward(request, response);
-						
-				}
-				else{   }
-			} else {   }
+		String nome=u.getNome();
+		String action = request.getParameter("action");
+		if (action != null) {
 			
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+		        String nomea=request.getParameter("action");
+				String	 nomet= request.getParameter("nomet");
+				System.out.println("Invio Richista a" +nomea +nomet);
+				try {
+					DatabaseQuery.queryAddRichiestaTirocinioStudenteSetNT(nome,nomet);
+					DatabaseQuery.queryAddRichiestaTirocinioStudenteSetNA(nome,nomea);
+					
+					System.out.println("Richista inviata=" +nomea +nomet);
+					request.getRequestDispatcher("areaStudente.jsp").forward(request, response);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			
+		}
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

@@ -1,5 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
+<%
+Studente utente = (Studente) session.getAttribute("user_stud");
 
+
+if (utente != null) {
+	String email = utente.getEmail();
+} else {
+	response.sendRedirect("login.jsp");
+}
+	
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +58,7 @@
           <div class="card  elementArea" style="width: 18rem;">
             <img class="card-img-top" src="img/tirocinio.png" alt="Card image cap">
             <div class="card-body buttonElement">
-              <a href="./visualizzaTirocinioStudente.jsp" class="btn btn-primary">Visualizza Tirocinio</a>
+              <a href="GetTirocinioAccettato" class="btn btn-primary">Visualizza Tirocinio</a>
             </div>
           </div>
             <div class="card  elementArea" style="width: 18rem;">

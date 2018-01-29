@@ -2,6 +2,7 @@ package Servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,20 +11,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Bean.Segreteria;
 import Bean.Studente;
+import Bean.Tirocinio;
 import Database.DatabaseQuery;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class GetTirocinioAccettato
  */
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/GetTirocinioAccettato")
+public class GetTirocinioAccettato extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public GetTirocinioAccettato() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,37 +36,20 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String email = request.getParameter("studente_email"); 
-		System.out.print(email);
-		
-		String Password = request.getParameter("studente_password");
-		System.out.println(Password);
-		
+		HttpSession session = request.getSession();
+		Studente a = (Studente) session.getAttribute("user_stud");
+		ArrayList<Tirocinio> t=new ArrayList<>();
 		try {
-		Studente u=new Studente();
-			 u = DatabaseQuery.getStudenteByEmail(email);
-			 System.out.println("Hey " +u.getCognome());
-			if(u!=null)
-			{
-				System.out.println("Siamo entrati " +u.getCognome());
-				if(u.getPassword().equals(Password))
-				{
-					
-						
-						
-						HttpSession session = request.getSession();
-						session.setAttribute("user_stud", u);
-					
-						request.getRequestDispatcher("areaStudente.jsp").forward(request, response);
-						
-				}
-				else{   }
-			} else {   }
-			
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+		t=	DatabaseQuery.queryGetTirocinioAccettato();
+		System.out.println("Tir accettato=" +t.get(0).getNomeTirocinio());
+		request.setAttribute("tir_accettati", t);
+		request.getRequestDispatcher("visualizzaTirocinioStudente.jsp").forward(request, response);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

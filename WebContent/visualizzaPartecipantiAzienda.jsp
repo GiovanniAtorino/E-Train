@@ -1,5 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
+<%
 
+Azienda a=(Azienda) session.getAttribute("user_aziend");
+ArrayList<Studente> s=(ArrayList) request.getAttribute("rich_studenti");
+if (a != null) {
+	String nomeA = a.getNomeA();
+	
+} else {
+	response.sendRedirect("loginSegreteria.jsp");
+}
+	
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +50,23 @@
  
   <div class="content-wrapper">
     <div class="container-fluid">
+      Richieste Studenti:
       
+      <%for(int i=0;i<s.size();i++){ %>
+      
+     Nome: <%=s.get(i).getNome() %> <br>
+       Descrizione: <%=s.get(i).getDipartimento() %> <br>
+       Nome azienda: <%=s.get(i).getMatricola() %> <br>
+       	<button type="button"
+				id="<%=s.get(i).getNome()%>" name="submitta"
+									class="addamico" value="addamico">
+								</button>
+								
+								<button type="button"
+									id="<%=s.get(i).getNome()%>" name="submitta"
+									class="deleteamico" value="deleteamico">
+								</button>
+      <%} %>
     
       </div>
     </div>
@@ -82,6 +110,44 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
+     	<script type="text/javascript">
+	$(".addamico").click(function(){
+		var nomet=$(this).attr("id");
+		
+		$.ajax({
+			type:"get",
+		url: "AccettaStudenteTirocinioServlet",
+		data: {
+			nomeS : nomeS
+			},
+			success: function(){
+				alert("Studente accettato");
+			}
+		});
+	});
+	
+	
+	
+	</script>
+	<script type="text/javascript">
+	$(".deleteamico").click(function(){
+		var nomet=$(this).attr("id");
+		
+		$.ajax({
+			type:"get",
+		url: "RifiutaStudenteTirocinio",
+		data: {
+			nomeS : nomeS
+			},
+			success: function(){
+				alert("Richiesta rifiutata");
+			}
+		});
+	});
+	
+	
+	
+	</script>
   
 </body>
 </html>

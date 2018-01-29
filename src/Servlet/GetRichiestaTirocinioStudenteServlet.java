@@ -2,6 +2,7 @@ package Servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,20 +11,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Bean.Azienda;
+import Bean.Segreteria;
 import Bean.Studente;
 import Database.DatabaseQuery;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class RichiestaTirocinioStudenteServlet
  */
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/GetRichiestaTirocinioStudenteServlet")
+public class GetRichiestaTirocinioStudenteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public GetRichiestaTirocinioStudenteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,36 +36,19 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String email = request.getParameter("studente_email"); 
-		System.out.print(email);
-		
-		String Password = request.getParameter("studente_password");
-		System.out.println(Password);
-		
+		HttpSession session = request.getSession();
+		Azienda a = (Azienda) session.getAttribute("user_aziend");
+		String nomeA=a.getNomeA();
+		ArrayList<Studente> stud=new ArrayList<>();
 		try {
-		Studente u=new Studente();
-			 u = DatabaseQuery.getStudenteByEmail(email);
-			 System.out.println("Hey " +u.getCognome());
-			if(u!=null)
-			{
-				System.out.println("Siamo entrati " +u.getCognome());
-				if(u.getPassword().equals(Password))
-				{
-					
-						
-						
-						HttpSession session = request.getSession();
-						session.setAttribute("user_stud", u);
-					
-						request.getRequestDispatcher("areaStudente.jsp").forward(request, response);
-						
-				}
-				else{   }
-			} else {   }
-			
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+		stud=DatabaseQuery.GetRichiestaTirocinioStudente(nomeA);
+		System.out.println("Richiesta studenti" +stud.get(0).getCognome());
+		request.setAttribute("rich_studenti", stud);
+		request.getRequestDispatcher("visualizzaPartecipantiAzienda.jsp").forward(request, response);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**

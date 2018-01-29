@@ -7,7 +7,8 @@
 
 
 <!-- HEADER + SIDENAV -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+	id="mainNav">
 	<%@ include file="header.jsp"%>
 </nav>
 
@@ -26,7 +27,7 @@
 						<div class="form-group">
 							<label for="exampleInputPassword1">Password:</label> <input
 								class="form-control" name="studente_password"
-								id="studente_password" type="password" placeholder="Password">
+								id="segreteria_password" type="password" placeholder="Password">
 						</div>
 						<div class="form-group">
 							<div class="form-check">
@@ -36,11 +37,13 @@
 								</label>
 							</div>
 						</div>
-					<input class="submit" type="submit"
+							<input class="submit" type="submit"
 								name="contact_submitted" value="login" />
 					</form>
 					<div class="text-center">
-						<a class="d-block small mt-3" href="sceltaUtente.jsp">Registra Account</a> <a class="d-block small" href="forgot-password.jsp"> Password Dimenticata?</a>
+						<a class="d-block small mt-3" href="sceltaUtente.jsp">Registra
+							Account</a> <a class="d-block small" href="forgot-password.jsp">
+							Password Dimenticata?</a>
 					</div>
 				</div>
 			</div>
