@@ -30,6 +30,7 @@ if (utenteS != null) {
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -54,12 +55,22 @@ if (utenteS != null) {
       
       <%for(int i=0;i<t.size();i++){ %>
       
-      Nome: <%=t.get(i).getNomeTirocinio() %>
-       Descrizione: <%=t.get(i).getDescrizioneTirocinio() %>
-       Nome azienda: <%=t.get(i).getNomeaziendaTirocinio() %>
+     Nome: <%=t.get(i).getNomeTirocinio() %> <br>
+       Descrizione: <%=t.get(i).getDescrizioneTirocinio() %> <br>
+       Nome azienda: <%=t.get(i).getNomeaziendaTirocinio() %> <br>
+       	<button type="button"
+				id="<%=t.get(i).getNomeTirocinio()%>" name="submitta"
+									class="addamico" value="addamico">
+								</button>
+								
+								<button type="button"
+									id="<%=t.get(i).getNomeTirocinio()%>" name="submitta"
+									class="deleteamico" value="deleteamico">
+								</button>
       <%} %>
     
       </div>
+      
     </div>
     
     <!-- FOOTER -->
@@ -87,6 +98,45 @@ if (utenteS != null) {
         </div>
       </div>
     </div>
+    	<script type="text/javascript">
+	$(".addamico").click(function(){
+		var nomet=$(this).attr("id");
+		
+		$.ajax({
+			type:"get",
+		url: "AccettaTirocinioServlet",
+		data: {
+			nomet : nomet
+			},
+			success: function(){
+				alert("Tirocinio accettato");
+			}
+		});
+	});
+	
+	
+	
+	</script>
+	<script type="text/javascript">
+	$(".deleteamico").click(function(){
+		var nomet=$(this).attr("id");
+		
+		$.ajax({
+			type:"get",
+		url: "RifiutaRichiestaServlet",
+		data: {
+			nomet : nomet
+			},
+			success: function(){
+				alert("Richiesta rifiutata");
+			}
+		});
+	});
+	
+	
+	
+	</script>
+    
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

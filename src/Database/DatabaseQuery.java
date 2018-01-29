@@ -24,6 +24,8 @@ public class DatabaseQuery {
 	private static String queryGetSegreteria;
 	private static String queryAdd_Tirocinio;
 	private static String queryGetRichiestaTirocinio;
+	private static String queryAccettaTirocinio;
+	private static String queryRifiutaTirocinio;
 	
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
 		Connection connection = null;
@@ -378,6 +380,59 @@ public class DatabaseQuery {
 	return tir;
 }
 
+	public synchronized static boolean queryAccettaTirocinio(String nomet) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryAccettaTirocinio);
+			preparedStatement.setString(1, nomet);
+
+			 preparedStatement.executeUpdate();
+
+			connection.commit();
+
+			
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+		return true;
+	
+	}
+	
+	public synchronized static boolean queryRifiutaTirocinio(String nomet) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		
+
+		try {
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryRifiutaTirocinio);
+			preparedStatement.setString(1, nomet);
+
+			 preparedStatement.executeUpdate();
+
+			connection.commit();
+
+			
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+		return true;
+	
+	}
 	
 	
 	static {
@@ -391,6 +446,8 @@ public class DatabaseQuery {
 		queryGetSegreteria = "SELECT * FROM segreteria WHERE email=?";
 		queryAdd_Tirocinio = "INSERT INTO tirocineo (nome, descrizione,data_inizio, data_fine,nome_azienda) VALUES (?,?,?,?,?);";
 		queryGetRichiestaTirocinio = "SELECT * FROM tirocineo WHERE accettata='no'";
+		queryAccettaTirocinio="update tirocineo set accettata='si' where nome=?;";
+		queryRifiutaTirocinio="update tirocineo set accettata='no' where nome=?;";
 	}
 
 
