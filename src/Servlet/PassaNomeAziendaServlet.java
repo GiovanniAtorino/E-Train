@@ -43,7 +43,7 @@ public class PassaNomeAziendaServlet extends HttpServlet {
 			nomeA=DatabaseQuery.GetNomeAzienda(nome);
 			System.out.println("nome azienda=" +nomeA);
 			request.setAttribute("nome_azienda", nomeA);
-			request.setAttribute("matricola", matr);
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

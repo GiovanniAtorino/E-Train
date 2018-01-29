@@ -3,7 +3,7 @@
 <%
 Studente utente = (Studente) session.getAttribute("user_stud");
 String nomeA=(String)request.getAttribute("noma_azienda");
-String matr=(String)request.getAttribute("matricola");
+
 
 if (utente != null) {
 	String email = utente.getEmail();
