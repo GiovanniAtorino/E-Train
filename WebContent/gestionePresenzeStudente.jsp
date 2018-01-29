@@ -33,7 +33,7 @@ if (utente != null) {
 			<li class="nav-item dropdown">
 			<li class="nav-item">
 				<a class="nav-link"> 
-					<i class="fa fa-fw fa-table"></i>Gestione Presenze</a>		
+					<i class="fa fa-fw fa-table"></i>Gestione Presenze di <%=utente.getCognome() %></a>		
 		</ul>
 
 		<%@ include file="sidenavStudente.jsp"%>
