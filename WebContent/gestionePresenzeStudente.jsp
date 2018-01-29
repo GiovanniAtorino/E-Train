@@ -1,5 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*"%>
+	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
+<%
+Studente utente = (Studente) session.getAttribute("user_stud");
+String nomeA=(String)request.getAttribute("noma_azienda");
+String matr=(String)request.getAttribute("matricola");
+
+if (utente != null) {
+	String email = utente.getEmail();
+} else {
+	response.sendRedirect("loginStudente.jsp");
+}
+	
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,42 +47,34 @@
 				<div class="card-header">
 					<i class="fa fa-table"></i> Ore svolte Tirocinio
 				</div>
+			 <form action="RegisteraPresenzaServlet" method="post" id="form">
 				<div class="card-body">
 					<div class="table-responsive">
 						<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 							<thead>
 								<tr>
 									<th>Azienda</th>
-									<th>Sede</th>
-									<th>Giorni Tirocinio</th>
-									<th>Ore Tirocinio</th>
-									<th>Ore Mancanti</th>
-									<th>Conferma Ore Svolte</th>
+									<th>Matricola</th>
+									<th>Data</th>
+									<th>Ore inizo</th>
+									<th>Ore fine</th>
+									<th>Conferma </th>
 								</tr>
 							</thead>
-							<tfoot>
-								<tr>
-									<th>Azienda</th>
-									<th>Sede</th>
-									<th>Giorni Tirocinio</th>
-									<th>Ore Tirocinio</th>
-									<th>Ore Mancanti</th>
-									<th>Conferma Ore Svolte</th>
-								</tr>
-							</tfoot>
+							
 							<tbody>
 								<tr>
-									<td>Tiger Nixon</td>
-									<td>System Architect</td>
-									<td>Edinburgh</td>
-									<td>61</td>
-									<td>2011/04/25</td>
+									<td><%=nomeA%></td>
+									<td><%=matr%></td>
+									<td> <input class="form-control" name="presenza_data"> </i></td>
+									<td><input class="form-control" name="presenza_orai"> </i></td>
+								<td><input class="form-control" name="presenza_oraf"> </i></td>
 									<td>
-										<button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button>
+										<button class="btn btn-primary" type="submit" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button>
 									</td>
 								</tr>
 							</tbody>
-						</table>
+						</table></form>
 					</div>
 				</div>
 				<div class="card-footer small text-muted">Ultimo aggiornamento alle 11:59</div>

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Bean.Azienda;
+import Bean.Presenza;
 import Bean.Segreteria;
 import Bean.Studente;
 import Bean.Tirocinio;
@@ -32,6 +33,8 @@ public class DatabaseQuery {
 	private static String queryGetRichiestaTirocinioStudente;
 	private static String queryAccettaStudenteTirocinio;
 	private static String queryRifiutaStudenteTirocinio;
+	private static String queryAdd_Presenza;
+	private static String queryGetNomeAzienda;
 	
 	
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
@@ -623,6 +626,61 @@ public class DatabaseQuery {
 	
 	}
 	
+	public synchronized static boolean addPresenza(Presenza pre) throws SQLException{
+		Connection connection = null;
+		PreparedStatement psAddUtente = null;
+
+		try{
+			connection = Database.getConnection();
+			psAddUtente = connection.prepareStatement(queryAdd_Presenza);
+			psAddUtente.setString(1, pre.getMatricolaP());
+			psAddUtente.setString(2, pre.getData());
+			psAddUtente.setString(3, pre.getOraInzio());
+			psAddUtente.setString(4, pre.getOrafine());
+		
+			
+			
+			System.out.println(psAddUtente.toString());
+
+			psAddUtente.executeUpdate();
+
+			connection.commit();
+			System.out.println("GU Connessione...");
+		} finally {
+			try{
+				if(psAddUtente != null)
+					psAddUtente.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+
+		return true;}
+	
+	public synchronized static String GetNomeAzienda(String nomeS) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+         String nomeAzienda = null;
+		
+
+		
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryGetNomeAzienda);
+			preparedStatement.setString(1, nomeS);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+				nomeAzienda=rs.getString("nome_azienda");
+				
+				
+			
+		}
+		
+			return nomeAzienda;
+	}
+	
 	
 	static {
 		queryAdd_Studente = "INSERT INTO studente1 (matricola, nome, cognome,  email,password,dipartimento) VALUES (?,?,?,?,?,?);";
@@ -641,6 +699,8 @@ public class DatabaseQuery {
 		queryGetRichiestaTirocinioStudente="select * from studente1 where nome_azienda=? and accettato='no'";
 		queryAccettaStudenteTirocinio="update studente1 set accettato='si' where nome=?;";
 		queryRifiutaStudenteTirocinio="update studente1 set accettato='no' where nome=?;";
+		queryAdd_Presenza = "INSERT INTO presenza (matricola_studente, data,ora_inizio,  ora_fine,firmato) VALUES (?,?,?,?,'si');";
+		queryGetNomeAzienda="select nome_azienda from studente1 where nome=? and accettato='si';";
 	}
 
 
