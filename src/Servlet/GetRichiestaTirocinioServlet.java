@@ -2,6 +2,7 @@ package Servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,20 +12,21 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Bean.Azienda;
-import Bean.Studente;
+import Bean.Segreteria;
+import Bean.Tirocinio;
 import Database.DatabaseQuery;
 
 /**
- * Servlet implementation class LoginAziendaServlet
+ * Servlet implementation class GetRichiestaTirocinioServlet
  */
-@WebServlet("/LoginAziendaServlet")
-public class LoginAziendaServlet extends HttpServlet {
+@WebServlet("/GetRichiestaTirocinioServlet")
+public class GetRichiestaTirocinioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginAziendaServlet() {
+    public GetRichiestaTirocinioServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,38 +36,19 @@ public class LoginAziendaServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String email = request.getParameter("azienda_email"); 
-		System.out.print(email);
-		
-		String Password = request.getParameter("azienda_password");
-		System.out.println(Password);
-		
-		Azienda a=new Azienda();
-			 try {
-				a = DatabaseQuery.getAziendaByEmail(email);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			 System.out.println("Hey " +a.getNomeA());
-			if(a!=null)
-			{
-				System.out.println("Siamo entrati " +a.getNomeA());
-				if(a.getPassA().equals(Password))
-				{
-					
-						
-						
-						HttpSession session = request.getSession();
-						session.setAttribute("user_aziend", a);
-					
-						request.getRequestDispatcher("areaAzienda.jsp").forward(request, response);
-						
-				}
-			}
-	
+		HttpSession session = request.getSession();
+		Segreteria a = (Segreteria) session.getAttribute("user_segreteria");
+		ArrayList<Tirocinio> t=new ArrayList<>();
+		try {
+		t=	DatabaseQuery.queryGetRichiestaTirocinio();
+		System.out.println("Richiesta tir=" +t.get(0).getNomeTirocinio());
+		request.setAttribute("richieste_tir", t);
+		request.getRequestDispatcher("visualizzaTirocinioSegreteria.jsp").forward(request, response);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

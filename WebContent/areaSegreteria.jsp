@@ -68,7 +68,7 @@ if (utenteS != null) {
           <div class="card  elementArea" style="width: 18rem;">
             <img class="card-img-top" src="img/tirocinio.png" alt="Card image cap">
             <div class="card-body buttonElement">
-              <a href="./visualizzaTirocinioSegreteria.jsp" class="btn btn-primary">Visualizza Tirocinio</a>
+              <a href="GetRichiestaTirocinioServlet" class="btn btn-primary">Visualizza Tirocinio</a>
             </div>
           </div>
           

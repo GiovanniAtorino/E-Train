@@ -1,5 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
+<%
 
+Segreteria utenteS=(Segreteria) session.getAttribute("user_segreteria");
+ArrayList<Tirocinio> t=(ArrayList) request.getAttribute("richieste_tir");
+if (utenteS != null) {
+	String nomeS = utenteS.getNomeS();
+	
+} else {
+	response.sendRedirect("loginSegreteria.jsp");
+}
+	
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +50,14 @@
  
   <div class="content-wrapper">
     <div class="container-fluid">
+      Richieste Tirocinio:
       
+      <%for(int i=0;i<t.size();i++){ %>
+      
+      Nome: <%=t.get(i).getNomeTirocinio() %>
+       Descrizione: <%=t.get(i).getDescrizioneTirocinio() %>
+       Nome azienda: <%=t.get(i).getNomeaziendaTirocinio() %>
+      <%} %>
     
       </div>
     </div>

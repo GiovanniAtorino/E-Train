@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import Bean.Azienda;
 import Bean.Segreteria;
@@ -22,6 +23,7 @@ public class DatabaseQuery {
 	private static String queryAdd_Segreteria;
 	private static String queryGetSegreteria;
 	private static String queryAdd_Tirocinio;
+	private static String queryGetRichiestaTirocinio;
 	
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
 		Connection connection = null;
@@ -337,6 +339,46 @@ public class DatabaseQuery {
 
 		return true;}
 	
+	public synchronized static ArrayList queryGetRichiestaTirocinio() throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+        ArrayList<Tirocinio> tir=new ArrayList<>();
+		Tirocinio t = new Tirocinio();
+
+		try {
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryGetRichiestaTirocinio);
+			
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+				
+				t.setNomeTirocinio(rs.getString("nome"));
+				t.setDescrizioneTirocinio(rs.getString("descrizione"));
+				t.setDatainizioTirocinio(rs.getString("data_inizio"));
+			
+				t.setDatafineTirocinio(rs.getString("data_fine"));
+				t.setNomeaziendaTirocinio(rs.getString("nome_azienda"));
+				
+				tir.add(t);
+			System.out.println("Database rich tir:" +tir.get(0).getNomeTirocinio());
+			}
+		
+	} finally {
+		try {
+			if (preparedStatement != null)
+				preparedStatement.close();
+		} finally {
+			Database.releaseConnection(connection);
+		}
+	}
+	return tir;
+}
+
+	
 	
 	static {
 		queryAdd_Studente = "INSERT INTO studente (matricola, nome, cognome,  email,password,dipartimento) VALUES (?,?,?,?,?,?);";
@@ -347,8 +389,8 @@ public class DatabaseQuery {
 		queryGetTutor = "SELECT * FROM tutor WHERE email=?";
 		queryAdd_Segreteria = "INSERT INTO segreteria (nome, dipartimento,facolta,  email,password,num_telefono) VALUES (?,?,?,?,?,?);";
 		queryGetSegreteria = "SELECT * FROM segreteria WHERE email=?";
-		queryAdd_Tirocinio = "INSERT INTO tirocinio (nome, descrizione,data_inizio, data_fine,nome_azienda) VALUES (?,?,?,?,?);";
-	
+		queryAdd_Tirocinio = "INSERT INTO tirocineo (nome, descrizione,data_inizio, data_fine,nome_azienda) VALUES (?,?,?,?,?);";
+		queryGetRichiestaTirocinio = "SELECT * FROM tirocineo WHERE accettata='no'";
 	}
 
 

@@ -50,11 +50,11 @@ public class LoginSegreteriaServlet extends HttpServlet {
 			 System.out.println("Hey " +u.getNomeS());
 			if(u!=null)
 			{
-				System.out.println("Siamo entrati " +u.getNomeS());
+				
 				if(u.getPassS().equals(Password))
 				{
 					
-						
+					System.out.println("Siamo entrati " +u.getNomeS());
 						
 						HttpSession session = request.getSession();
 						session.setAttribute("user_segreteria", u);
@@ -62,9 +62,8 @@ public class LoginSegreteriaServlet extends HttpServlet {
 						request.getRequestDispatcher("areaSegreteria.jsp").forward(request, response);
 						
 				}
-				else{   }
-			} else {   }
-	}
+			}
+			}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
