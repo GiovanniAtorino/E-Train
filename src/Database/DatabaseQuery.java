@@ -15,6 +15,7 @@ import Bean.Tutor;
 
 public class DatabaseQuery {
 	 static ArrayList<Studente> stu=new ArrayList<>();
+	 static 	ArrayList<Tirocinio> tir=new ArrayList<>();
 
 	private static String queryAdd_Studente;
 	private static String queryGetStudente;
@@ -39,6 +40,7 @@ public class DatabaseQuery {
 	private static String queryGetNomeTirocinio;
 	private static String queryGetAziendaFromTirocinio;
 	private static String queryGetAziendaByTirocinio;
+	private static String queryAddRichiestaStudente;
 	
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
 		Connection connection = null;
@@ -450,28 +452,28 @@ public class DatabaseQuery {
 	public synchronized static ArrayList queryGetTirocinioAccettato() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-        ArrayList<Tirocinio> tir=new ArrayList<>();
-		Tirocinio t = new Tirocinio();
+		  Tirocinio t = new Tirocinio();
 
 		try {
 			connection = Database.getConnection();
 			preparedStatement = connection.prepareStatement(queryGetTirocinioAccettato);
 			
-
+           
 			ResultSet rs = preparedStatement.executeQuery();
 
 			connection.commit();
 
 			while (rs.next()) {
 				
-				t.setNomeTirocinio(rs.getString("nome"));
-				t.setDescrizioneTirocinio(rs.getString("descrizione"));
-				t.setDatainizioTirocinio(rs.getString("data_inizio"));
+				 t.setNomeTirocinio(rs.getString("nome"));
+					t.setDescrizioneTirocinio(rs.getString("descrizione"));
+					t.setDatainizioTirocinio(rs.getString("data_inizio"));
 			
-				t.setDatafineTirocinio(rs.getString("data_fine"));
-				t.setNomeaziendaTirocinio(rs.getString("nome_azienda"));
+					t.setDatafineTirocinio(rs.getString("data_fine"));
+					t.setNomeaziendaTirocinio(rs.getString("nome_azienda"));
 				
-				tir.add(t);
+					tir.add(t);
+				
 			
 			}
 		
@@ -827,6 +829,35 @@ public class DatabaseQuery {
 			return azienda;
 	}
 	
+	public synchronized static boolean addRichiestaStudente(String matr,String na,String nt) throws SQLException{
+		Connection connection = null;
+		PreparedStatement psAddUtente = null;
+
+		try{
+			connection = Database.getConnection();
+			psAddUtente = connection.prepareStatement(queryAddRichiestaStudente);
+			psAddUtente.setString(1, matr);
+			psAddUtente.setString(2, na);
+			psAddUtente.setString(3, nt);
+			
+			
+			System.out.println(psAddUtente.toString());
+
+			psAddUtente.executeUpdate();
+
+			connection.commit();
+			System.out.println("GU Connessione...");
+		} finally {
+			try{
+				if(psAddUtente != null)
+					psAddUtente.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+
+		return true;}
+	
 	
 	
 	static {
@@ -852,6 +883,7 @@ public class DatabaseQuery {
 		queryGetTirocinioFromNome="SELECT * FROM tirocineo WHERE nome=?;";
 		queryGetAziendaFromTirocinio="SELECT * FROM azienda where nome_tirocineo=?";
 		queryGetAziendaByTirocinio="select azienda.* from azienda,tirocineo where azienda.nome=tirocineo.nome_azienda and accettata='si';";
+		queryAddRichiestaStudente="insert into richiesta_studente(matricola_studente,nome_azienda,nome_tirocinio) values(?,?,?);";
 	}
 
 

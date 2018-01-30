@@ -38,10 +38,13 @@ public class GetTirocinioAccettato extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		Studente a = (Studente) session.getAttribute("user_stud");
-		ArrayList<Tirocinio> t=new ArrayList<>();
+		
+	
 		try {
-		t=	DatabaseQuery.queryGetTirocinioAccettato();
+			ArrayList<Tirocinio> t=	DatabaseQuery.queryGetTirocinioAccettato();
+			
 		System.out.println("Tir accettato=" +t.get(0).getNomeTirocinio());
+		System.out.println("Tir accettato=" +t.get(1).getNomeTirocinio());
 		request.setAttribute("tir_accettati", t);
 		request.getRequestDispatcher("visualizzaAziendaStudente.jsp").forward(request, response);
 		} catch (SQLException e) {
