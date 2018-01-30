@@ -43,6 +43,7 @@ public class DatabaseQuery {
 	private static String queryGetAziendaByTirocinio;
 	private static String queryAddRichiestaStudente;
 	private static String queryGetRichiestaStudenteT;
+	private static String queryRicercaStudente;
 	
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
 		Connection connection = null;
@@ -893,6 +894,38 @@ public class DatabaseQuery {
 			return rss;
 		}
 	
+	public synchronized static ArrayList RicercaStudente(String nomes,String cognomes) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+        ArrayList<Studente> rss=new ArrayList<>();
+		Studente studente = new Studente();
+
+		
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryRicercaStudente);
+			preparedStatement.setString(1, nomes);
+			preparedStatement.setString(2, cognomes);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+				studente.setMatricola(rs.getString("matricola"));
+				studente.setEmail(rs.getString("email"));
+				studente.setNome(rs.getString("nome"));
+				studente.setCognome(rs.getString("cognome"));
+				studente.setPassword(rs.getString("password"));
+			
+				studente.setDipartimento(rs.getString("dipartimento"));
+				
+				rss.add(studente);
+			}
+		
+	
+			return rss;
+		}
+	
 	
 	
 	static {
@@ -920,6 +953,7 @@ public class DatabaseQuery {
 		queryGetAziendaByTirocinio="select azienda.* from azienda,tirocineo where azienda.nome=tirocineo.nome_azienda and accettata='si';";
 		queryAddRichiestaStudente="insert into richiesta_studente(matricola_studente,nome_azienda,nome_tirocinio,nome_studente,cognome_studente) values(?,?,?,?,?);";
 		queryGetRichiestaStudenteT=" select studente1.*  from studente1,richiesta_studente where studente1.nome=richiesta_studente.nome_studente and accettato='no' and studente1.nome_azienda=?;";
+	    queryRicercaStudente="select * from studente1 where nome=? and cognome=?; ";
 	}
 
 

@@ -3,7 +3,7 @@
 <%
 
 Segreteria utenteS=(Segreteria) session.getAttribute("user_segreteria");
-
+ArrayList<Studente> s= (ArrayList) request.getAttribute("lista_stud1");
 if (utenteS != null) {
 	String nomeS = utenteS.getNomeS();
 	
@@ -35,24 +35,17 @@ if (utenteS != null) {
   
   <div class="content-wrapper">
     <div class="container-fluid">
-    <form action="CercaStudenteServlet" method="post">
-       <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-6">
-                <label for="exampleInputName">Nome: </label>
-                <input class="form-control" name="ricerca_nome" id="studente_nome" type="text" aria-describedby="nameHelp" placeholder="Inserisci un Nome">
-              </div>
-              <div class="col-md-6">
-                <label for="exampleInputLastName">Cognome: </label>
-                <input class="form-control" name="ricerca_cognome" id="studente_cognome" type="text" aria-describedby="nameHelp" placeholder="Inserisci Cognome">
-              </div>
-            </div>
-          </div>
+   <% for(int i=0;i<s.size();i++){ %>
+   <br>
+ 
+Nome: <%= s.get(i).getNome() %> <br>	
+Cognome	: <%=s.get(i).getCognome() %> <br>	
+Matricola	: <%=s.get(i).getMatricola() %> <br>					
     
-    	<input class="submit" type="submit"	name="contact_submitted" value="Cerca" />
-    </form>
+    <%} %>
       </div>
     </div>
+
     
 	<!-- FOOTER -->
   	<%@ include file="footer.jsp" %>

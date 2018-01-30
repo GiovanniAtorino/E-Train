@@ -63,7 +63,7 @@ if (utenteA != null) {
 			<img class="card-img-top" src="img/tutor.png" alt="Card image cap">
 			<div class="card-body buttonElement">
 				<a href="GetRichiestaTirocinioStudenteServlet"
-					class="btn btn-primary">Visualizza Partecipanti</a>
+					class="btn btn-primary">Visualizza Richieste Partecipanti</a>
 			</div>
 		</div>
 
