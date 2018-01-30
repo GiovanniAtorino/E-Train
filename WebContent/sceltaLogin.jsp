@@ -21,7 +21,7 @@
 	<%@ include file="header.jsp"%>
 </nav>
 
-<div class="card card-login mx-auto mt-5">
+<div class="card card-login mx-auto mt-5" style="max-width: 15rem;">
 	<div class="card-header">Scelta Utente Login</div>
 	<div class="card-body">
 		<form action="LoginServlet" method="post">
