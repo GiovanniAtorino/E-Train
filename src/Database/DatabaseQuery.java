@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import Bean.Azienda;
 import Bean.Presenza;
+import Bean.RichiestaStudente;
 import Bean.Segreteria;
 import Bean.Studente;
 import Bean.Tirocinio;
@@ -41,6 +42,7 @@ public class DatabaseQuery {
 	private static String queryGetAziendaFromTirocinio;
 	private static String queryGetAziendaByTirocinio;
 	private static String queryAddRichiestaStudente;
+	private static String queryGetRichiestaStudenteT;
 	
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
 		Connection connection = null;
@@ -829,7 +831,7 @@ public class DatabaseQuery {
 			return azienda;
 	}
 	
-	public synchronized static boolean addRichiestaStudente(String matr,String na,String nt) throws SQLException{
+	public synchronized static boolean addRichiestaStudente(String matr,String na,String nt,String n,String c) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psAddUtente = null;
 
@@ -839,6 +841,8 @@ public class DatabaseQuery {
 			psAddUtente.setString(1, matr);
 			psAddUtente.setString(2, na);
 			psAddUtente.setString(3, nt);
+			psAddUtente.setString(4, n);
+			psAddUtente.setString(5, c);
 			
 			
 			System.out.println(psAddUtente.toString());
@@ -857,6 +861,37 @@ public class DatabaseQuery {
 		}
 
 		return true;}
+
+	public synchronized static ArrayList queryGetRichiestaStudenteT(String nomea) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+        ArrayList<Studente> rss=new ArrayList<>();
+		Studente studente = new Studente();
+
+		
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryGetRichiestaStudenteT);
+			preparedStatement.setString(1, nomea);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+				studente.setMatricola(rs.getString("matricola"));
+				studente.setEmail(rs.getString("email"));
+				studente.setNome(rs.getString("nome"));
+				studente.setCognome(rs.getString("cognome"));
+				studente.setPassword(rs.getString("password"));
+			
+				studente.setDipartimento(rs.getString("dipartimento"));
+				
+				rss.add(studente);
+			}
+		
+	
+			return rss;
+		}
 	
 	
 	
@@ -883,7 +918,8 @@ public class DatabaseQuery {
 		queryGetTirocinioFromNome="SELECT * FROM tirocineo WHERE nome=?;";
 		queryGetAziendaFromTirocinio="SELECT * FROM azienda where nome_tirocineo=?";
 		queryGetAziendaByTirocinio="select azienda.* from azienda,tirocineo where azienda.nome=tirocineo.nome_azienda and accettata='si';";
-		queryAddRichiestaStudente="insert into richiesta_studente(matricola_studente,nome_azienda,nome_tirocinio) values(?,?,?);";
+		queryAddRichiestaStudente="insert into richiesta_studente(matricola_studente,nome_azienda,nome_tirocinio,nome_studente,cognome_studente) values(?,?,?,?,?);";
+		queryGetRichiestaStudenteT=" select studente1.*  from studente1,richiesta_studente where studente1.nome=richiesta_studente.nome_studente and accettato='no' and studente1.nome_azienda=?;";
 	}
 
 

@@ -41,7 +41,7 @@ public class GetRichiestaTirocinioStudenteServlet extends HttpServlet {
 		String nomeA=a.getNomeA();
 		
 		try {
-			ArrayList<Studente> stud =DatabaseQuery.GetRichiestaTirocinioStudente(nomeA);
+			ArrayList<Studente> stud =DatabaseQuery.queryGetRichiestaStudenteT(nomeA);
 		System.out.println("Richiesta studenti" +stud.get(0).getCognome());
 		
 		request.setAttribute("rich_studenti", stud);

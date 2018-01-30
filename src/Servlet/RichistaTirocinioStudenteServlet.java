@@ -38,6 +38,7 @@ public class RichistaTirocinioStudenteServlet extends HttpServlet {
 		Studente u = (Studente) session.getAttribute("user_stud");
 		
 		String matr=u.getMatricola();
+		String n=u.getNome();String c=u.getCognome();
 		String action = request.getParameter("action");
 		if (action != null) {
 			
@@ -45,7 +46,7 @@ public class RichistaTirocinioStudenteServlet extends HttpServlet {
 				String	 nomet= request.getParameter("nomet");
 				System.out.println("Invio Richista a" +nomea +nomet);
 				try {
-					DatabaseQuery.addRichiestaStudente(matr, nomea, nomet);
+					DatabaseQuery.addRichiestaStudente(matr, nomea, nomet, n, c);
 				
 					
 					System.out.println("Richista inviata=" +nomea +nomet);
