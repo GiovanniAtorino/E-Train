@@ -54,7 +54,7 @@ if (utenteS != null) {
        <div class="card elementArea" style="width: 18rem;">
         <img class="card-img-top" src="img/azienda.png" alt="Card image cap">
         <div class="card-body buttonElement">
-          <a href="./visualizzaAziendaSegreteria.jsp" class="btn btn-primary">Visualizza Azienda</a>
+          <a href="GetAziendaAccettataServlet" class="btn btn-primary">Visualizza Azienda</a>
         </div>
       </div>  
       

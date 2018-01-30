@@ -35,7 +35,10 @@ public class DatabaseQuery {
 	private static String queryRifiutaStudenteTirocinio;
 	private static String queryAdd_Presenza;
 	private static String queryGetNomeAzienda;
-	
+	private static String queryGetTirocinioFromNome;
+	private static String queryGetNomeTirocinio;
+	private static String queryGetAziendaFromTirocinio;
+	private static String queryGetAziendaByTirocinio;
 	
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
 		Connection connection = null;
@@ -469,7 +472,7 @@ public class DatabaseQuery {
 				t.setNomeaziendaTirocinio(rs.getString("nome_azienda"));
 				
 				tir.add(t);
-			System.out.println("Database rich tir:" +tir.get(0).getNomeTirocinio());
+			
 			}
 		
 	} finally {
@@ -682,6 +685,149 @@ public class DatabaseQuery {
 			return nomeAzienda;
 	}
 	
+	public synchronized static ArrayList GetTirocinioFromNome(String nome) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+        ArrayList<Tirocinio> tir=new ArrayList<>();
+		Tirocinio t = new Tirocinio();
+
+		try {
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryGetTirocinioFromNome);
+			preparedStatement.setString(1, nome);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+				
+				t.setNomeTirocinio(rs.getString("nome"));
+				t.setDescrizioneTirocinio(rs.getString("descrizione"));
+				t.setDatainizioTirocinio(rs.getString("data_inizio"));
+			
+				t.setDatafineTirocinio(rs.getString("data_fine"));
+				t.setNomeaziendaTirocinio(rs.getString("nome_azienda"));
+				
+				tir.add(t);
+			
+			}
+		
+	} finally {
+		try {
+			if (preparedStatement != null)
+				preparedStatement.close();
+		} finally {
+			Database.releaseConnection(connection);
+		}
+	}
+	return tir;
+}
+	
+	public synchronized static String GetNomeTirocinio(String nomeS) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+         String nomet = null;
+		
+
+		
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryGetNomeTirocinio);
+			preparedStatement.setString(1, nomeS);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+				nomet=rs.getString("nome_tirocineo");
+				
+				
+			
+		}
+		
+			return nomet;
+	}
+	
+	
+	public synchronized static Azienda getAziendaByTirocinio(String nomet) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Azienda azienda = new Azienda();
+
+		try {
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryGetAziendaFromTirocinio);
+			preparedStatement.setString(1, nomet);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+				azienda.setEmailA(rs.getString("email"));
+				azienda.setNomeA(rs.getString("nome"));
+				azienda.setSedeA(rs.getString("sede"));
+				azienda.setPasswordA(rs.getString("password"));
+			
+			
+				
+				
+			}
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+		if (azienda.getEmailA() == null)
+			return null;
+		else
+			return azienda;
+	}
+	
+	public synchronized static Azienda queryGetAziendaByTirocinio() throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Azienda azienda = new Azienda();
+
+		try {
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryGetAziendaByTirocinio);
+		
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+				azienda.setEmailA(rs.getString("email"));
+				azienda.setNomeA(rs.getString("nome"));
+				azienda.setSedeA(rs.getString("sede"));
+				azienda.setPasswordA(rs.getString("password"));
+			
+			
+				
+				
+			}
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+		if (azienda.getEmailA() == null)
+			return null;
+		else
+			return azienda;
+	}
+	
+	
 	
 	static {
 		queryAdd_Studente = "INSERT INTO studente1 (matricola, nome, cognome,  email,password,dipartimento) VALUES (?,?,?,?,?,?);";
@@ -702,6 +848,10 @@ public class DatabaseQuery {
 		queryRifiutaStudenteTirocinio="update studente1 set accettato='no' where nome=?;";
 		queryAdd_Presenza = "INSERT INTO presenza (matricola_studente, data,ora_inizio,  ora_fine,firmato) VALUES (?,?,?,?,'si');";
 		queryGetNomeAzienda="select nome_azienda from studente1 where nome=? and accettato='si';";
+		queryGetNomeTirocinio="select nome_tirocineo from studente1 where nome=? and accettato='si';";
+		queryGetTirocinioFromNome="SELECT * FROM tirocineo WHERE nome=?;";
+		queryGetAziendaFromTirocinio="SELECT * FROM azienda where nome_tirocineo=?";
+		queryGetAziendaByTirocinio="select azienda.* from azienda,tirocineo where azienda.nome=tirocineo.nome_azienda and accettata='si';";
 	}
 
 
