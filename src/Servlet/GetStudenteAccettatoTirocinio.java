@@ -41,15 +41,18 @@ public class GetStudenteAccettatoTirocinio extends HttpServlet {
 		String nomeS=a.getNome();
 		System.out.println("nome" +nomeS);
 		try {
-		String nomet=	DatabaseQuery.GetNomeTirocinio(nomeS);
-		System.out.println("nome tir" +nomet);
-		ArrayList<Tirocinio> t=DatabaseQuery.GetTirocinioFromNome(nomet);
+		
+		ArrayList<Tirocinio> t=DatabaseQuery.GetTirocinioFromStudente(nomeS);
 		System.out.println(t.get(0).getNomeTirocinio());
 		request.setAttribute("lista_tir", t);
 		request.getRequestDispatcher("visualizzaTirocinioStudente.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (IndexOutOfBoundsException ex) {
+			System.out.println("ha fuso");
+			request.getRequestDispatcher("errorevisualizzaTirocinioStudente.jsp").forward(request, response);
+			ex.printStackTrace();
 		}
 	}
 

@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
 <%
-try {
+
 Studente utente = (Studente) session.getAttribute("user_stud");
-ArrayList<Tirocinio> t=(ArrayList) request.getAttribute("lista_tir");
+
 
 if (utente != null) {
 	String email = utente.getEmail();
@@ -42,31 +42,8 @@ if (utente != null) {
   
   <div class="content-wrapper">
     <div class="container-fluid">
-         Lista Tirocini a cui partecipi:
-      
-      <% 
-    
-    	 
-      for(int i=0;i<t.size();i++){ %>
-      
-     Nome: <%=t.get(i).getNomeTirocinio() %> <br>
-       Descrizione: <%=t.get(i).getDescrizioneTirocinio() %> <br>
-       Nome azienda: <%=t.get(i).getNomeaziendaTirocinio() %> <br>
-    
-								
-							
-      <%}} catch( NullPointerException e ) {%>
-    	  
-    	  Non partecipi a nessun tirocinio
-    	  <% 
-    	  e.printStackTrace();
-      } catch (IndexOutOfBoundsException ex){ %> 
-    	  
-   Non partecipi a nessun tirocinio  	  
-  <%    ex.printStackTrace();  }
-      
-      %>
-      
+     NON PARTECIPI A NESSUN TIROCINIO <br>
+     INVIA RICHIESTA PER <a href="GetTirocinioAccettato">PARTCIPARE </a>
     
       </div>
     </div>

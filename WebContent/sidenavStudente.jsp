@@ -6,7 +6,7 @@
 <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Visualizza Azienda">
-          <a class="nav-link" href="visualizzaAziendaStudente.jsp">
+          <a class="nav-link" href="GetTirocinioAccettato">
             <i class="fa fa-fw fa-building"></i>
             <span class="nav-link-text">Visualizza Azienda</span>
           </a>
@@ -18,7 +18,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Visualizza Tirocinio">
-          <a class="nav-link" href="visualizzaTirocinioStudente.jsp">
+          <a class="nav-link" href="GetStudenteAccettatoTirocinio">
             <i class="fa fa-fw fa-briefcase"></i>
             <span class="nav-link-text">Visualizza Tirocinio</span>
           </a>
@@ -30,7 +30,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Gestione Presenze">
-          <a class="nav-link" href="gestionePresenzeStudente.jsp">
+          <a class="nav-link" href="PassaNomeAziendaServlet">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Gestione Presenze</span>
           </a>

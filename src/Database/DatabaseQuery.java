@@ -44,6 +44,7 @@ public class DatabaseQuery {
 	private static String queryAddRichiestaStudente;
 	private static String queryGetRichiestaStudenteT;
 	private static String queryRicercaStudente;
+	private static String queryGetTirocinioFromStudente;
 	
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
 		Connection connection = null;
@@ -926,6 +927,44 @@ public class DatabaseQuery {
 			return rss;
 		}
 	
+	public synchronized static ArrayList GetTirocinioFromStudente(String nome) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+        ArrayList<Tirocinio> tir=new ArrayList<>();
+		Tirocinio t = new Tirocinio();
+
+		try {
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryGetTirocinioFromStudente);
+			preparedStatement.setString(1, nome);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+				
+				t.setNomeTirocinio(rs.getString("nome"));
+				t.setDescrizioneTirocinio(rs.getString("descrizione"));
+				t.setDatainizioTirocinio(rs.getString("data_inizio"));
+			
+				t.setDatafineTirocinio(rs.getString("data_fine"));
+				t.setNomeaziendaTirocinio(rs.getString("nome_azienda"));
+				
+				tir.add(t);
+			
+			}
+		
+	} finally {
+		try {
+			if (preparedStatement != null)
+				preparedStatement.close();
+		} finally {
+			Database.releaseConnection(connection);
+		}
+	}
+	return tir;
+}
 	
 	
 	static {
@@ -954,6 +993,7 @@ public class DatabaseQuery {
 		queryAddRichiestaStudente="insert into richiesta_studente(matricola_studente,nome_azienda,nome_tirocinio,nome_studente,cognome_studente) values(?,?,?,?,?);";
 		queryGetRichiestaStudenteT=" select studente1.*  from studente1,richiesta_studente where studente1.nome=richiesta_studente.nome_studente and accettato='no' and studente1.nome_azienda=?;";
 	    queryRicercaStudente="select * from studente1 where nome=? and cognome=?; ";
+	    queryGetTirocinioFromStudente="select tirocineo.* from tirocineo,studente1 where tirocineo.nome=studente1.nome_tirocineo and studente1.accettato='si' and studente1.nome=?;";
 	}
 
 
