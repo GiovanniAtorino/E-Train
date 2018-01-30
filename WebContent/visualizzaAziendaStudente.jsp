@@ -1,4 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
+<%
+Studente utente = (Studente) session.getAttribute("user_stud");
+ArrayList<Tirocinio> t=(ArrayList) request.getAttribute("tir_accettati");
+
+if (utente != null) {
+	String email = utente.getEmail();
+} else {
+	response.sendRedirect("loginStudente.jsp");
+}
+	
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,36 +47,31 @@
           <i class="fa fa-table"></i> Aziende Disponibili al Tirocinio</div>
         <div class="card-body">
           <div class="table-responsive">
+             <%for(int i=0;i<t.size();i++){ %>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
                        <th>Azienda</th>
-                  <th>Sede</th>
-                  <th>Giorni Tirocinio</th>
+                  <th>Nome</th>
+                  <th>Descrizione</th>
                   <th>Ore Tirocinio</th>
                   <th>Scelta Azienda<th>
                 </tr>
               </thead>
-              <tfoot>
-                <tr>
-                    <th>Azienda</th>
-                    <th>Sede</th>
-                    <th>Giorni Tirocinio</th>
-                    <th>Ore Tirocinio</th>
-                    <th>Scelta Azienda<th>
-                </tr>
-              </tfoot>
+             
               <tbody>
                 <tr>
-                  <td>Tiger Nixon</td>
-                  <td>System Architect</td>
-                  <td>25</td>
+                  <td> <%=t.get(i).getNomeaziendaTirocinio() %></td>
+                  <td> <%=t.get(i).getNomeTirocinio() %></td>
+                  <td><%=t.get(i).getDescrizioneTirocinio() %></td>
                   <td>150</td>
-                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
+                  <td>  <a href="RichistaTirocinioStudenteServlet?action=<%=t.get(i).getNomeaziendaTirocinio() %>&nomet=<%=t.get(i).getNomeTirocinio()%>">Invia Richiesta </a>
+								</input> </td>
                 </tr>
                
               </tbody>
-            </table>
+            </table>   <%} %>
+            
           </div>
         </div>
         <div class="card-footer small text-muted">Ultimo aggiornamento alle 11:59 </div>

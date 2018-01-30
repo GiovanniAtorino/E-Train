@@ -43,7 +43,7 @@ public class GetTirocinioAccettato extends HttpServlet {
 		t=	DatabaseQuery.queryGetTirocinioAccettato();
 		System.out.println("Tir accettato=" +t.get(0).getNomeTirocinio());
 		request.setAttribute("tir_accettati", t);
-		request.getRequestDispatcher("visualizzaTirocinioStudente.jsp").forward(request, response);
+		request.getRequestDispatcher("visualizzaAziendaStudente.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

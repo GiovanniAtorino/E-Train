@@ -7,7 +7,7 @@ Studente utente = (Studente) session.getAttribute("user_stud");
 if (utente != null) {
 	String email = utente.getEmail();
 } else {
-	response.sendRedirect("login.jsp");
+	response.sendRedirect("loginStudente.jsp");
 }
 	
 %>
@@ -46,7 +46,7 @@ if (utente != null) {
       <div class="card elementArea" style="width: 18rem;">
         <img class="card-img-top" src="img/azienda.png" alt="Card image cap">
         <div class="card-body buttonElement">
-          <a href="./visualizzaAziendaStudente.jsp" class="btn btn-primary">Visualizza Azienda</a>
+          <a href="GetTirocinioAccettato" class="btn btn-primary">Visualizza Azienda</a>
         </div>
       </div>  
         <div class="card elementArea" style="width: 18rem;">
