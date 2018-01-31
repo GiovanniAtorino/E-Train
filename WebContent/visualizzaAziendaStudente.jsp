@@ -4,8 +4,10 @@
 Studente utente = (Studente) session.getAttribute("user_stud");
 ArrayList<Tirocinio> t=(ArrayList) request.getAttribute("tir_accettati");
 
+
 if (utente != null) {
 	String email = utente.getEmail();
+	
 } else {
 	response.sendRedirect("loginStudente.jsp");
 }

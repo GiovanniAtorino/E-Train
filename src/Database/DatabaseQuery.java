@@ -16,7 +16,7 @@ import Bean.Tutor;
 
 public class DatabaseQuery {
 	 static ArrayList<Studente> stu=new ArrayList<>();
-	 static 	ArrayList<Tirocinio> tir=new ArrayList<>();
+		ArrayList<Tirocinio> tir=new ArrayList<>();
 
 	private static String queryAdd_Studente;
 	private static String queryGetStudente;
@@ -457,7 +457,7 @@ public class DatabaseQuery {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		  Tirocinio t = new Tirocinio();
-
+			ArrayList<Tirocinio> tir=new ArrayList<>();
 		try {
 			connection = Database.getConnection();
 			preparedStatement = connection.prepareStatement(queryGetTirocinioAccettato);
