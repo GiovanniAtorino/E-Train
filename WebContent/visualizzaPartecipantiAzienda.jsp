@@ -3,7 +3,7 @@
 <%
 
 Azienda a=(Azienda) session.getAttribute("user_aziend");
-ArrayList<Studente> s=(ArrayList) request.getAttribute("rich_studenti");
+ArrayList<Studente> s=(ArrayList<Azienda>) request.getAttribute("rich_studenti");
 if (a != null) {
 	String nomeA = a.getNomeA();
 	

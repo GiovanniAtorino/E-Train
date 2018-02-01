@@ -2,7 +2,7 @@
 	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
 <%
 Studente utente = (Studente) session.getAttribute("user_stud");
-ArrayList<Tirocinio> t=(ArrayList) request.getAttribute("tir_accettati");
+ArrayList<Tirocinio> t=(ArrayList<Tirocinio>) request.getAttribute("tir_accettati");
 
 
 if (utente != null) {

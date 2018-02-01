@@ -9,8 +9,9 @@ if (utenteS != null) {
 } else {
 	response.sendRedirect("loginSegreteria.jsp");
 }
-	
+
 %>
+
 <!DOCTYPE html>
 <html lang="en">
 
