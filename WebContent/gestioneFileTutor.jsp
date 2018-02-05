@@ -30,6 +30,10 @@
           <a class="nav-link" href="areaTutor.jsp">
             <i class="fa fa-fw fa-user"></i>Area Tutor</a>
         </li>
+        <li class="nav-item dropdown">
+			<li class="nav-item">
+				<a class="nav-link">
+					<i class="fa fa-fw fa-file"></i> Gestione File</a>
       </ul>
 	
   	<%@ include file="sidenavTutor.jsp"%>
