@@ -19,7 +19,7 @@
 					<form action="LoginTutorServlet" method="post">
 						<div class="form-group">
 							<label for="exampleInputEmail1">Email: </label> <input
-								class="form-control" name="tutor_email" id="studente_email"
+								class="form-control" name="tutor_email" id="tutor_email"
 								type="email" aria-describedby="emailHelp"
 								placeholder="Inserisci email">
 						</div>
@@ -36,7 +36,8 @@
 								</label>
 							</div>
 						</div>
-						<a class="btn btn-primary btn-block" href="areaTutor.jsp">Login</a>
+						<input class="submit" type="submit"
+								name="contact_submitted" value="login" />
 					</form>
 					<div class="text-center">
 						<a class="d-block small mt-3" href="sceltaUtente.jsp">Registra

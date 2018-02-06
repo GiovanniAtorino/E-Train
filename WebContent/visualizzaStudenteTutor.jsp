@@ -1,4 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
+<%
+try{
+Tutor utente = (Tutor) session.getAttribute("user_tutor");
+ArrayList<Studente> s=(ArrayList) request.getAttribute("lista_stud");
+
+if (utente != null) {
+	String email = utente.getEmailT();
+} else {
+	response.sendRedirect("loginTutor.jsp");
+}
+	
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,6 +62,19 @@
               <span aria-hidden="true">x</span>
             </button>
           </div>
+          <%for(int i=0;i<s.size();i++){
+        	  
+       %> Nome studente   <%= s.get(i).getNome()%>
+          
+
+<% }}catch(NullPointerException e) {
+        	  %>Non ci sono studenti<% 
+          } catch( IndexOutOfBoundsException ex){
+        	  %> NOn ci sono utenti <% 
+          }
+          %>
+          
+          
           <div class="modal-body">Sei sicuro di volerti disconnettere?</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancella</button>

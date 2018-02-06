@@ -40,9 +40,13 @@
                 <label for="exampleInputEmail1">Nome azienda:</label><br>
                 <input id="date" name="tutor_nomeazienda" type="date" aria-describedby="dateHelp" placeholder="Inserisci nome azienda">
               </div>
+                 <div class="form-group">
+                <label for="exampleInputEmail1">Nome tirocinio:</label><br>
+                <input id="date" name="tutor_nometirocinio" type="date" aria-describedby="dateHelp" placeholder="Inserisci nome azienda">
+              </div>
               <div class="form-group">
                     <label for="exampleInputEmail1">Numero Matricola:</label><br>
-                    <input class="form-control" name="tutor_matricola" id="exampleInputName" type="text" pattern="[0-9]" aria-describedby="nameHelp" placeholder="Inserisci Numero Matricola">
+                    <input class="form-control" name="tutor_matricola" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci Numero Matricola">
               </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email Accademica: </label>
@@ -62,7 +66,7 @@
               </div>
             </div>
           </div>
-        <a class="btn btn-primary btn-block" href="home.jsp">Registrati</a>
+        	<input class="submit" type="submit"	name="contact_submitted" value="Registrati" />
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="login.jsp">Login Page</a>
