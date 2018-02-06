@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
+import Bean.FileP;
 import Bean.Segreteria;
 import Bean.Studente;
 import Database.DatabaseQuery;
@@ -37,7 +39,7 @@ public class GetFileServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		Studente a = (Studente) session.getAttribute("user_stud");
-		ArrayList<String> pf=new ArrayList<>();
+		ArrayList<FileP> pf=new ArrayList<>();
 		try {
 			pf=DatabaseQuery.getFile();
 			request.setAttribute("lista_path", pf);

@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*,java.io.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
 <%
-File f=(File) request.getAttribute("file");
-ArrayList<String> pf=(ArrayList) request.getAttribute("lista_path");
+Studente utente = (Studente) session.getAttribute("user_stud");
+ArrayList<FileP> pf=(ArrayList) request.getAttribute("lista_path");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,12 +59,12 @@ ArrayList<String> pf=(ArrayList) request.getAttribute("lista_path");
               <tbody>
                 <tr>
                 <%for(int i=0;i<pf.size();i++){ %>
-                  <td>null</td>
+                  <td><%=pf.get(i).getNomeF() %></td>
                   <td><button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Richiesta</button></td>
-                  <td><a href="<%=pf.get(i) %>" > Scarica File </a></td>
+                  <td><a href="<%=pf.get(i).getPathF() %>" > Scarica File </a></td>
                   <td>
                     <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button>
-                  </td>
+                  </td> <br>
                    <%} %>
                 </tr>
                

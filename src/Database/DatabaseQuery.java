@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Bean.Azienda;
+
+import Bean.FileP;
 import Bean.Presenza;
 import Bean.RichiestaStudente;
 import Bean.Segreteria;
@@ -967,7 +969,7 @@ public class DatabaseQuery {
 	}
 	return tir;
 }
-	public synchronized static boolean addFile(String path) throws SQLException{
+	public synchronized static boolean addFile(String path,String nome) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psAddUtente = null;
 
@@ -975,7 +977,7 @@ public class DatabaseQuery {
 			connection = Database.getConnection();
 			psAddUtente = connection.prepareStatement(queyAddFile);
 			psAddUtente.setString(1, path);
-			
+			psAddUtente.setString(2, nome);
 			
 			System.out.println(psAddUtente.toString());
 
@@ -997,7 +999,7 @@ public class DatabaseQuery {
 	public synchronized static ArrayList getFile() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-        ArrayList<String> f=new ArrayList<>();
+        ArrayList<FileP> f=new ArrayList<>();
 		
 
 		try {
@@ -1010,9 +1012,12 @@ public class DatabaseQuery {
 			connection.commit();
 
 			while (rs.next()) {
-			f.add(rs.getString("pathfile"));
+				FileP fi=new FileP();
+			    fi.setNomeF(rs.getString("nome_file"));
+			    fi.setDescrizioneF(rs.getString("descrizione_file"));
+				fi.setPathF(rs.getString("pathfile"));
 				
-				
+				f.add(fi);
 				
 			}} finally {
 				try{
@@ -1050,7 +1055,7 @@ public class DatabaseQuery {
 		queryGetRichiestaStudenteT=" select studente1.*  from studente1,richiesta_studente where studente1.nome=richiesta_studente.nome_studente and accettato='no' and studente1.nome_azienda=?;";
 	    queryRicercaStudente="select * from studente1 where nome=? and cognome=?; ";
 	    queryGetTirocinioFromStudente="select tirocineo.* from tirocineo,studente1 where tirocineo.nome=studente1.nome_tirocineo and studente1.accettato='si' and studente1.nome=?;";
-	    queyAddFile="insert into file(pathfile) values(?);";
+	    queyAddFile="insert into file(pathfile,nome_file) values(?,?);";
 	    queryGetFile="select * from file;";
 	}
 

@@ -110,7 +110,7 @@ public class UploadDocument extends HttpServlet {
           
           if (control) {
             
-            model.addFile(filePdf);
+            model.addFile(filePdf,name);
 
             request.setAttribute("message_success", "File inserito con successo.");
             return_path = "/gestioneFileSegreteria.jsp";
