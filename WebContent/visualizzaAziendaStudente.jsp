@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
 <%
+try{
 Studente utente = (Studente) session.getAttribute("user_stud");
 ArrayList<Tirocinio> t=(ArrayList<Tirocinio>) request.getAttribute("tir_accettati");
 
@@ -72,8 +73,8 @@ if (utente != null) {
                 </tr>
                
               </tbody>
-            </table>   <%} %>
-            
+            </table>   <%}}catch(NullPointerException ex){ %>
+            Non ci sono aziende <%} %>
           </div>
         </div>
         <div class="card-footer small text-muted">Ultimo aggiornamento alle 11:59 </div>

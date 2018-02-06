@@ -50,6 +50,9 @@ public class GetTirocinioAccettato extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (IndexOutOfBoundsException ex) {
+			request.getRequestDispatcher("visualizzaAziendaStudente.jsp").forward(request, response);
+			ex.printStackTrace();
 		}
 	}
 	
