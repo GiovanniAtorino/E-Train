@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*,java.io.*" %>
 <%
 File f=(File) request.getAttribute("file");
+ArrayList<String> pf=(ArrayList) request.getAttribute("lista_path");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,14 +54,17 @@ File f=(File) request.getAttribute("file");
                   <th>Bottone</th>
                 </tr>
               </tfoot>
+              
               <tbody>
                 <tr>
-                  <td><%= f%></td>
+                <%for(int i=0;i<pf.size();i++){ %>
+                  <td>null</td>
                   <td><button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Richiesta</button></td>
-                  <td>Scarica File</td>
+                  <td><a href="<%=pf.get(i) %>" > Scarica File </a></td>
                   <td>
                     <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button>
                   </td>
+                   <%} %>
                 </tr>
                
               </tbody>

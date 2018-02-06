@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
-<%
+<% try{
 Studente utente = (Studente) session.getAttribute("user_stud");
-String nomeA=(String)request.getAttribute("noma_azienda");
+String nomeA=(String)request.getAttribute("nome_azienda");
 
 
 if (utente != null) {
@@ -64,7 +64,7 @@ if (utente != null) {
 							
 							<tbody>
 								<tr>
-									<td><%= nomeA%></td>
+									<td><%= nomeA.toString()%></td>
 									<td><%=utente.getMatricola() %></td>
 									<td> <input class="form-control" name="presenza_data"> </i></td>
 									<td><input class="form-control" name="presenza_orai"> </i></td>
@@ -74,7 +74,9 @@ if (utente != null) {
 									</td>
 								</tr>
 							</tbody>
-						</table></form>
+						</table></form> <% } catch (NullPointerException ex) {%>
+							
+							Non sei stato ancora accettato  <%} %>
 					</div>
 				</div>
 				<div class="card-footer small text-muted">Ultimo aggiornamento alle 11:59</div>

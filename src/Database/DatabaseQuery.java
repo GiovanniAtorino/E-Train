@@ -45,6 +45,8 @@ public class DatabaseQuery {
 	private static String queryGetRichiestaStudenteT;
 	private static String queryRicercaStudente;
 	private static String queryGetTirocinioFromStudente;
+	private static String queyAddFile;
+	private static String queryGetFile;
 	
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
 		Connection connection = null;
@@ -456,7 +458,7 @@ public class DatabaseQuery {
 	public synchronized static ArrayList queryGetTirocinioAccettato() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		  Tirocinio t = new Tirocinio();
+		 
 			ArrayList<Tirocinio> tir=new ArrayList<>();
 		try {
 			connection = Database.getConnection();
@@ -468,7 +470,7 @@ public class DatabaseQuery {
 			connection.commit();
 
 			while (rs.next()) {
-				
+				 Tirocinio t = new Tirocinio();
 				 t.setNomeTirocinio(rs.getString("nome"));
 					t.setDescrizioneTirocinio(rs.getString("descrizione"));
 					t.setDatainizioTirocinio(rs.getString("data_inizio"));
@@ -687,7 +689,7 @@ public class DatabaseQuery {
 				
 			
 		}
-		
+		System.out.println("nome az" +nomeAzienda);
 			return nomeAzienda;
 	}
 	
@@ -965,7 +967,61 @@ public class DatabaseQuery {
 	}
 	return tir;
 }
+	public synchronized static boolean addFile(String path) throws SQLException{
+		Connection connection = null;
+		PreparedStatement psAddUtente = null;
+
+		try{
+			connection = Database.getConnection();
+			psAddUtente = connection.prepareStatement(queyAddFile);
+			psAddUtente.setString(1, path);
+			
+			
+			System.out.println(psAddUtente.toString());
+
+			psAddUtente.executeUpdate();
+
+			connection.commit();
+			System.out.println("GU Connessione...");
+		} finally {
+			try{
+				if(psAddUtente != null)
+					psAddUtente.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+
+		return true;}
 	
+	public synchronized static ArrayList getFile() throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+        ArrayList<String> f=new ArrayList<>();
+		
+
+		try {
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryGetFile);
+		
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+			f.add(rs.getString("pathfile"));
+				
+				
+				
+			}} finally {
+				try{
+					if(preparedStatement != null)
+						preparedStatement.close();
+				} finally {
+					Database.releaseConnection(connection);
+				}} return f;
+			}
 	
 	static {
 		queryAdd_Studente = "INSERT INTO studente1 (matricola, nome, cognome,  email,password,dipartimento) VALUES (?,?,?,?,?,?);";
@@ -994,6 +1050,8 @@ public class DatabaseQuery {
 		queryGetRichiestaStudenteT=" select studente1.*  from studente1,richiesta_studente where studente1.nome=richiesta_studente.nome_studente and accettato='no' and studente1.nome_azienda=?;";
 	    queryRicercaStudente="select * from studente1 where nome=? and cognome=?; ";
 	    queryGetTirocinioFromStudente="select tirocineo.* from tirocineo,studente1 where tirocineo.nome=studente1.nome_tirocineo and studente1.accettato='si' and studente1.nome=?;";
+	    queyAddFile="insert into file(pathfile) values(?);";
+	    queryGetFile="select * from file;";
 	}
 
 

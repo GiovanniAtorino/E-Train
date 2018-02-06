@@ -39,12 +39,23 @@
  
   <div class="content-wrapper">
     <div class="container-fluid">
-   <form action="UploadDownloadFileServlet" method="post" enctype="multipart/form-data">
-Select File to Upload:<input type="file" name="fileName">
-<br>
-<input type="submit" value="Upload">
-      
+    <%if(request.getAttribute("message_success")!=null){%>
+    	<%=request.getAttribute("message_success")%>
+    <%}
     
+    if(request.getAttribute("message_danger")!=null){%>
+	<%=request.getAttribute("message_danger")%>
+   <%}
+    
+    if(request.getAttribute("filenotsupported")!=null){%>
+	<%=request.getAttribute("filenotsupported")%>
+   <%}%>
+   <form action="UploadDocument" method="post" enctype="multipart/form-data">
+		Select File to Upload:<input type="file"  accept="application/pdf" name="fileName">
+		<br>
+		<input type="submit" value="Upload">
+      
+    </form>
       </div>
     </div>
     
