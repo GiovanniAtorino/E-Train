@@ -2,28 +2,30 @@ package Servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import Bean.Azienda;
+import Bean.Studente;
 import Bean.Tutor;
 import Database.DatabaseQuery;
 
 /**
- * Servlet implementation class RegisterTutorServlet
+ * Servlet implementation class GetStudentiTutor
  */
-@WebServlet("/RegisterTutorServlet")
-public class RegisterTutorServlet extends HttpServlet {
+@WebServlet("/GetStudentiTutor")
+public class GetStudentiTutor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegisterTutorServlet() {
+    public GetStudentiTutor() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,36 +35,24 @@ public class RegisterTutorServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String Email = request.getParameter("tutor_email");
-		System.out.println(Email);
-		
-		String matr=request.getParameter("tutor_matricola");
-		System.out.println(matr);
-		String Nome = request.getParameter("tutor_nome"); 
-		System.out.println(Nome);
-		
-		String Cognome = request.getParameter("tutor_cognome"); 
-		System.out.println(Cognome);
-		
-		String nomeazienda= request.getParameter("tutor_nomeazienda");
-		System.out.println(nomeazienda);
-		String nometirocinio=request.getParameter("tutor_nometirocinio");
-		String Password = request.getParameter("tutor_password");
-		System.out.println(Password);
-		
-		
-		Tutor t=new Tutor(Nome,matr,Cognome,Email,nomeazienda,nometirocinio,Password);
-		System.out.println(t);
-		
+		HttpSession session = request.getSession();
+		Tutor t = (Tutor) session.getAttribute("user_tutor");
+	String nomea=t.getNomeAT();
+	System.out.println("nome az" +nomea);
+	String nomet=t.getNomeTirocinioT();
+	System.out.println("nome t" +nomet);
 		try {
-			DatabaseQuery.addTutor(t);
-			request.getRequestDispatcher("loginTutor.jsp").forward(request, response);
+			ArrayList<Studente> s=DatabaseQuery.GetStudenteTutor( nomet);
+			System.out.println("Stud"+ s.get(0).getCognome());
+			request.setAttribute("lista_stud", s);
+			request.getRequestDispatcher("visualizzaStudenteTutor.jsp").forward(request, response);
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Ignorante di merda");
 			e.printStackTrace();
 		}
-		} 
+		
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

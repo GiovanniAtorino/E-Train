@@ -59,7 +59,7 @@ public class LoginTutorServlet extends HttpServlet {
 						HttpSession session = request.getSession();
 						session.setAttribute("user_tutor", u);
 					
-						request.getRequestDispatcher("homelogTutor.jsp").forward(request, response);
+						request.getRequestDispatcher("areaTutor.jsp").forward(request, response);
 						
 				}
 				else{   }

@@ -1,5 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
+<%
+Tutor utente = (Tutor) session.getAttribute("user_tutor");
 
+
+if (utente != null) {
+	String email = utente.getEmailT();
+} else {
+	response.sendRedirect("loginTutor.jsp");
+}
+	
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +44,7 @@
 					<div class="card elementArea" style="width: 18rem;">
 						<img class="card-img-top" src="img/tutor.png" alt="Card image cap">
 						<div class="card-body buttonElement">
-							<a href="./visualizzaStudenteTutor.jsp" class="btn btn-primary">Visualizza
+							<a href="GetStudentiTutor" class="btn btn-primary">Visualizza
 								Studente</a>
 						</div>
 					</div>

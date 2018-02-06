@@ -49,6 +49,7 @@ public class DatabaseQuery {
 	private static String queryGetTirocinioFromStudente;
 	private static String queyAddFile;
 	private static String queryGetFile;
+	private static String queryGetStudenteTutor;
 	
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
 		Connection connection = null;
@@ -206,7 +207,7 @@ public class DatabaseQuery {
 			psAddTutor.setString(4, t.getEmailT());
 			psAddTutor.setString(5, t.getPasswordT());
 			psAddTutor.setString(6, t.getNomeAT());
-		
+			psAddTutor.setString(7, t.getNomeTirocinioT());
 			
 
 			psAddTutor.executeUpdate();
@@ -231,7 +232,7 @@ public class DatabaseQuery {
 
 		try {
 			connection = Database.getConnection();
-			preparedStatement = connection.prepareStatement(queryGetStudente);
+			preparedStatement = connection.prepareStatement(queryGetTutor);
 			preparedStatement.setString(1, email);
 
 			ResultSet rs = preparedStatement.executeQuery();
@@ -246,7 +247,7 @@ public class DatabaseQuery {
 			
 				tutor.setMatricolaT(rs.getString("matricola_tutor"));
 				tutor.setNomeAT(rs.getString("nome_azienda"));
-				
+				tutor.setNomeTT(rs.getString("nome_tirocineo"));
 			}
 		} finally {
 			try {
@@ -1028,12 +1029,45 @@ public class DatabaseQuery {
 				}} return f;
 			}
 	
+	public synchronized static ArrayList GetStudenteTutor(String nomet) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+        ArrayList<Studente> rss=new ArrayList<>();
+		
+
+		
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryGetRichiestaStudenteT);
+			
+			preparedStatement.setString(1, nomet);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+				Studente studente = new Studente();
+				studente.setMatricola(rs.getString("matricola"));
+				studente.setEmail(rs.getString("email"));
+				studente.setNome(rs.getString("nome"));
+				studente.setCognome(rs.getString("cognome"));
+				studente.setPassword(rs.getString("password"));
+			
+				studente.setDipartimento(rs.getString("dipartimento"));
+				
+				rss.add(studente);
+			}
+		
+	
+			return rss;
+		}
+	
 	static {
 		queryAdd_Studente = "INSERT INTO studente1 (matricola, nome, cognome,  email,password,dipartimento) VALUES (?,?,?,?,?,?);";
 		queryGetStudente = "SELECT * FROM studente1 WHERE email=?";
 		queryAddAzienda="INSERT INTO azienda(nome,sede,email,password) values (?,?,?,?);";
 		queryGetAzienda="SELECT * FROM azienda where email=?";
-		queryAdd_Tutor = "INSERT INTO tutor (matricola_tutor, nome, cognome,  email,password,nome_azienda) VALUES (?,?,?,?,?,?);";
+		queryAdd_Tutor = "INSERT INTO tutor (matricola_tutor, nome, cognome,  email,password,nome_azienda,nome_tirocineo) VALUES (?,?,?,?,?,?,?);";
 		queryGetTutor = "SELECT * FROM tutor WHERE email=?";
 		queryAdd_Segreteria = "INSERT INTO segreteria (nome, dipartimento,facolta,  email,password,num_telefono) VALUES (?,?,?,?,?,?);";
 		queryGetSegreteria = "SELECT * FROM segreteria WHERE email=?";
@@ -1057,6 +1091,7 @@ public class DatabaseQuery {
 	    queryGetTirocinioFromStudente="select tirocineo.* from tirocineo,studente1 where tirocineo.nome=studente1.nome_tirocineo and studente1.accettato='si' and studente1.nome=?;";
 	    queyAddFile="insert into file(pathfile,nome_file) values(?,?);";
 	    queryGetFile="select * from file;";
+	    queryGetStudenteTutor="select studente1.* from studente1, tutor where studente1.nome_tirocineo=?;";
 	}
 
 
