@@ -69,6 +69,8 @@ if (utente != null) {
 
 <% }}catch(NullPointerException e) {
         	  %>Non ci sono studenti<% 
+          } catch( IndexOutOfBoundsException ex){
+        	  %> NOn ci sono utenti <% 
           }
           %>
           
