@@ -14,7 +14,7 @@
 		<ul class="navbar-nav">
         <li class="nav-item dropdown">
          <li class="nav-item">
-          <a class="nav-link">
+          <a class="">
             <i class="fa fa-fw fa-user"></i>Area Tutor</a>
         </li>
       </ul>
