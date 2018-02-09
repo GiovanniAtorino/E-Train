@@ -59,7 +59,7 @@ public class RegisterServlet extends HttpServlet {
 		
 		try {
 			DatabaseQuery.addStudente(u);
-			request.getRequestDispatcher("login.jsp").forward(request, response);
+			request.getRequestDispatcher("loginStudente.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			request.getRequestDispatcher("errorreg.jsp").forward(request, response);
