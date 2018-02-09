@@ -1,8 +1,7 @@
 <div class="content-wrapper" style="margin-left: 0px;">
-	<div class="card card-register mx-auto mt-5">
+	<div class="card card-register mx-auto mt-5" style="max-width: 50rem;">
 		<div class="card-header">NEWS</div>
-		<div class="form-row">
-			<div class="col-md-6">
+			
 				<div id="carouselExampleIndicators" class="carousel slide"
 					data-ride="carousel">
 					<ol class="carousel-indicators">
@@ -34,8 +33,7 @@
 						class="carousel-control-next-icon" aria-hidden="true"></span> <span
 						class="sr-only">Next</span>
 					</a>
-				</div>
-			</div>
+			
 		</div>
 	</div>
 </div>
