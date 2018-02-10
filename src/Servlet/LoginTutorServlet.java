@@ -62,7 +62,9 @@ public class LoginTutorServlet extends HttpServlet {
 						request.getRequestDispatcher("areaTutor.jsp").forward(request, response);
 						
 				}
-				else{   }
+				else {
+					request.getRequestDispatcher("errorlog.jsp").forward(request, response);
+				}
 			} else {   }
 	}
 

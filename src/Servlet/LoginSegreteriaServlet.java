@@ -61,6 +61,8 @@ public class LoginSegreteriaServlet extends HttpServlet {
 					
 						request.getRequestDispatcher("areaSegreteria.jsp").forward(request, response);
 						
+				}else {
+					request.getRequestDispatcher("errorlog.jsp").forward(request, response);
 				}
 			}
 			}

@@ -61,6 +61,8 @@ public class LoginAziendaServlet extends HttpServlet {
 					
 						request.getRequestDispatcher("areaAzienda.jsp").forward(request, response);
 						
+				}else {
+					request.getRequestDispatcher("errorlog.jsp").forward(request, response);
 				}
 			}
 	
