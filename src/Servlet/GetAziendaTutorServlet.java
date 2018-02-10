@@ -2,7 +2,6 @@ package Servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,23 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-import Bean.FileP;
-import Bean.Segreteria;
-import Bean.Studente;
+import Bean.Azienda;
+import Bean.Tutor;
 import Database.DatabaseQuery;
 
 /**
- * Servlet implementation class GetFileServlet
+ * Servlet implementation class GetAziendaTutorServlet
  */
-@WebServlet("/GetFileServlet")
-public class GetFileServlet extends HttpServlet {
+@WebServlet("/GetAziendaTutorServlet")
+public class GetAziendaTutorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetFileServlet() {
+    public GetAziendaTutorServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,13 +35,16 @@ public class GetFileServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-		Studente a = (Studente) session.getAttribute("user_stud");
-		ArrayList<FileP> pf=new ArrayList<>();
+		Tutor t = (Tutor) session.getAttribute("user_tutor");
+	String nomea=t.getNomeAT();
+	System.out.println("nome az" +nomea);
+	String nomet=t.getNomeTirocinioT();
+	System.out.println("nome t" +nomet);
+	Azienda a=new Azienda();
 		try {
-			pf=DatabaseQuery.getFile();
-			request.setAttribute("lista_path", pf);
-			request.getRequestDispatcher("gestioneFileStudente.jsp").forward(request, response);
-			request.getRequestDispatcher("gestioneFileTutor.jsp").forward(request, response);
+			a=DatabaseQuery.getAziendaByTirocinio(nomet);
+			request.setAttribute("azienda", a);
+			request.getRequestDispatcher("visualizzaAziendaTutor.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

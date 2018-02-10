@@ -1,4 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
+<%
+
+Tutor utente = (Tutor) session.getAttribute("user_tutor");
+Azienda a= (Azienda) request.getAttribute("azienda");
+
+if (utente != null) {
+	String email = utente.getEmailT();
+} else {
+	response.sendRedirect("loginTutor.jsp");
+}
+	
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +55,11 @@
   
   <div class="content-wrapper">
     <div class="container-fluid">
-      
+      Dati azienda;
+      <%=a.getNomeA() %>
+      <%=a.getEmailA() %>
+      <%=a.getSedeA() %>
+    
     
       </div>
     </div>

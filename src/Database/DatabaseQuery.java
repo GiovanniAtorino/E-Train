@@ -50,6 +50,7 @@ public class DatabaseQuery {
 	private static String queyAddFile;
 	private static String queryGetFile;
 	private static String queryGetStudenteTutor;
+	private static String queryGetAziendaTutor;
 	
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
 		Connection connection = null;
@@ -1092,6 +1093,7 @@ public class DatabaseQuery {
 	    queyAddFile="insert into file(pathfile,nome_file) values(?,?);";
 	    queryGetFile="select * from file;";
 	    queryGetStudenteTutor="select studente1.* from studente1, tutor where studente1.nome_tirocineo=?;";
+	  
 	}
 
 

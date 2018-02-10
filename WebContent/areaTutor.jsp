@@ -53,7 +53,7 @@ if (utente != null) {
 						<img class="card-img-top" src="img/azienda.png"
 							alt="Card image cap">
 						<div class="card-body buttonElement">
-							<a href="./visualizzaAziendaTutor.jsp" class="btn btn-primary">Visualizza
+							<a href="GetAziendaTutorServlet" class="btn btn-primary">Visualizza
 								Azienda</a>
 						</div>
 					</div>
