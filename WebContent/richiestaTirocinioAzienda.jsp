@@ -73,7 +73,7 @@ if (utenteA != null) {
                 <input class="form-control" name="tirocinio_dataf" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci Nome Azienda">
             </div>
             	<input class="submit" type="submit"
-								name="contact_submitted" value="login" />
+								name="contact_submitted" value="invia" />
 								</div></div></div></div>
 								</form>
       </div>

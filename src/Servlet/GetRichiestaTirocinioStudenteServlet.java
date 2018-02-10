@@ -49,6 +49,12 @@ public class GetRichiestaTirocinioStudenteServlet extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (NullPointerException ex) {
+			request.getRequestDispatcher("errorrichAzienda.jsp").forward(request, response);
+			ex.printStackTrace();
+		} catch (IndexOutOfBoundsException exx) {
+			request.getRequestDispatcher("errorrichAzienda.jsp").forward(request, response);
+			exx.printStackTrace();
 		}
 	}
 

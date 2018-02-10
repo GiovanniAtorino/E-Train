@@ -45,6 +45,7 @@ public class GetFileServlet extends HttpServlet {
 			request.setAttribute("lista_path", pf);
 			request.getRequestDispatcher("gestioneFileStudente.jsp").forward(request, response);
 			request.getRequestDispatcher("gestioneFileTutor.jsp").forward(request, response);
+			request.getRequestDispatcher("gestioneFileAzienda.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

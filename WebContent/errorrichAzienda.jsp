@@ -2,25 +2,38 @@
 	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
 <%
 
-Azienda a=(Azienda) session.getAttribute("user_aziend");
-ArrayList<FileP> pf=(ArrayList) request.getAttribute("lista_path");
-if (a != null) {
-	String nomeA = a.getNomeA();
-	
+Azienda utenteA=(Azienda) session.getAttribute("user_aziend");
+
+if (utenteA != null) {
+	String nomeA = utenteA.getNomeA();
 } else {
 	response.sendRedirect("loginAzienda.jsp");
 }
 	
 %>
+
 <!DOCTYPE html>
 <html lang="en">
 
-<%@ include file="head.jsp"%>
-
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>E-Train</title>
+  <!-- Bootstrap core CSS-->
+  <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+</head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   
-
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
 	<%@ include file="header.jsp"%>
 	
@@ -33,60 +46,14 @@ if (a != null) {
       </ul>
 	
   	<%@ include file="sidenavAzienda.jsp"%>
+  	
   </nav>
   
-  <div class="content-wrapper">
-    <div class="container-fluid">
-        <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> Data Table Example</div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>Azienda</th>
-                  <th>Bottone</th>
-                  <th>Scarica</th>
-                  <th>Bottone</th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th>Azienda</th>
-                  <th>Bottone</th>
-                  <th>Scarica</th>
-                  <th>Bottone</th>
-                </tr>
-              </tfoot>
-              
-              <tbody>
-                <tr>
-                <%for(int i=0;i<pf.size();i++){ %>
-                  <td><%=pf.get(i).getNomeF() %></td>
-                  <td><button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Richiesta</button></td>
-                  <td><a href="<%=pf.get(i).getPathF() %>" > Scarica File </a></td>
-                  <td>
-                    <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button>
-                  </td> <br>
-                   <%} %>
-                </tr>
-               
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-      </div>
-    </div>
-    
-    
-      </div>
-    </div>
+  Non Ci sono richieste
+      
     
     <!-- FOOTER -->
-    <%@ include file="footer.jsp" %> 
-    
+  	<%@ include file="footer.jsp" %>
     
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -99,7 +66,7 @@ if (a != null) {
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Disconnect</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">X</span>
+              <span aria-hidden="true">X</span>
             </button>
           </div>
           <div class="modal-body">Sei sicuro di volerti disconnettere?</div>
@@ -110,7 +77,6 @@ if (a != null) {
         </div>
       </div>
     </div>
-    
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

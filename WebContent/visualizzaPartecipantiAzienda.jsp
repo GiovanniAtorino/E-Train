@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
 <%
-
+try{
 Azienda a=(Azienda) session.getAttribute("user_aziend");
 ArrayList<Studente> s=(ArrayList) request.getAttribute("rich_studenti");
 if (a != null) {
 	String nomeA = a.getNomeA();
 	
 } else {
-	response.sendRedirect("loginSegreteria.jsp");
+	response.sendRedirect("loginAzienda.jsp");
 }
 	
 %>
@@ -51,6 +51,8 @@ if (a != null) {
  
   <div class="content-wrapper">
     <div class="container-fluid">
+    
+    
       Richieste Studenti: <br>
       
       <%for(int i=0;i<s.size();i++){ %>
@@ -67,11 +69,16 @@ if (a != null) {
 									id="<%=s.get(i).getNome()%>" name="submitta"
 									class="deleteamico" value="deleteamico">
 								</button> <br>
-      <%} %>
-    
+     
       </div>
     </div>
-    
+     
+    <%}}catch (IndexOutOfBoundsException exx) {
+	
+    	response.sendRedirect("errorrichAzienda.jsp");
+    	%>
+		<%
+	} %> 
 	<!-- FOOTER -->
     <%@ include file="footer.jsp" %> 
     
