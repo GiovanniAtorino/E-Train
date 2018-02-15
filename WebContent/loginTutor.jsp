@@ -14,6 +14,10 @@
 <div class="container-fluid">
 		<div class="container">
 			<div class="card card-login mx-auto mt-5">
+			<%if(request.getAttribute("signup_success")!=null)
+			   {%>
+				 <div class="alert alert-success"> <strong>Complimenti!</strong> <%=request.getAttribute("signup_success") %></div> 
+			   <%}%>
 				<div class="card-header">Login Tutor</div>
 				<div class="card-body">
 					<form action="LoginTutorServlet" method="post">

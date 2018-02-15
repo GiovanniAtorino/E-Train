@@ -57,10 +57,12 @@ public class RegisterSegreteriaServlet extends HttpServlet {
 		
 		try {
 			DatabaseQuery.addSegreteria(s);
+			request.setAttribute("signup_success", "Registrazione come " + Nome + " effettuata con successo.");
 			request.getRequestDispatcher("loginSegreteria.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Ignorante di merda");
+			request.setAttribute("signup_unsuccess", "Registrazione non avvenuta.");
+			request.getRequestDispatcher("registrazioneSegreteriaAdmin.jsp").forward(request, response);
 			e.printStackTrace();
 		}
 		} 

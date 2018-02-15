@@ -53,10 +53,12 @@ public class RegisterAziendaServlet extends HttpServlet {
 		
 		try {
 			DatabaseQuery.addAzienda(a);
+			request.setAttribute("signup_success", "Registrazione come " + Nome + " effettuata con successo.");
 			request.getRequestDispatcher("loginAzienda.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Ignorante di merda");
+			request.setAttribute("signup_unsuccess", "Registrazione non avvenuta.");
+			request.getRequestDispatcher("registerAzienda.jsp").forward(request, response);
 			e.printStackTrace();
 		}
 		} 

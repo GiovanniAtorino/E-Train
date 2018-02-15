@@ -18,10 +18,19 @@
       </ul>
 	</nav>
       
-      
+   
+   
+  
+   
+   
  <div class="content-wrapper" style="margin-left: 0px;">
    <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Registra Account Studente</div>
+   
+   <%if(request.getAttribute("signup_unsuccess")!=null)
+   {%>
+     <div class="alert alert-danger"> <strong>Spiacenti!</strong> <%=request.getAttribute("signup_unsuccess") %></div> 
+   <%}%>  
+      <div class="card-header">Registra Account Studente </div>
       <div class="card-body">
        <form action="RegisterServlet" method="post" id="form">
           <div class="form-group">
@@ -35,11 +44,11 @@
                 <input class="form-control" name="studente_cognome" id="studente_cognome" type="text" aria-describedby="nameHelp" placeholder="Inserisci Cognome">
               </div>
             </div>
+          </div>          
+            <div class="form-group">
+            <label for="exampleInputName">Dipartimento: </label>
+            <input class="form-control" name="studente_dipartimento" id="studente_dipartimento" type="text" aria-describedby="textHelp" placeholder="Inserisci Dipartimento">
           </div>
-          <div class="form-group">
-              <label for="exampleInputEmail1">Dipartimento:</label><br>
-              <input id="form-control" name="studente_dipartimento" id="studente_dipartimento" type="date" aria-describedby="dateHelp" placeholder="Inserisci Dipartimento">
-            </div>
 
             <div class="form-group">
             <label for="exampleInputName">Numero Matricola: </label>

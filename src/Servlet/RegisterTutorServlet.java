@@ -54,12 +54,15 @@ public class RegisterTutorServlet extends HttpServlet {
 		Tutor t=new Tutor(Nome,matr,Cognome,Email,nomeazienda,nometirocinio,Password);
 		System.out.println(t);
 		
+		
 		try {
 			DatabaseQuery.addTutor(t);
+			request.setAttribute("signup_success", "Registrazione come " + Nome + " " + Cognome + " effettuata con successo.");
 			request.getRequestDispatcher("loginTutor.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Ignorante di merda");
+			request.setAttribute("signup_unsuccess", "Registrazione non avvenuta.");
+			request.getRequestDispatcher("registerTutor.jsp").forward(request, response);
 			e.printStackTrace();
 		}
 		} 

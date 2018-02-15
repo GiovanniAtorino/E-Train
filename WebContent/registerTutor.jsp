@@ -21,6 +21,10 @@
       
  <div class="content-wrapper" style="margin-left: 0px;">
     <div class="card card-register mx-auto mt-5">
+    <%if(request.getAttribute("signup_unsuccess")!=null)
+     {%>
+     <div class="alert alert-danger"> <strong>Spiacenti!</strong> <%=request.getAttribute("signup_unsuccess") %></div> 
+   <%}%>
       <div class="card-header">Registra Account Tutor</div>
       <div class="card-body">
        <form action="RegisterTutorServlet" method="post" id="form">
@@ -36,13 +40,9 @@
               </div>
             </div>
           </div>
-          <div class="form-group">
-                <label for="exampleInputEmail1">Nome azienda:</label><br>
-                <input id="date" name="tutor_nomeazienda" type="date" aria-describedby="dateHelp" placeholder="Inserisci nome azienda">
-              </div>
                  <div class="form-group">
                 <label for="exampleInputEmail1">Nome tirocinio:</label><br>
-                <input id="date" name="tutor_nometirocinio" type="date" aria-describedby="dateHelp" placeholder="Inserisci nome azienda">
+                <input id="date" name="tutor_nometirocinio" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci nome azienda">
               </div>
               <div class="form-group">
                     <label for="exampleInputEmail1">Numero Matricola:</label><br>

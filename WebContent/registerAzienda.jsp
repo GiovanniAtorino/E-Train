@@ -21,6 +21,10 @@
       
 <div class="content-wrapper" style="margin-left: 0px;">
     <div class="card card-register mx-auto mt-5">
+    <%if(request.getAttribute("signup_unsuccess")!=null)
+     {%>
+     <div class="alert alert-danger"> <strong>Spiacenti!</strong> <%=request.getAttribute("signup_unsuccess") %></div> 
+   <%}%>
       <div class="card-header">Registrazione Account Aziendale </div>
       <div class="card-body">
         <form action="RegisterAziendaServlet" method="post" id="form">

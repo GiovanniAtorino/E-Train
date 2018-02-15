@@ -28,6 +28,10 @@
   <div class="content-wrapper">
      <div class="card card-register mx-auto mt-5" style="margin-top: 2rem !important;">
     <div class="contentArea">
+    <%if(request.getAttribute("signup_unsuccess")!=null)
+     {%>
+     <div class="alert alert-danger"> <strong>Spiacenti!</strong> <%=request.getAttribute("signup_unsuccess") %></div> 
+   <%}%>
      <div class="card-header">Registra Account Studente</div>
       <div class="card-body">
        <form action="RegisterSegreteriaServlet" method="post" id="form">

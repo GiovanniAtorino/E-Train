@@ -47,22 +47,21 @@ public class RegisterServlet extends HttpServlet {
 		String Matricola = request.getParameter("studente_matricola");
 		System.out.println(Matricola);
 		
-		
-		
 		String Dipartimento = request.getParameter("studente_dipartimento");
 		System.out.println(Dipartimento);
-	
-		
 		
 		Studente u = new Studente(Matricola, Nome, Cognome, Email,Password,Dipartimento);
 		System.out.println(u);
 		
 		try {
 			DatabaseQuery.addStudente(u);
+			request.setAttribute("signup_success", "Registrazione come " + Nome + " " + Cognome + " effettuata con successo.");
 			request.getRequestDispatcher("loginStudente.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			request.getRequestDispatcher("errorreg.jsp").forward(request, response);
+			request.setAttribute("signup_unsuccess", "Registrazione non avvenuta.");
+			//request.getRequestDispatcher("errorreg.jsp").forward(request, response);
+			request.getRequestDispatcher("registerStudente.jsp").forward(request, response);
 			e.printStackTrace();
 		}
 		} 
