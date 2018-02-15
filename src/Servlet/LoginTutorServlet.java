@@ -63,7 +63,8 @@ public class LoginTutorServlet extends HttpServlet {
 						
 				}
 				else {
-					request.getRequestDispatcher("errorlog.jsp").forward(request, response);
+					request.setAttribute("login_unsuccess", "Login errato password o email errati.");
+					request.getRequestDispatcher("loginTutor.jsp").forward(request, response);
 				}
 			} else {   }
 	}

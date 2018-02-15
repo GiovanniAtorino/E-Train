@@ -62,8 +62,8 @@ public class LoginSegreteriaServlet extends HttpServlet {
 						request.getRequestDispatcher("areaSegreteria.jsp").forward(request, response);
 						
 				}else {
-					request.getRequestDispatcher("errorlog.jsp").forward(request, response);
-				}
+					request.setAttribute("login_unsuccess", "Login errato password o email errati.");
+					request.getRequestDispatcher("loginSegreteria.jsp").forward(request, response);				}
 			}
 			}
 

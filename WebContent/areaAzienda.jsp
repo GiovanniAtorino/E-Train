@@ -3,13 +3,13 @@
 <%
 
 Azienda a=(Azienda) session.getAttribute("user_aziend");
-
-if (a != null) {
+if (a != null){
 	String nomeA = a.getNomeA();
-	
-} else {
-	response.sendRedirect("loginAzienda.jsp");
-}
+} 
+
+else {
+		response.sendRedirect("loginAzienda.jsp");
+	}
 	
 %>
 <!DOCTYPE html>

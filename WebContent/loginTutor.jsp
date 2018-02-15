@@ -1,4 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*, Bean.*"%>
+
+<%
+Tutor utente = (Tutor) session.getAttribute("user_tutor");
+if (utente != null) {
+	response.sendRedirect("areaTutor.jsp");
+} 
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +47,7 @@
 								</label>
 							</div>
 						</div>
-						<input class="submit" type="submit"
+						<input class="btn btn-primary btn-block" type="submit"
 								name="contact_submitted" value="login" />
 					</form>
 					<div class="text-center">

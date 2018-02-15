@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*"%>
 
+<%
+boolean logout = Boolean.parseBoolean(request.getParameter("logout"));
+
+if(logout)
+{
+	session.removeAttribute("user_stud");
+	session.removeAttribute("user_aziend");
+}
+
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 

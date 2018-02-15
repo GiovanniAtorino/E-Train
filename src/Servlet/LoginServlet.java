@@ -49,8 +49,6 @@ public class LoginServlet extends HttpServlet {
 				if(u.getPassword().equals(Password))
 				{
 					
-						
-						
 						HttpSession session = request.getSession();
 						session.setAttribute("user_stud", u);
 					
@@ -58,7 +56,8 @@ public class LoginServlet extends HttpServlet {
 						
 				}
 				else {
-					request.getRequestDispatcher("errorlog.jsp").forward(request, response);
+					request.setAttribute("login_unsuccess", "Login errato password o email errati.");
+					request.getRequestDispatcher("loginStudente.jsp").forward(request, response);
 				}
 			} else {   }
 			

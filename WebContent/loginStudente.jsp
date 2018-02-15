@@ -1,4 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*"%>
+	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*,Bean.*"%>
+
+<%
+Studente utente = (Studente) session.getAttribute("user_stud");
+if (utente != null) {
+	response.sendRedirect("areaStudente.jsp");
+} 
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +25,12 @@
 			<%if(request.getAttribute("signup_success")!=null)
 			   {%>
 				 <div class="alert alert-success"> <strong>Complimenti!</strong> <%=request.getAttribute("signup_success") %></div> 
-			   <%}%>
+			   <%}
+			  if(request.getAttribute("login_unsuccess")!=null)
+			   {%>
+				 <div class="alert alert-danger"> <strong>Spiacenti!</strong> <%=request.getAttribute("login_unsuccess") %></div> 
+			   <%}
+			   %>
 				<div class="card-header">Login Studente</div>
 				<div class="card-body">
 					<form action="LoginServlet" method="post">
@@ -41,7 +53,7 @@
 								</label>
 							</div>
 						</div>
-							<input class="submit" type="submit"
+							<input class="btn btn-primary btn-block" type="submit"
 								name="contact_submitted" value="login" />
 					</form>
 					<div class="text-center">

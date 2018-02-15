@@ -1,4 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*, Bean.*"%>
+
+<%
+Azienda utente = (Azienda) session.getAttribute("user_aziend");
+if (utente != null) {
+	response.sendRedirect("areaAzienda.jsp");
+} 
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +47,8 @@
 								</label>
 							</div>
 						</div>
-						<input class="submit" type="submit"
+						
+						<input class="btn btn-primary btn-block" type="submit"
 								name="contact_submitted" value="login" />
 					</form>
 					<div class="text-center">

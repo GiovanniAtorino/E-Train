@@ -43,13 +43,13 @@
               </div>
               <div class="col-md-6">
                 <label for="exampleInputLastName">Dipartimento: </label>
-                <input class="form-control" name="segreteria_dipartimento" id="segreteria_cognome" type="text" aria-describedby="nameHelp" placeholder="Inserisci Cognome">
+                <input class="form-control" name="segreteria_dipartimento" id="segreteria_dipartimento" type="text" aria-describedby="nameHelp" placeholder="Inserisci Dipartimento">
               </div>
             </div>
           </div>
           <div class="form-group">
-              <label for="exampleInputEmail1">Facoltà:</label><br>
-              <input id="form-control" name="segreteria_facolta" id="segreteria_facolta" type="date" aria-describedby="dateHelp" placeholder="Inserisci Dipartimento">
+              <label for="exampleInputEmail1">Facoltà:</label><br>              
+              <input class="form-control" name="segreteria_facolta" id="segreteria_facolta" type="text" aria-describedby="nameHelp" placeholder="Inserisci Dipartimento">
             </div>
 
             <div class="form-group">
@@ -72,7 +72,7 @@
               </div>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="home.jsp">Registrati</a>
+          	<input class="btn btn-primary btn-block" type="submit"	name="contact_submitted" value="Registrati" />
         </form>
       </div>  
       </div>

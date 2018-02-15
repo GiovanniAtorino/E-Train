@@ -62,7 +62,8 @@ public class LoginAziendaServlet extends HttpServlet {
 						request.getRequestDispatcher("areaAzienda.jsp").forward(request, response);
 						
 				}else {
-					request.getRequestDispatcher("errorlog.jsp").forward(request, response);
+					request.setAttribute("login_unsuccess", "Login errato password o email errati.");
+					request.getRequestDispatcher("loginAzienda.jsp").forward(request, response);
 				}
 			}
 	
