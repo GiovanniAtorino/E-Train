@@ -35,24 +35,32 @@ if (utenteS != null) {
   
   <div class="content-wrapper">
     <div class="container-fluid">
+    
+   
+    <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Rierca Studente</div>
+      <div class="card-body">
     <form action="CercaStudenteServlet" method="post">
        <div class="form-group">
             <div class="form-row">
-              <div class="col-md-6">
                 <label for="exampleInputName">Nome: </label>
                 <input class="form-control" name="ricerca_nome" id="studente_nome" type="text" aria-describedby="nameHelp" placeholder="Inserisci un Nome">
               </div>
-              <div class="col-md-6">
+             <br>
+              <div class="form-group">
+            <div class="form-row">
                 <label for="exampleInputLastName">Cognome: </label>
                 <input class="form-control" name="ricerca_cognome" id="studente_cognome" type="text" aria-describedby="nameHelp" placeholder="Inserisci Cognome">
               </div>
             </div>
-          </div>
-    
-    	<input class="submit" type="submit"	name="contact_submitted" value="Cerca" />
+       </div>
+       
+    	<input class="btn btn-primary" type="submit" name="contact_submitted" value="Cerca" />
     </form>
       </div>
     </div>
+    </div></div>
     
 	<!-- FOOTER -->
   	<%@ include file="footer.jsp" %>

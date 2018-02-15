@@ -10,8 +10,8 @@ if (a != null){
 else {
 		response.sendRedirect("loginAzienda.jsp");
 	}
-	
 %>
+
 <!DOCTYPE html>
 <html lang="en">
 

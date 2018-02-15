@@ -46,7 +46,7 @@
               </div>
               <div class="form-group">
                     <label for="exampleInputEmail1">Numero Matricola:</label><br>
-                    <input class="form-control" name="tutor_matricola" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci Numero Matricola">
+                    <input class="form-control" name="tutor_matricola" id="exampleInputName" type="text" maxlength="10" aria-describedby="nameHelp" placeholder="Inserisci Numero Matricola">
               </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email Accademica: </label>

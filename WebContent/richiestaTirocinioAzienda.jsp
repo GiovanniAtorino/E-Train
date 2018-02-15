@@ -21,7 +21,8 @@ if (utenteA != null) {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>E-Train</title>
+  <title>E-Train Richiesta Tirocinio</title>
+  <link rel="shortcut icon" type="image/x-icon" href="img/logo.png"/>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -49,8 +50,14 @@ if (utenteA != null) {
   	
   </nav>
   
+  
   <div class="content-wrapper">
     <div class="container-fluid">
+    
+<div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Richiesta Tirocinio</div>
+        <div class="card-body">
         <form action="InviaRichiestaTirocinioServlet" method="post" id="form">
         <div class="form-group">
             <div class="form-row">
@@ -64,19 +71,22 @@ if (utenteA != null) {
             </div>
         <div class="form-group">
             <div class="form-row">
-                <label for="exampleInputName">Data inizio Tirocinio: </label>
-                <input class="form-control" name="tirocinio_datai" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci Nome Azienda">
+                <label for="exampleInputDate">Data inizio Tirocinio: </label>
+                <input class="form-control" name="tirocinio_data" id="exampleInputDate" type="date">
             </div>
               <div class="form-group">
             <div class="form-row">
-                <label for="exampleInputName">Data fine Tirocinio: </label>
-                <input class="form-control" name="tirocinio_dataf" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci Nome Azienda">
+                <label for="exampleInputDate">Data fine Tirocinio: </label>
+                <input class="form-control" name="tirocinio_dataf" id="exampleInputDate" type="date">
             </div>
-            	<input class="submit" type="submit"
+            <br><br>
+            	<input class="btn btn-primary btn-block" type="submit"
 								name="contact_submitted" value="invia" />
 								</div></div></div></div>
 								</form>
       </div>
+    </div>
+    </div>
     </div>
     
     <!-- FOOTER -->

@@ -1,5 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
+<%
+Tutor utente = (Tutor) session.getAttribute("user_tutor");
+ArrayList<FileP> pf=(ArrayList) request.getAttribute("lista_path");
+
+if (utente != null) {
+	String email = utente.getEmailT();
+} else {
+	response.sendRedirect("loginTutor.jsp");
+}
+	
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 

@@ -5,7 +5,6 @@ try{
 Studente utente = (Studente) session.getAttribute("user_stud");
 ArrayList<Tirocinio> t=(ArrayList<Tirocinio>) request.getAttribute("tir_accettati");
 
-
 if (utente != null) {
 	String email = utente.getEmail();
 	

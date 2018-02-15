@@ -42,6 +42,10 @@ if (utente != null) {
   
   <div class="content-wrapper">
     <div class="container-fluid">
+    <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Visualizza Tirocinio</div>
+        <div class="card-body">
          Lista Tirocini a cui partecipi:
       
       <% 
@@ -69,7 +73,7 @@ if (utente != null) {
       
     
       </div>
-    </div>
+    </div></div>
     
     <!-- FOOTER -->
     <%@ include file="footer.jsp" %> 

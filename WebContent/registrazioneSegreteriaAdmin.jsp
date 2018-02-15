@@ -54,7 +54,7 @@
 
             <div class="form-group">
             <label for="exampleInputName">Numero Telefono: </label>
-                <input class="form-control" name="segreteria_telefono" id="segreteria_telefono" type="number" pattern="[0-9]" aria-describedby="numberHelp" placeholder="Inserisci Numero Matricola">
+                <input class="form-control" name="segreteria_telefono" id="segreteria_telefono" type="text" maxlength="10" pattern="[0-9]" aria-describedby="numberHelp" placeholder="Inserisci Numero Matricola">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email: </label>
@@ -72,11 +72,8 @@
               </div>
             </div>
           </div>
-<<<<<<< HEAD
+
           	<input class="btn btn-primary btn-block" type="submit"	name="contact_submitted" value="Registrati" />
-=======
-        <input class="submit" type="submit"	name="contact_submitted" value="Registrati" />
->>>>>>> 96a7f8952dcb68ce79de9f169408278566243bd3
         </form>
       </div>  
       </div>

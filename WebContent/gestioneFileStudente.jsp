@@ -3,6 +3,13 @@
 <%
 Studente utente = (Studente) session.getAttribute("user_stud");
 ArrayList<FileP> pf=(ArrayList) request.getAttribute("lista_path");
+
+if (utente != null) {
+	String email = utente.getEmailS();
+} else {
+	response.sendRedirect("loginStudente.jsp");
+}
+	
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,10 +37,9 @@ ArrayList<FileP> pf=(ArrayList) request.getAttribute("lista_path");
   	
   </nav>	
 	
-  <div class="content-wrapper">
+   <div class="content-wrapper">
     <div class="container-fluid">
-      <!-- Example DataTables Card-->
-      <div class="card mb-3">
+        <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table"></i> Data Table Example</div>
         <div class="card-body">
@@ -73,10 +79,9 @@ ArrayList<FileP> pf=(ArrayList) request.getAttribute("lista_path");
           </div>
         </div>
         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-      </div>
-    </div>
-    
-    <!-- FOOTER -->
+        
+        
+        <!-- FOOTER -->
     <%@ include file="footer.jsp" %> 
     
     

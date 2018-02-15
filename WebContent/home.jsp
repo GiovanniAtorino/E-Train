@@ -7,6 +7,8 @@ if(logout)
 {
 	session.removeAttribute("user_stud");
 	session.removeAttribute("user_aziend");
+	session.removeAttribute("user_segreteria");
+	session.removeAttribute("user_tutor");
 }
 
 %>
