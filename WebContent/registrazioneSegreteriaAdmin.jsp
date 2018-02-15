@@ -72,7 +72,11 @@
               </div>
             </div>
           </div>
+<<<<<<< HEAD
           	<input class="btn btn-primary btn-block" type="submit"	name="contact_submitted" value="Registrati" />
+=======
+        <input class="submit" type="submit"	name="contact_submitted" value="Registrati" />
+>>>>>>> 96a7f8952dcb68ce79de9f169408278566243bd3
         </form>
       </div>  
       </div>
