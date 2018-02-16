@@ -79,12 +79,9 @@ if (utente != null) {
 							Non sei stato ancora accettato  <%} %>
 					</div>
 				</div>
-				<div class="card-footer small text-muted">Ultimo aggiornamento alle 11:59</div>
-			</div>
 		</div>
+		
 
-		<!-- FOOTER -->
-		<%@ include file="footer.jsp"%>
 
 		<!-- Scroll to Top Button-->
 		<a class="scroll-to-top rounded" href="#page-top"> <i class="fa fa-angle-up"></i>
@@ -137,6 +134,6 @@ if (utente != null) {
 		<!-- Custom scripts for this page-->
 		<script src="js/sb-admin-datatables.min.js"></script>
 		<script src="js/sb-admin-charts.min.js"></script>
-	</div>
+	
 </body>
 </html>
