@@ -66,7 +66,7 @@ if (utenteS != null) {
 								<button type="button"
 									id="<%=t.get(i).getNomeTirocinio()%>" name="submitta"
 									class="deleteamico" value="deleteamico">
-								</button>
+								</button><br>
       <%} %>
     
       </div>
