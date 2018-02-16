@@ -34,9 +34,9 @@ public class AccettaTirocinioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-		Segreteria a = (Segreteria) session.getAttribute("user_segreteria");
 		String nomet=request.getParameter("nomet");	
 		try {
+			System.out.println("Tirocineo da accettare" + nomet);
 			DatabaseQuery.queryAccettaTirocinio(nomet);
 			System.out.println("Tirocinio accettato:" +nomet);
 			request.getRequestDispatcher("areaSegreteria.jsp").forward(request, response);

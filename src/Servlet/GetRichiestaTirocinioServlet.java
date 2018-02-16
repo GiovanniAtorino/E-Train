@@ -36,12 +36,9 @@ public class GetRichiestaTirocinioServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
-		Segreteria a = (Segreteria) session.getAttribute("user_segreteria");
 		ArrayList<Tirocinio> t=new ArrayList<>();
 		try {
-		t=	DatabaseQuery.queryGetRichiestaTirocinio();
-		System.out.println("Richiesta tir=" +t.get(0).getNomeTirocinio());
+		t=DatabaseQuery.queryGetRichiestaTirocinio();
 		request.setAttribute("richieste_tir", t);
 		request.getRequestDispatcher("visualizzaTirocinioSegreteria.jsp").forward(request, response);
 		} catch (SQLException e) {

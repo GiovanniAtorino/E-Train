@@ -17,14 +17,14 @@ import Database.DatabaseQuery;
 /**
  * Servlet implementation class RichistaTirocinioStudenteServlet
  */
-@WebServlet("/RichistaTirocinioStudenteServlet")
-public class RichistaTirocinioStudenteServlet extends HttpServlet {
+@WebServlet("/RichiestaTirocinioStudenteServlet")
+public class RichiestaTirocinioStudenteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RichistaTirocinioStudenteServlet() {
+    public RichiestaTirocinioStudenteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -47,6 +47,7 @@ public class RichistaTirocinioStudenteServlet extends HttpServlet {
 				System.out.println("Invio Richista a" +nomea +nomet);
 				try {
 					DatabaseQuery.addRichiestaStudente(matr, nomea, nomet, n, c);
+					DatabaseQuery.updateStudente(nomea, nomet, matr);
 				
 					
 					System.out.println("Richista inviata=" +nomea +nomet);

@@ -35,8 +35,8 @@ public class RegisterTutorServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String Email = request.getParameter("tutor_email");
 		System.out.println(Email);
-		
-		String matr=request.getParameter("tutor_matricola");
+
+		int matr= Integer.parseInt(request.getParameter("tutor_matricola"));
 		System.out.println(matr);
 		String Nome = request.getParameter("tutor_nome"); 
 		System.out.println(Nome);

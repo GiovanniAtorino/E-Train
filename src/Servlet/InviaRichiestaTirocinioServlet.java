@@ -56,6 +56,7 @@ public class InviaRichiestaTirocinioServlet extends HttpServlet {
 	    try {
 			if (DatabaseQuery.addRichiestaTirocinio(t)) {
 				System.out.println("Ok");
+				request.getRequestDispatcher("areaAzienda.jsp").forward(request, response);
 			}
 			
 		} catch (SQLException e) {

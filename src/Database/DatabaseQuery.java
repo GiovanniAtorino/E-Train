@@ -51,6 +51,7 @@ public class DatabaseQuery {
 	private static String queryGetFile;
 	private static String queryGetStudenteTutor;
 	private static String queryGetAziendaTutor;
+	private static String queryUpdateStudenteRichiesta;
 	
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
 		Connection connection = null;
@@ -202,7 +203,7 @@ public class DatabaseQuery {
 		try{
 			connection = Database.getConnection();
 			psAddTutor = connection.prepareStatement(queryAdd_Tutor);
-			psAddTutor.setString(1, t.getMatricolaT());
+			psAddTutor.setInt(1, t.getMatricolaT());
 			psAddTutor.setString(2, t.getNomeT());
 			psAddTutor.setString(3, t.getCognomeT());
 			psAddTutor.setString(4, t.getEmailT());
@@ -246,7 +247,7 @@ public class DatabaseQuery {
 				tutor.setCognomeT(rs.getString("cognome"));
 				tutor.setPasswordT(rs.getString("password"));
 			
-				tutor.setMatricolaT(rs.getString("matricola_tutor"));
+				tutor.setMatricolaT(rs.getInt("matricola_tutor"));
 				tutor.setNomeAT(rs.getString("nome_azienda"));
 				tutor.setNomeTT(rs.getString("nome_tirocineo"));
 			}
@@ -869,6 +870,36 @@ public class DatabaseQuery {
 		}
 
 		return true;}
+	
+	public synchronized static void updateStudente(String nomeA, String nomeT, String matricola) throws SQLException {
+		Connection connection = null;
+		PreparedStatement psAddUtente = null;
+
+		try{
+			connection = Database.getConnection();
+			
+			psAddUtente = connection.prepareStatement(queryUpdateStudenteRichiesta);
+			
+			psAddUtente.setString(1, nomeA);
+			psAddUtente.setString(2, nomeT);
+			psAddUtente.setString(3, matricola);
+			
+			
+			System.out.println(psAddUtente.toString());
+
+			psAddUtente.executeUpdate();
+
+			connection.commit();
+			System.out.println("GU Connessione...");
+		} finally {
+			try{
+				if(psAddUtente != null)
+					psAddUtente.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+	}
 
 	public synchronized static ArrayList queryGetRichiestaStudenteT(String nomea) throws SQLException {
 		Connection connection = null;
@@ -1087,6 +1118,7 @@ public class DatabaseQuery {
 		queryGetAziendaFromTirocinio="SELECT * FROM azienda where nome_tirocineo=?";
 		queryGetAziendaByTirocinio="select azienda.* from azienda,tirocineo where azienda.nome=tirocineo.nome_azienda and accettata='si';";
 		queryAddRichiestaStudente="insert into richiesta_studente(matricola_studente,nome_azienda,nome_tirocinio,nome_studente,cognome_studente) values(?,?,?,?,?);";
+		queryUpdateStudenteRichiesta = "update studente1 set nome_azienda = ?, nome_tirocineo = ? WHERE matricola = ?";
 		queryGetRichiestaStudenteT=" select studente1.*  from studente1,richiesta_studente where studente1.nome=richiesta_studente.nome_studente and accettato='no' and studente1.nome_azienda=?;";
 	    queryRicercaStudente="select * from studente1 where nome=? and cognome=?; ";
 	    queryGetTirocinioFromStudente="select tirocineo.* from tirocineo,studente1 where tirocineo.nome=studente1.nome_tirocineo and studente1.accettato='si' and studente1.nome=?;";

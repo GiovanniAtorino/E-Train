@@ -24,7 +24,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Visualizza Tirocinio">
-          <a class="nav-link" href="visualizzaTirocinioSegreteria.jsp">
+          <a class="nav-link" href="GetRichiestaTirocinioServlet">
             <i class="fa fa-fw fa-briefcase"></i>
             <span class="nav-link-text">Visualizza Tirocinio</span>
           </a>

@@ -67,7 +67,7 @@ if (utente != null) {
                   <td> <%=t.get(i).getNomeTirocinio() %></td>
                   <td><%=t.get(i).getDescrizioneTirocinio() %></td>
                   <td>150</td>
-                  <td>  <a href="RichistaTirocinioStudenteServlet?action=<%=t.get(i).getNomeaziendaTirocinio() %>&nomet=<%=t.get(i).getNomeTirocinio()%>">Invia Richiesta </a>
+                  <td>  <a href="RichiestaTirocinioStudenteServlet?action=<%=t.get(i).getNomeaziendaTirocinio() %>&nomet=<%=t.get(i).getNomeTirocinio()%>">Invia Richiesta </a>
 								</input> </td>
                 </tr>
                

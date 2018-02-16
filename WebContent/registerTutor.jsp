@@ -42,11 +42,17 @@
           </div>
                  <div class="form-group">
                 <label for="exampleInputEmail1">Nome tirocinio:</label><br>
-                <input id="date" name="tutor_nometirocinio" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci nome azienda" required>
+                <input id="date" name="tutor_nometirocinio" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci nome tirocinio" required>
               </div>
+              
+              <div class="form-group">
+                <label for="exampleInputEmail1">Nome azienda:</label><br>
+                <input id="date" name="tutor_nomeazienda" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci nome azienda" required>
+              </div>
+              
               <div class="form-group">
                     <label for="exampleInputEmail1">Numero Matricola:</label><br>
-                    <input class="form-control" name="tutor_matricola" id="exampleInputName" type="text" maxlength="10" pattern="[0-9]{10}" aria-describedby="nameHelp" placeholder="Inserisci Numero Matricola" required>
+                    <input class="form-control" name="tutor_matricola" id="exampleInputName" type="text" pattern="[0-9]{10}" aria-describedby="nameHelp" placeholder="Inserisci Numero Matricola" required>
               </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email Accademica: </label>

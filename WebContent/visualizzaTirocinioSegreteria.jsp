@@ -58,15 +58,15 @@ if (utenteS != null) {
      Nome: <%=t.get(i).getNomeTirocinio() %> <br>
        Descrizione: <%=t.get(i).getDescrizioneTirocinio() %> <br>
        Nome azienda: <%=t.get(i).getNomeaziendaTirocinio() %> <br>
-       	<button type="button"
-				id="<%=t.get(i).getNomeTirocinio()%>" name="submitta"
-									class="addamico" value="addamico">
-								</button>
-								
-								<button type="button"
-									id="<%=t.get(i).getNomeTirocinio()%>" name="submitta"
-									class="deleteamico" value="deleteamico">
-								</button><br>
+       	<button type="button" 
+       				onclick="redirectToServlet('AccettaTirocinioServlet', '<%=t.get(i).getNomeTirocinio() %>')">
+				Accetta
+		</button>
+		
+		<button type="button" 
+       				onclick="redirectToServlet('RifiutaRichiestaServlet', '<%=t.get(i).getNomeTirocinio() %>')">
+				Rifiuta
+		</button><br>
       <%} %>
     
       </div>
@@ -75,6 +75,14 @@ if (utenteS != null) {
     
     <!-- FOOTER -->
     <%@ include file="footer.jsp" %> 
+    
+    <script>
+    
+    	function redirectToServlet(servlet, param){
+    		window.location = "./" + servlet + "?nomet=" + param;
+    	}
+    
+    </script>
     
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -98,44 +106,6 @@ if (utenteS != null) {
         </div>
       </div>
     </div>
-    	<script type="text/javascript">
-	$(".addamico").click(function(){
-		var nomet=$(this).attr("id");
-		
-		$.ajax({
-			type:"get",
-		url: "AccettaTirocinioServlet",
-		data: {
-			nomet : nomet
-			},
-			success: function(){
-				alert("Tirocinio accettato");
-			}
-		});
-	});
-	
-	
-	
-	</script>
-	<script type="text/javascript">
-	$(".deleteamico").click(function(){
-		var nomet=$(this).attr("id");
-		
-		$.ajax({
-			type:"get",
-		url: "RifiutaRichiestaServlet",
-		data: {
-			nomet : nomet
-			},
-			success: function(){
-				alert("Richiesta rifiutata");
-			}
-		});
-	});
-	
-	
-	
-	</script>
     
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
