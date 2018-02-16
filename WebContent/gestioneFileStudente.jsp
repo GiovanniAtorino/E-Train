@@ -5,7 +5,7 @@ Studente utente = (Studente) session.getAttribute("user_stud");
 ArrayList<FileP> pf=(ArrayList) request.getAttribute("lista_path");
 
 if (utente != null) {
-	String email = utente.getEmailS();
+	String email = utente.getEmail();
 } else {
 	response.sendRedirect("loginStudente.jsp");
 }
