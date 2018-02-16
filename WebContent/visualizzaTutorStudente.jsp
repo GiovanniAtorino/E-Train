@@ -1,4 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
+<%
+
+Studente utente = (Studente) session.getAttribute("user_stud");
+
+
+if (utente != null) {
+	String email = utente.getEmail();
+} else {
+	response.sendRedirect("loginStudente.jsp");
+}
+	
+%>
 <!DOCTYPE html>
 <html lang="en">
 
