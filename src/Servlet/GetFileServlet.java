@@ -9,12 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 
 import Bean.FileP;
-import Bean.Segreteria;
-import Bean.Studente;
 import Database.DatabaseQuery;
 
 /**
@@ -37,15 +34,35 @@ public class GetFileServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
-		Studente a = (Studente) session.getAttribute("user_stud");
+		String action = request.getParameter("action");
 		ArrayList<FileP> pf=new ArrayList<>();
+		
 		try {
-			pf=DatabaseQuery.getFile();
-			request.setAttribute("lista_path", pf);
-			request.getRequestDispatcher("gestioneFileStudente.jsp").forward(request, response);
-			request.getRequestDispatcher("gestioneFileTutor.jsp").forward(request, response);
-			request.getRequestDispatcher("gestioneFileAzienda.jsp").forward(request, response);
+			switch(action) {
+				case "studente":
+					loadFile(request, pf);
+					request.getRequestDispatcher("gestioneFileStudente.jsp").forward(request, response);
+					break;
+					
+	
+				case "tutor":
+					loadFile(request, pf);
+					request.getRequestDispatcher("gestioneFileTutor.jsp").forward(request, response);
+					break;
+					
+	
+				case "azienda":
+					loadFile(request, pf);
+					request.getRequestDispatcher("gestioneFileAzienda.jsp").forward(request, response);
+					break;
+					
+	
+				case "segreteria":
+					loadFile(request, pf);
+					request.getRequestDispatcher("gestioneFileSegreteria.jsp").forward(request, response);
+					break;
+					
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -58,6 +75,11 @@ public class GetFileServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+	
+	private void loadFile(HttpServletRequest request, ArrayList<FileP> pf) throws SQLException {
+		pf=DatabaseQuery.getFile();
+		request.setAttribute("lista_path", pf);
 	}
 
 }

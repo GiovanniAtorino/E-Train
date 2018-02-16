@@ -3,3 +3,5 @@ src/Servlet/RegisterServlet.java
 src/Database/Database.java
 src/Servlet/RegisterServlet.java
 WebContent/registrazioneSegreteriaAdmin.jsp
+WebContent/gestioneFileSegreteria.jsp
+WebContent/gestioneFileStudente.jsp

@@ -61,7 +61,7 @@ if (utente != null) {
 					<div class="card elementArea" style="width: 18rem;">
 						<img class="card-img-top" src="img/file.png" alt="Card image cap">
 						<div class="card-body buttonElement">
-							<a href="./gestioneFileTutor.jsp" class="btn btn-primary">Gestione
+							<a href="GetFileServlet?action=tutor" class="btn btn-primary">Gestione
 								File</a>
 						</div>
 					</div>

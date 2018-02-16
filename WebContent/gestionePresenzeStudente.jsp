@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
-<% try{
+<%
 Studente utente = (Studente) session.getAttribute("user_stud");
 String nomeA=(String)request.getAttribute("nome_azienda");
 
@@ -44,6 +44,9 @@ if (utente != null) {
 		
 			<!-- Example DataTables Card-->
 			<div class="card mb-3">
+			
+				<%if(nomeA != null){ %>
+			
 				<div class="card-header">
 					<i class="fa fa-table"></i> Ore svolte Tirocinio
 				</div>
@@ -66,15 +69,15 @@ if (utente != null) {
 								<tr>
 									<td><%= nomeA.toString()%></td>
 									<td><%=utente.getMatricola() %></td>
-									<td> <input class="form-control" name="presenza_data"> </i></td>
-									<td><input class="form-control" name="presenza_orai"> </i></td>
-								<td><input class="form-control" name="presenza_oraf"> </i></td>
+									<td> <input class="form-control" name="presenza_data" required> </i></td>
+									<td><input class="form-control" name="presenza_orai" required> </i></td>
+								<td><input class="form-control" name="presenza_oraf" required> </i></td>
 									<td>
 										<button class="btn btn-primary" type="submit" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button>
 									</td>
 								</tr>
 							</tbody>
-						</table></form> <% } catch (NullPointerException ex) {%>
+						</table></form> <% } else {%>
 							
 							Non sei stato ancora accettato  <%} %>
 					</div>

@@ -55,7 +55,7 @@ else {
 		<div class="card elementArea" style="width: 18rem;">
 			<img class="card-img-top" src="img/file.png" alt="Card image cap">
 			<div class="card-body buttonElement">
-				<a href="GetFileServlet" class="btn btn-primary">Gestione
+				<a href="GetFileServlet?action=azienda" class="btn btn-primary">Gestione
 					File</a>
 			</div>
 		</div>

@@ -31,26 +31,26 @@
           <div class="form-group">
             <div class="form-row">
                 <label for="exampleInputName">Nome Azienda: </label>
-                <input class="form-control" name="azienda_nome" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci Nome Azienda">
+                <input class="form-control" name="azienda_nome" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci Nome Azienda" required>
             </div>
             </div>
               <div class="form-group">
                 <label for="exampleInputLastName">Domicilio Azienda</label>
-                <input class="form-control" name="azienda_sede" id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="Inserisci Domicilio Azienda">
+                <input class="form-control" name="azienda_sede" id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="Inserisci Domicilio Azienda" required>
               </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email :</label>
-            <input class="form-control" name="azienda_email" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Inserisci Email">
+            <input class="form-control" name="azienda_email" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Inserisci Email" required>
           </div>
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputPassword1">Password</label>
-                <input class="form-control" name="azienda_password" id="exampleInputPassword1" type="password" placeholder="Password">
+                <input class="form-control" name="azienda_password" id="exampleInputPassword1" type="password" placeholder="Password" required>
               </div>
               <div class="col-md-6">
                 <label for="exampleConfirmPassword">Conferma password</label>
-                <input class="form-control" id="exampleConfirmPassword" type="password" placeholder="Conferma password">
+                <input class="form-control" id="exampleConfirmPassword" type="password" placeholder="Conferma password" required>
               </div>
             </div>
           </div>

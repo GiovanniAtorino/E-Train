@@ -1,25 +1,19 @@
 package Servlet;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import javax.servlet.RequestDispatcher;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-
-import Bean.Segreteria;
+import javax.servlet.http.Part;
 import Database.DatabaseQuery;
 
 
@@ -28,6 +22,8 @@ import Database.DatabaseQuery;
  * file documento nel server e di inserire nel database un tirocinio precedente.
  */
 @WebServlet("/UploadDocument")
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 10, maxFileSize = 1024 * 1024 * 100, maxRequestSize = 1024 * 1024
+* 100)
 public class UploadDocument extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
@@ -38,7 +34,7 @@ public class UploadDocument extends HttpServlet {
     model = new DatabaseQuery();
   }
  
-  static String return_path = "/gestioneFileSegreteria.jsp";
+  static String return_path = "/GetFileServlet?action=segreteria";
   
   public UploadDocument() {
      super();
@@ -48,141 +44,92 @@ public class UploadDocument extends HttpServlet {
     * Il metodo doPost, tenterà di inserire un documento 
     * come file in una cartella specifica dell'utente che fa richiesta 
     * ed inserire nel database un tirocinio precedente.
+ * @throws ServletException 
+ * @throws IOException 
   */
-  protected void doPost(HttpServletRequest request, HttpServletResponse response) 
-           throws ServletException, IOException {
-
-    if (ServletFileUpload.isMultipartContent(request)) {
-      try {
-    	  HttpSession session = request.getSession();
-		Segreteria sessioneStudent=	(Segreteria) session.getAttribute("user_segreteria");
-        
-        List<FileItem> multiparts = 
-            new ServletFileUpload(new DiskFileItemFactory()).parseRequest(request);
-        
-        String nameFolder = null;
-        String dir = null;
-        String action = null;
-        String company = null;
-        String firstLastName = null;
-        String job = null;
-        String mansioni = null;
-        String filePdf = null;
-        String name = null;
-        int i = 0;
-
-        for (FileItem item : multiparts) {
-          if (!item.isFormField()) {
-            name = new File(item.getName()).getName();
-            System.out.println("nome file: " + name);
-            if (validateNomeFile(name)) {
-              if (sessioneStudent != null && i == 0) {
-                sessioneStudent.setDipartimentoS(sessioneStudent.getDipartimentoS()
-                      .replaceAll("^\\s+", ""));
-                sessioneStudent.setDipartimentoS(sessioneStudent.getDipartimentoS()
-                      .replaceAll("\\s+$", ""));
-                nameFolder = 
-                     folder(sessioneStudent.getDipartimentoS(),sessioneStudent.getDipartimentoS().length());
-                dir = creaDir(nameFolder);
-                i = 1;
-              }
-
-              if (filePdf == null) {
-                filePdf = "/E-Train/Users/Segreteria/" + nameFolder + "/" + name;
-              } else {
-                filePdf = filePdf + nameFolder + "/" + name;
-              }
-            
-              item.write(new File(dir + File.separator + name));
-            } else {
-              request.setAttribute("filenotsupported", "File non caricato formato diverso da pdf.");
-            }
-          } else {
-            
-          }
-        }
-       
-          boolean control = true;
-         
-          if (!validateNomeFile(name)) {
-            control = false;
-          }
-          
-          if (control) {
-            
-            model.addFile(filePdf,name);
-
-            request.setAttribute("message_success", "File inserito con successo.");
-            return_path = "/gestioneFileSegreteria.jsp";
-          } else {
-            return_path = "/gestioneFileSegreteria.jsp";
-          }
-        
-      } catch (Exception ex) {
-        request.setAttribute("message_danger", "File upload failed due to : " + ex);
-      }
-    } else {
-      request.setAttribute("message_danger", 
-            "Sorry this servlet only handles file upload request.");
-    }
-
-    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(return_path);
-    dispatcher.forward(request, response);
+  
+  
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	  
+	  Part filepart = request.getPart("fileName");
+	  
+	  if(checkFile(filepart)) {
+		 
+		  String fileName = getFileName(filepart);
+		  
+		  String path = request.getServletContext().getRealPath("") + File.separator + "Files" + File.separator;
+		  
+		  new File(path).mkdir();
+		  
+		  uploadFile(filepart, fileName, path);
+		  try {
+			DatabaseQuery.addFile("./Files/" + fileName, fileName);
+		  } 
+		  catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		  }
+		  
+		  request.getRequestDispatcher(return_path).forward(request, response);
+	  }
+	 
+	  else {
+		  /*File non valido*/
+	  }
+	  
   }
   
-  /**
-    * Il metodo è utile per pulire un nome dagli spazi e dagli * sostituiendoli con il _.
-    * @param name tipo String, variabile che in input ha un possibile nome di una cartella
-    * @param n tipo int, variabile che misura la lunghezza del nome di una cartella
-    * @return nameFolder tipo String, il nome di una cartella pulita da (spazi) e * con _
-    * 
-   */
-  public String folder(String name,int n) {
-    String nameFolder = "";
-
-    for (int i = 0; i < n; i++) {
-      String comparison = name.substring(i, i + 1);
-
-      if ((comparison.equalsIgnoreCase(" ")) || (comparison.equalsIgnoreCase("*"))) {
-        nameFolder = nameFolder + "_";
-      } else {
-        nameFolder = nameFolder + name.substring(i, i + 1);
-      }
-    }
-    
-    return nameFolder;
+  private boolean checkValidExtension(String filename) {
+	  String[] split = filename.split("\\.");
+	  		  
+	  return split[split.length-1].equals("pdf");
   }
   
-  /**
-   * Il metodo aggiunge alla variabile dir il nome della cartella che gli viene passato.
-   * @param name_folder tipo String, variabile che riceve il nome della cartella  
-   * @return Dir tipo String, variabile che contiene il path dove verrà memorizzata una cartella
-   * 
-   */
-  private static String creaDir(String nameFolder) {
-    String dir = "C:/Users/raffa/Documents/GitHub/E-Train/WebContent/Users/Segreteria/"   + nameFolder;
-    //String dir = "C:/apache-tomcat-8.5.11/webapps/Tirocinio2.5/Users/Students/" + nameFolder;
-
-    new File(dir).mkdir();
-    return dir;
+  private String getFileName(Part filePart) {
+	  for(String content: filePart.getHeader("content-disposition").split(";"))
+		  if(content.trim().startsWith("filename"))
+			return content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
+	  
+	  return null;
   }
   
-  /**
-   * Il metodo confronta il nome del file con una espressione 
-   * regolare, per verificare se la variabile passata è un formato giusto.
-   * @param nomeFile tipo String, Variabile che viene cofrontata 
-   *     con le espressioni regolari per verificare se  è un formato giusto
-   * @return true/false valore boolean che se è false allora 
-   *     il parametro passato non è  è un formato giusto, true altrimenti.
-  */
-  public boolean validateNomeFile(String nomeFile) {
-    Pattern pattern = Pattern.compile("[a-zA-Z0-9. _%-]+\\.(pdf)");
-    Matcher matcher = pattern.matcher(nomeFile);
-
-    if (matcher.matches()) {
-      return true;
-    } else {
-      return false;
-    }
+  private boolean checkFile(Part filepart) {
+	  return checkValidExtension(getFileName(filepart));
   }
+  
+  
+  private boolean uploadFile(Part filePart, String fileName, String basePath) {
+
+	    try {
+	      InputStream is = null;
+	      OutputStream os = null;
+
+	      try {
+	        File ofp = new File(basePath + fileName);
+
+	        is = filePart.getInputStream();
+	        os = new FileOutputStream(ofp);
+	        int read = 0;
+
+	        final byte[] bytes = new byte[1024];
+	        while ((read = is.read(bytes)) != -1)
+	          os.write(bytes, 0, read);
+	      } catch (Exception e) {
+	        e.printStackTrace();
+	        return false;
+	      } finally {
+	        if (os != null)
+	          os.close();
+
+	        if (is != null)
+	          is.close();
+	      }
+
+	    } catch (Exception ex) {
+	      fileName = "";
+	      return false;
+	    }
+
+	    return true;
+	  }
 }

@@ -41,21 +41,14 @@ public class PassaNomeAziendaServlet extends HttpServlet {
 		String nomeA;
 		try {
 			nomeA=DatabaseQuery.GetNomeAzienda(nome);
-			String nomeAz=nomeA.toString();
-			if (nomeA.isEmpty()) {
-				request.setAttribute("nome_azienda", "nulla");
-				request.getRequestDispatcher("gestionePresenzeStudente.jsp").forward(request, response);
-			}else {
-				System.out.println("nome azienda=" +nomeA);
-				request.setAttribute("nome_azienda", nomeAz);
-				request.getRequestDispatcher("gestionePresenzeStudente.jsp").forward(request, response);
-			}
+			request.setAttribute("nome_azienda", nomeA);
+			request.getRequestDispatcher("gestionePresenzeStudente.jsp").forward(request, response);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (NullPointerException ex) {
-			request.setAttribute("nome_azienda", "nulla");
+			request.setAttribute("nome_azienda", null);
 			request.getRequestDispatcher("gestionePresenzeStudente.jsp").forward(request, response);
 			ex.printStackTrace();
 		}

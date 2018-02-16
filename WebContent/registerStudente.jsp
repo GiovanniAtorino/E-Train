@@ -37,36 +37,36 @@
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputName">Nome: </label>
-                <input class="form-control" name="studente_nome" id="studente_nome" type="text" aria-describedby="nameHelp" placeholder="Inserisci un Nome">
+                <input class="form-control" name="studente_nome" id="studente_nome" type="text" aria-describedby="nameHelp" placeholder="Inserisci un Nome" required>
               </div>
               <div class="col-md-6">
                 <label for="exampleInputLastName">Cognome: </label>
-                <input class="form-control" name="studente_cognome" id="studente_cognome" type="text" aria-describedby="nameHelp" placeholder="Inserisci Cognome">
+                <input class="form-control" name="studente_cognome" id="studente_cognome" type="text" aria-describedby="nameHelp" placeholder="Inserisci Cognome" required>
               </div>
             </div>
           </div>          
             <div class="form-group">
             <label for="exampleInputName">Dipartimento: </label>
-            <input class="form-control" name="studente_dipartimento" id="studente_dipartimento" type="text" aria-describedby="textHelp" placeholder="Inserisci Dipartimento">
+            <input class="form-control" name="studente_dipartimento" id="studente_dipartimento" type="text" aria-describedby="textHelp" placeholder="Inserisci Dipartimento" required>
           </div>
 
             <div class="form-group">
             <label for="exampleInputName">Numero Matricola: </label>
-                <input class="form-control" name="studente_matricola" id="studente_matricola" type="text" maxlength="10" pattern="[0-9]" aria-describedby="numberHelp" placeholder="Inserisci Numero Matricola">
+                <input class="form-control" name="studente_matricola" id="studente_matricola" type="text" maxlength="10" pattern="[0-9]{10}" aria-describedby="numberHelp" placeholder="Inserisci Numero Matricola" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email Accademica: </label>
-            <input class="form-control" name="studente_email" id="studente_email" type="email" aria-describedby="emailHelp" placeholder="Inserisci Email">
+            <input class="form-control" name="studente_email" id="studente_email" type="email" aria-describedby="emailHelp" placeholder="Inserisci Email" required>
           </div>
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputPassword1">Password: </label>
-                <input class="form-control" name="studente_password" id="studente_password" type="password" placeholder="Password">
+                <input class="form-control" name="studente_password" id="studente_password" type="password" placeholder="Password" required>
               </div>
               <div class="col-md-6">
                 <label for="exampleConfirmPassword">Conferma password: </label>
-                <input class="form-control" id="exampleConfirmPassword" type="password" placeholder="Conferma password">
+                <input class="form-control" id="exampleConfirmPassword" type="password" placeholder="Conferma password" required>
               </div>
             </div>
           </div>

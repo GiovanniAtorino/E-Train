@@ -2,7 +2,7 @@
 	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
 <%
 Studente utente = (Studente) session.getAttribute("user_stud");
-ArrayList<FileP> pf=(ArrayList) request.getAttribute("lista_path");
+ArrayList<FileP> pf= (ArrayList<FileP>) request.getAttribute("lista_path");
 
 if (utente != null) {
 	String email = utente.getEmail();
@@ -38,47 +38,50 @@ if (utente != null) {
   </nav>	
 	
    <div class="content-wrapper">
-    <div class="container-fluid">
+   
+   		<div class="container-fluid">
         <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Data Table Example</div>
+          <i class="fa fa-table"></i> File</div>
         <div class="card-body">
           <div class="table-responsive">
+            
+            <%
+            	if(pf.size() > 0){
+            %>
             <table class="table table-bordered" id="" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Azienda</th>
-                  <th>Bottone</th>
+                  <th>Nome file</th>
+                  <th>Visualizza</th>
                   <th>Scarica</th>
-                  <th>Bottone</th>
                 </tr>
               </thead>
-              <tfoot>
-                <tr>
-                  <th>Azienda</th>
-                  <th>Bottone</th>
-                  <th>Scarica</th>
-                  <th>Bottone</th>
-                </tr>
-              </tfoot>
               
               <tbody>
                 <tr>
                 <%for(int i=0;i<pf.size();i++){ %>
                   <td><%=pf.get(i).getNomeF() %></td>
-                  <td><button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Richiesta</button></td>
-                  <td><a href="<%=pf.get(i).getPathF() %>" > Scarica File </a></td>
-                  <td>
-                    <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button>
-                  </td> <br>
+                  <td><a href="<%=pf.get(i).getPathF() %>" target="_blank"> Visualizza File </a></td>
+                  <td><a href="<%=pf.get(i).getPathF() %>" download target="_blank"> Scarica File </a></td><br>
                    <%} %>
                 </tr>
                
               </tbody>
             </table>
+            <%}
+            	else{            		
+            %>
+            	<h2>Nessun file presente</h2>
+            <%
+            	}
+            %>
           </div>
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+    </div>
+   
+   </div>
         
         
         <!-- FOOTER -->

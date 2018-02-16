@@ -998,7 +998,7 @@ public class DatabaseQuery {
 
 		return true;}
 	
-	public synchronized static ArrayList getFile() throws SQLException {
+	public synchronized static ArrayList<FileP> getFile() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
         ArrayList<FileP> f=new ArrayList<>();

@@ -76,7 +76,7 @@ if (utenteS != null) {
             <div class="card  elementArea" style="width: 18rem;">
               <img class="card-img-top" src="img/file.png" alt="Card image cap">
               <div class="card-body buttonElement">
-                <a href="./gestioneFileSegreteria.jsp" class="btn btn-primary">Gestione File</a>
+                <a href="GetFileServlet?action=segreteria" class="btn btn-primary">Gestione File</a>
               </div>
             </div>
             

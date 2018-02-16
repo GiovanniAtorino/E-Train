@@ -24,7 +24,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Gestione File">
-          <a class="nav-link" href="gestioneFileStudente.jsp">
+          <a class="nav-link" href="GetFileServlet?action=studente">
             <i class="fa fa-fw fa-file"></i>
             <span class="nav-link-text">Gestione File</span>
           </a>

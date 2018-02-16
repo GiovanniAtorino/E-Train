@@ -3,6 +3,7 @@
 <%
 
 Segreteria utenteS=(Segreteria) session.getAttribute("user_segreteria");
+ArrayList<FileP> pf=(ArrayList) request.getAttribute("lista_path");
 
 if (utenteS != null) {
 	String nomeS = utenteS.getNomeS();
@@ -63,13 +64,60 @@ if (utenteS != null) {
 	<%=request.getAttribute("filenotsupported")%>
    <%}%>
    <form action="UploadDocument" method="post" enctype="multipart/form-data">
-		Select File to Upload:<input type="file"  accept="application/pdf" name="fileName">
+		Select File to Upload:<input type="file"  accept="application/pdf" name="fileName" required>
 		<br>
 		<input type="submit" value="Upload">
       
     </form>
       </div>
+      
+      <div class="container-fluid">
+        <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> File</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            
+            <%
+            	if(pf.size() > 0){
+            %>
+            <table class="table table-bordered" id="" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Nome file</th>
+                  <th>Visualizza</th>
+                  <th>Scarica</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                <%for(int i=0;i<pf.size();i++){ %>
+                  <td><%=pf.get(i).getNomeF() %></td>
+                  <td><a href="<%=pf.get(i).getPathF() %>" target="_blank"> Visualizza File </a></td>
+                  <td><a href="<%=pf.get(i).getPathF() %>" download target="_blank"> Scarica File </a></td><br>
+                   <%} %>
+                </tr>
+               
+              </tbody>
+            </table>
+            <%}
+            	else{            		
+            %>
+            	<h2>Nessun file presente</h2>
+            <%
+            	}
+            %>
+          </div>
+        </div>
+      </div>
     </div>
+      
+    </div>
+    
+    
+    
+    
     
     <!-- FOOTER -->
     <%@ include file="footer.jsp" %> 
