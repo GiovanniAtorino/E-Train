@@ -1,15 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
 <%
-Tutor utente = (Tutor) session.getAttribute("user_tutor");
-ArrayList<FileP> pf=(ArrayList) request.getAttribute("lista_path");
 
-if (utente != null) {
-	String email = utente.getEmailT();
+Segreteria utenteS=(Segreteria) session.getAttribute("user_segreteria");
+
+if (utenteS != null) {
+	String nomeS = utenteS.getNomeS();
 } else {
-	response.sendRedirect("loginTutor.jsp");
+	response.sendRedirect("loginSegreteria.jsp");
 }
-	
+
 %>
 
 <!DOCTYPE html>

@@ -35,7 +35,7 @@ public class Database {
 		String port = "3306";
 		String db = "etrain";
 		String username = "root";
-		String password = "1234";
+		String password = "aletrinchese95";
 		
 		
 		newConnection = DriverManager.getConnection("jdbc:mysql://"+ ip+":"+ port+"/"+db, username, password);
