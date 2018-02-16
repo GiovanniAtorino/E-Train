@@ -18,7 +18,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Visualizza Partecipanti">
-          <a class="nav-link" href="visualizzaPartecipantiAzienda.jsp">
+          <a class="nav-link" href="GetRichiestaTirocinioStudenteServlet">
             <i class="fa fa-fw fa-users"></i>
             <span class="nav-link-text">Visualizza Partecipanti</span>
           </a>

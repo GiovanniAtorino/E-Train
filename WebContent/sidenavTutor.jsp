@@ -6,13 +6,13 @@
 <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Visualizza Studente">
-          <a class="nav-link" href="visualizzaStudenteTutor.jsp">
+          <a class="nav-link" href="GetStudentiTutor">
             <i class="fa fa-fw fa-user"></i>
             <span class="nav-link-text">Visualizza Studente</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Visualizza Azienda">
-          <a class="nav-link" href="visualizzaAziendaTutor.jsp">
+          <a class="nav-link" href="GetAziendaTutorServlet">
             <i class="fa fa-fw fa-building"></i>
             <span class="nav-link-text">Visualizza Azienda</span>
           </a>

@@ -6,7 +6,6 @@ Azienda a=(Azienda) session.getAttribute("user_aziend");
 if (a != null){
 	String nomeA = a.getNomeA();
 } 
-
 else {
 		response.sendRedirect("loginAzienda.jsp");
 	}
@@ -64,7 +63,7 @@ else {
 			<img class="card-img-top" src="img/tutor.png" alt="Card image cap">
 			<div class="card-body buttonElement">
 				<a href="GetRichiestaTirocinioStudenteServlet"
-					class="btn btn-primary">Visualizza Richieste Partecipanti</a>
+					class="btn btn-primary">Visualizza Partecipanti</a>
 			</div>
 		</div>
 

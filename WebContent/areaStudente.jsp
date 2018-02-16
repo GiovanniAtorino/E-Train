@@ -2,15 +2,13 @@
 	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
 <%
 Studente utente = (Studente) session.getAttribute("user_stud");
-
-
 if (utente != null) {
 	String email = utente.getEmail();
 } else {
 	response.sendRedirect("loginStudente.jsp");
 }
-	
 %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -104,7 +102,6 @@ if (utente != null) {
         </div>
       </div>
     </div>
-    
     
       <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

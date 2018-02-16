@@ -12,7 +12,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Visualizza Azienda">
-          <a class="nav-link" href="visualizzaAziendaSegreteria.jsp">
+          <a class="nav-link" href="GetAziendaAccettataServlet">
             <i class="fa fa-fw fa-building"></i>
             <span class="nav-link-text">Visualizza Azienda</span>
           </a>

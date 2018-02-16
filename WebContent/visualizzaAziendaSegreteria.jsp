@@ -50,7 +50,7 @@ if (utenteS != null) {
   <div class="content-wrapper">
     <div class="container-fluid">
       <% for (int i=0;i<a.size();i++){%>
-    	  Nome: <%= a.get(i).getNomeA() %>
+    	  Nome: <%= a.get(i).getNomeA() %><br>
     	 Sede: <%=a.get(i).getSedeA() %>
      <%  }%>
     
