@@ -12,8 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import Bean.Azienda;
 import Bean.Presenza;
-import Bean.Segreteria;
-import Bean.Studente;
+
 import Database.DatabaseQuery;
 
 /**
@@ -52,7 +51,7 @@ public class RegisteraPresenzaServlet extends HttpServlet {
 		Presenza p=new Presenza(matrs,data,orai,oraf,nomet);
 		try {
 			DatabaseQuery.addPresenza(p);
-			request.getRequestDispatcher("areaStudente.jsp").forward(request, response);
+			request.getRequestDispatcher("areaAzienda.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

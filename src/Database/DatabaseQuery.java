@@ -914,7 +914,7 @@ public class DatabaseQuery {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
         ArrayList<Studente> rss=new ArrayList<>();
-		Studente studente = new Studente();
+		
 
 		
 			connection = Database.getConnection();
@@ -926,6 +926,7 @@ public class DatabaseQuery {
 			connection.commit();
 
 			while (rs.next()) {
+				Studente studente = new Studente();
 				studente.setMatricola(rs.getString("matricola"));
 				studente.setEmail(rs.getString("email"));
 				studente.setNome(rs.getString("nome"));
@@ -1121,6 +1122,7 @@ public class DatabaseQuery {
 
 			while (rs.next()) {
 				Tutor t = new Tutor();
+				t.setMatricolaT(rs.getString("matricola_tutor"));
 				t.setNomeT(rs.getString("nome"));
 				t.setCognomeT(rs.getString("cognome"));
 				t.setEmailT(rs.getString("email"));
@@ -1323,6 +1325,7 @@ public class DatabaseQuery {
 				pr.setData(rs.getString("data"));
 				pr.setOraInizio(rs.getString("ora_inizio"));
 				pr.setOraFine(rs.getString("ora_fine"));
+				pr.setNomeTP(rs.getString("nome_tirocinio"));
 				p.add(pr);
 			}
 		
@@ -1348,7 +1351,7 @@ public class DatabaseQuery {
 		queryGetRichiestaTirocinioStudente="select * from studente1 where nome_azienda=? and accettato='no'";
 		queryAccettaStudenteTirocinio="update studente1 set accettato='si' where nome=?;";
 		queryRifiutaStudenteTirocinio="update studente1 set accettato='no' where nome=?;";
-		queryAdd_Presenza = "INSERT INTO presenza (matricola_studente, data,ora_inizio,  ora_fine,nome_tirocinio) VALUES (?,?,?,?,?);";
+		queryAdd_Presenza = "INSERT INTO presenza (matricola_studente, data,ora_inizio,  ora_fine,nome_tirocinio,firmato) VALUES (?,?,?,?,?,'no');";
 		queryGetNomeAzienda="select nome_azienda from studente1 where nome=? and accettato='si';";
 		queryGetNomeTirocinio="select nome_tirocineo from studente1 where nome=? and accettato='si';";
 		queryGetTirocinioFromNome="SELECT * FROM tirocineo WHERE nome=?;";

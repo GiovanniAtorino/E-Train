@@ -38,6 +38,7 @@ public class ConfermaPresenzaServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		Studente a = (Studente) session.getAttribute("user_stud");
 		String m=a.getMatricola();
+		System.out.println("matricola" +m);
 		ArrayList<Presenza> p=new ArrayList<>();
 		try {
 			p=DatabaseQuery.getPresenzaByM(m);

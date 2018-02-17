@@ -54,17 +54,11 @@ if (utente != null) {
                   <th>Tutor</th>
                   <th>Laurea in</th>
                   <th>Email</th>
+                     <th>Matr</th>
                   <th>Scegli Tutor<th>
                 </tr>
               </thead>
-              <tfoot>
-                <tr>
-                    <th>Tutor</th>
-                    <th>Laurea in</th>
-                    <th>Email</th>
-                    <th>Scegli Tutor<th>
-                </tr>
-              </tfoot>
+           
           
           <% for(int i=0;i<t.size();i++){ %>
               <tbody>
@@ -72,17 +66,12 @@ if (utente != null) {
                   <td><%=t.get(i).getNomeT() %></td>
                   <td><%=t.get(i).getNomeAT() %></td>
                   <td><%=t.get(i).getEmailT() %></td>
-                  <td> <a href="RichiestaTutorStudenteServlet?action=<%=t.get(i).getMatricolaT() %>>">Invia Richiesta </a>
+                    <td><%= t.get(i).getMatricolaT() %></td>
+                  <td> <a href="RichiestaTutorStudenteServlet?action=<%= t.get(i).getMatricolaT() %>"> Invia Richiesta </a>
 								 </td>
                 </tr>
                 
-                <tr>
-                  <td>Giovanni Atorino</td>
-                  <td>System Architect</td>
-                  <td>giovanni-atorino@live.com</td>
-                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
-                </tr>
-                
+           
                
               </tbody>
             </table>

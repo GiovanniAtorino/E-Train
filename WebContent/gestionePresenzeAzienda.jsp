@@ -74,7 +74,8 @@ if (a != null) {
 									<td><input class="form-control" name="presenza_orai" required> </i></td>
 								<td><input class="form-control" name="presenza_oraf" required> </i></td>
 									<td>
-										<button class="btn btn-primary" type="submit" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button>
+									<input class="btn btn-primary btn-block" type="submit"
+								name="contact_submitted" value="Conferma" />
 									</td>
 								</tr>
 							</tbody>

@@ -36,7 +36,7 @@ public class RichiestaTutorStudenteServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		Studente a = (Studente) session.getAttribute("user_stud");
 		String ms=a.getMatricola();
-		String mt= (String) request.getAttribute("action");
+		  String mt=request.getParameter("action");
 		System.out.println("matr" +mt);
 		try {
 			DatabaseQuery.addTutorStudente(ms, mt);
