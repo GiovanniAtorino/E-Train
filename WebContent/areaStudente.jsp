@@ -2,15 +2,13 @@
 	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
 <%
 Studente utente = (Studente) session.getAttribute("user_stud");
-
-
 if (utente != null) {
 	String email = utente.getEmail();
 } else {
 	response.sendRedirect("loginStudente.jsp");
 }
-	
 %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +24,7 @@ if (utente != null) {
         <li class="nav-item dropdown">
          <li class="nav-item">
           <a class="nav-link">
-            <i class="fa fa-fw fa-graduation-cap"></i>Area Studente</a>
+            <i class="fa fa-fw fa-graduation-cap"></i>Area Studente <%=utente.getCognome() %></a>
         </li>
       </ul>
 		
@@ -104,7 +102,6 @@ if (utente != null) {
         </div>
       </div>
     </div>
-    
     
       <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

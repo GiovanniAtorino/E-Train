@@ -44,7 +44,7 @@ if (utente != null) {
     <div class="container-fluid">
     <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Visualizza Tirocinio</div>
+          <i class="fa fa-table"></i> Visualizza Tirocinio a cui partecipi</div>
         <div class="card-body">
          Lista Tirocini a cui partecipi:
       
@@ -95,7 +95,7 @@ if (utente != null) {
           <div class="modal-body">Sei sicuro di volerti disconnettere?</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancella</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <a class="btn btn-primary" href="home.jsp?logout=true">Logout</a>
           </div>
         </div>
       </div>

@@ -52,6 +52,12 @@ if (utenteS != null) {
  
   <div class="content-wrapper">
     <div class="container-fluid">
+    <div class="container-fluid">
+        <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> File</div>
+        <div class="card-body">
+          <div class="table-responsive">
     <%if(request.getAttribute("message_success")!=null){%>
     	<%=request.getAttribute("message_success")%>
     <%}
@@ -64,12 +70,16 @@ if (utenteS != null) {
 	<%=request.getAttribute("filenotsupported")%>
    <%}%>
    <form action="UploadDocument" method="post" enctype="multipart/form-data">
-		Select File to Upload:<input type="file"  accept="application/pdf" name="fileName" required>
+		Seleziona File da caricare: <input type="file"  accept="application/pdf" name="fileName" required>
 		<br>
-		<input type="submit" value="Upload">
-      
-    </form>
+		<input type="submit" value="Carica">
+		</form>
       </div>
+      </div>
+      </div>
+      </div>
+      </div>
+    
       
       <div class="container-fluid">
         <div class="card mb-3">
@@ -104,7 +114,7 @@ if (utenteS != null) {
             <%}
             	else{            		
             %>
-            	<h2>Nessun file presente</h2>
+            	<h2>"Nessun file presente"</h2>
             <%
             	}
             %>

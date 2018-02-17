@@ -56,7 +56,7 @@
               </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email Accademica: </label>
-            <input class="form-control" name="tutor_email" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Inserisci Email Accademica" required>
+            <input class="form-control" name="tutor_email" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" pattern=".+@unisa.it" placeholder="Inserisci Email con @unisa.it" required>
             
           </div>
           <div class="form-group">

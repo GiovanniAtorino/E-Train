@@ -2,15 +2,13 @@
 	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
 <%
 Tutor utente = (Tutor) session.getAttribute("user_tutor");
-
-
 if (utente != null) {
 	String email = utente.getEmailT();
 } else {
 	response.sendRedirect("loginTutor.jsp");
 }
-	
 %>
+
 <!DOCTYPE html>
 <html lang="en">
 
