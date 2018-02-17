@@ -1,5 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
+<%
 
+Segreteria utenteS=(Segreteria) session.getAttribute("user_segreteria");
+ArrayList<Presenza> p=(ArrayList) request.getAttribute("list_presenza");
+
+if (utenteS != null) {
+	String nomeS = utenteS.getNomeS();
+} else {
+	response.sendRedirect("loginSegreteria.jsp");
+}
+
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,8 +50,13 @@
   
   <div class="content-wrapper">
     <div class="container-fluid">
-      
-    
+      Lista Presenze:
+    <%for (int i=0;i<p.size();i++){ %>
+    Matricola Studente <%= p.get(i).getMatricolaP() %>
+    Data <%= p.get(i).getData() %>
+    Ora inizio <%= p.get(i).getOraInzio() %>
+    Ora Fine <%= p.get(i).getOrafine() %>
+    <%} %>
       </div>
     </div>
    	

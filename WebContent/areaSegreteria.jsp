@@ -83,7 +83,7 @@ if (utenteS != null) {
               <div class="card  elementArea" style="width: 18rem;">
                 <img class="card-img-top" src="img/presenze.png" alt="Card image cap">
                 <div class="card-body buttonElement">
-                  <a href="./gestionePresenzeSegreteria.jsp" class="btn btn-primary">Gestione Presenze</a>
+                  <a href="GetPresenzaServlet" class="btn btn-primary">Gestione Presenze</a>
               </div>
             </div>
       </div>

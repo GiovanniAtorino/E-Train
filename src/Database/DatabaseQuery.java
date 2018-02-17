@@ -57,6 +57,7 @@ public class DatabaseQuery {
 	private static String queryAddTutorStudente;
 	private static String queryGetStudenteTutorStud;
 	private static String queryGetTutorAll;
+	private static String queryGetPresenzaAll;
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psAddUtente = null;
@@ -1223,7 +1224,7 @@ public class DatabaseQuery {
 
 	
 			connection = Database.getConnection();
-			preparedStatement = connection.prepareStatement(queryGetTutor);
+			preparedStatement = connection.prepareStatement(queryGetTutorAll);
 			
 
 			ResultSet rs = preparedStatement.executeQuery();
@@ -1246,6 +1247,32 @@ public class DatabaseQuery {
 			return ta;
 	}
 	
+	public synchronized static ArrayList getPresenzaAll() throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+	ArrayList<Presenza> p=new ArrayList<>();
+
+	
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryGetPresenzaAll);
+			
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+				Presenza pr = new Presenza();
+				pr.setMatricolaP(rs.getString("matricola_studente"));
+				pr.setData(rs.getString("data"));
+				pr.setOraInizio(rs.getString("ora_inizio"));
+				pr.setOraFine(rs.getString("ora_fine"));
+				p.add(pr);
+			}
+		
+			return p;
+	}
 	
 	static {
 		queryAdd_Studente = "INSERT INTO studente1 (matricola, nome, cognome,  email,password,dipartimento) VALUES (?,?,?,?,?,?);";
@@ -1283,6 +1310,7 @@ public class DatabaseQuery {
 	     queryAddTutorStudente="insert into tutor_studente(matr_stud,matr_tutor) values(?,?);";
 	     queryGetStudenteTutorStud="select studente1.* from studente1,tutor_studente where tutor_studente.matr_stud=studente1.matricola and tutor_studente.matr_tutor=?;";
          queryGetTutorAll="select * from tutor;";
+         queryGetPresenzaAll="select * from prenseza where firmato='si';";
 	}
 
 

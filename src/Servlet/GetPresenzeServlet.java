@@ -11,21 +11,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Bean.Presenza;
 import Bean.Segreteria;
-import Bean.Tutor;
 import Database.DatabaseQuery;
 
 /**
- * Servlet implementation class GetTutorAllServlet
+ * Servlet implementation class GetPresenzeServlet
  */
-@WebServlet("/GetTutorAllServlet")
-public class GetTutorAllServlet extends HttpServlet {
+@WebServlet("/GetPresenzeServlet")
+public class GetPresenzeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetTutorAllServlet() {
+    public GetPresenzeServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,11 +37,11 @@ public class GetTutorAllServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		Segreteria s = (Segreteria) session.getAttribute("user_segreteria");
-		ArrayList<Tutor> ta=new ArrayList<>();
+		ArrayList<Presenza> p=new ArrayList<>();
 		try {
-			ta=DatabaseQuery.getTutorAll();
-			request.setAttribute("list_tutor", ta);
-			request.getRequestDispatcher("visualizzaTutorSegreteria.jsp").forward(request, response);
+			p=DatabaseQuery.getPresenzaAll();
+			request.setAttribute("list_presenza", p);
+			request.getRequestDispatcher("gestionePresenzeSegreteria.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
