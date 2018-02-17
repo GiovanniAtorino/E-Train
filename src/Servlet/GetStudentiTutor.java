@@ -38,11 +38,12 @@ public class GetStudentiTutor extends HttpServlet {
 		HttpSession session = request.getSession();
 		Tutor t = (Tutor) session.getAttribute("user_tutor");
 	String nomea=t.getNomeAT();
+	String m1=t.getMatricolaT();
 	System.out.println("nome az" +nomea);
 	String nomet=t.getNomeTirocinioT();
 	System.out.println("nome t" +nomet);
 		try {
-			ArrayList<Studente> s=DatabaseQuery.GetStudenteTutor( nomet);
+			ArrayList<Studente> s=DatabaseQuery.GetStudenteTutorStud( m1);
 			System.out.println("Stud"+ s.get(0).getCognome());
 			request.setAttribute("lista_stud", s);
 			request.getRequestDispatcher("visualizzaStudenteTutor.jsp").forward(request, response);

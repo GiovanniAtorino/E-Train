@@ -38,6 +38,7 @@ public class GetTutorStudente extends HttpServlet {
 		HttpSession session = request.getSession();
 		Studente a = (Studente) session.getAttribute("user_stud");
 		ArrayList<Tutor> t=new ArrayList<>();
+		System.out.println("Siamo qui");
 		try {
 			String nomet=DatabaseQuery.GetNomeTirocinioByM(a.getMatricola());
 			System.out.println("nome tirocinio" +nomet);

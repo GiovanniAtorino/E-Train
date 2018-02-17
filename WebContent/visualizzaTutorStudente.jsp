@@ -72,7 +72,8 @@ if (utente != null) {
                   <td><%=t.get(i).getNomeT() %></td>
                   <td><%=t.get(i).getNomeAT() %></td>
                   <td><%=t.get(i).getEmailT() %></td>
-                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
+                  <td> <a href="RichiestaTutorStudenteServlet?action=<%=t.get(i).getMatricolaT() %>>">Invia Richiesta </a>
+								 </td>
                 </tr>
                 
                 <tr>
