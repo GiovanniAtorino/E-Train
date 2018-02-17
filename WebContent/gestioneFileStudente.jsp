@@ -65,7 +65,7 @@ if (utente != null) {
                   <td><a href="<%=pf.get(i).getPathF() %>" target="_blank"> Visualizza File </a></td>
                   <td><a href="<%=pf.get(i).getPathF() %>" download target="_blank"> Scarica File </a></td><br>
                    <%} %>
-                </tr>
+                </tr> <br>
                
               </tbody>
             </table>
