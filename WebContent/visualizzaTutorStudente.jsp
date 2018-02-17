@@ -3,7 +3,7 @@
 <%
 
 Studente utente = (Studente) session.getAttribute("user_stud");
-
+ArrayList<Tutor> t=(ArrayList) request.getAttribute("tutor");
 
 if (utente != null) {
 	String email = utente.getEmail();
@@ -65,11 +65,13 @@ if (utente != null) {
                     <th>Scegli Tutor<th>
                 </tr>
               </tfoot>
+          
+          <% for(int i=0;i<t.size();i++){ %>
               <tbody>
                 <tr>
-                  <td>Giovanni Atorino</td>
-                  <td>System Architect</td>
-                  <td>giovanni-atorino@live.com</td>
+                  <td><%=t.get(i).getNomeT() %></td>
+                  <td><%=t.get(i).getNomeAT() %></td>
+                  <td><%=t.get(i).getEmailT() %></td>
                   <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
                 </tr>
                 
@@ -80,80 +82,12 @@ if (utente != null) {
                   <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
                 </tr>
                 
-                <tr>
-                  <td>Giovanni Atorino</td>
-                  <td>System Architect</td>
-                  <td>giovanni-atorino@live.com</td>
-                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
-                </tr>
-                
-                <tr>
-                  <td>Giovanni Atorino</td>
-                  <td>System Architect</td>
-                  <td>giovanni-atorino@live.com</td>
-                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
-                </tr>
-                
-                <tr>
-                  <td>Giovanni Atorino</td>
-                  <td>System Architect</td>
-                  <td>giovanni-atorino@live.com</td>
-                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
-                </tr>
-                
-                <tr>
-                  <td>Giovanni Atorino</td>
-                  <td>System Architect</td>
-                  <td>giovanni-atorino@live.com</td>
-                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
-                </tr>
-                
-                <tr>
-                  <td>Giovanni Atorino</td>
-                  <td>System Architect</td>
-                  <td>giovanni-atorino@live.com</td>
-                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
-                </tr>
-                
-                <tr>
-                  <td>Giovanni Atorino</td>
-                  <td>System Architect</td>
-                  <td>giovanni-atorino@live.com</td>
-                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
-                </tr>
-                
-                <tr>
-                  <td>Giovanni Atorino</td>
-                  <td>System Architect</td>
-                  <td>giovanni-atorino@live.com</td>
-                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
-                </tr>
-                
-                <tr>
-                  <td>Giovanni Atorino</td>
-                  <td>System Architect</td>
-                  <td>giovanni-atorino@live.com</td>
-                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
-                </tr>
-                
-                <tr>
-                  <td>Giovanni Atorino</td>
-                  <td>System Architect</td>
-                  <td>giovanni-atorino@live.com</td>
-                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
-                </tr>
-                
-                <tr>
-                  <td>Giovanni Atorino</td>
-                  <td>System Architect</td>
-                  <td>giovanni-atorino@live.com</td>
-                  <td> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button> </td>
-                </tr>
-                
+               
               </tbody>
             </table>
           </div>
         </div>
+        <%} %>
         <div class="card-footer small text-muted">Ultimo aggiornamento alle 11:59 </div>
       </div>
     </div>  

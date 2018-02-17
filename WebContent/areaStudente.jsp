@@ -50,7 +50,7 @@ if (utente != null) {
         <div class="card elementArea" style="width: 18rem;">
           <img class="card-img-top" src="img/tutor.png" alt="Card image cap">
           <div class="card-body buttonElement">
-            <a href="./visualizzaTutorStudente.jsp" class="btn btn-primary">Visualizza Tutor</a>
+            <a href="GetTutorStudente" class="btn btn-primary">Visualizza Tutor</a>
           </div>
         </div>
           <div class="card  elementArea" style="width: 18rem;">

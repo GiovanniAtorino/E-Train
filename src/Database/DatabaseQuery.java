@@ -52,6 +52,8 @@ public class DatabaseQuery {
 	private static String queryGetStudenteTutor;
 	private static String queryGetAziendaTutor;
 	private static String queryUpdateStudenteRichiesta;
+	private static String queryGetTutorStudente;
+	private static String queryGetNomeTirociniobyma;
 	
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
 		Connection connection = null;
@@ -1094,6 +1096,59 @@ public class DatabaseQuery {
 			return rss;
 		}
 	
+	public synchronized static ArrayList GetTutorStudente(String nomet) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+        ArrayList<Tutor> ta=new ArrayList<>();
+		
+
+		
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryGetTutorStudente);
+			
+			preparedStatement.setString(1, nomet);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+				Tutor t = new Tutor();
+				t.setNomeT(rs.getString("nome"));
+				t.setCognomeT(rs.getString("cognome"));
+				t.setEmailT(rs.getString("email"));
+				t.setNomeAT(rs.getString("nome_azienda"));
+				ta.add(t);
+			}
+		
+	
+			return ta;
+		}
+	
+	public synchronized static String GetNomeTirocinioByM(String mat) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+         String nomet = null;
+		
+
+		
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryGetNomeTirociniobyma);
+			preparedStatement.setString(1, mat);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+				nomet=rs.getString("nome_tirocineo");
+				
+				
+			
+		}
+		
+			return nomet;
+	}
+	
 	static {
 		queryAdd_Studente = "INSERT INTO studente1 (matricola, nome, cognome,  email,password,dipartimento) VALUES (?,?,?,?,?,?);";
 		queryGetStudente = "SELECT * FROM studente1 WHERE email=?";
@@ -1125,7 +1180,8 @@ public class DatabaseQuery {
 	    queyAddFile="insert into file(pathfile,nome_file) values(?,?);";
 	    queryGetFile="select * from file;";
 	    queryGetStudenteTutor="select studente1.* from studente1, tutor where studente1.nome_tirocineo=?;";
-	  
+	    queryGetTutorStudente="select * from tutor where nome_tirocineo=?;";
+	     queryGetNomeTirociniobyma="select nome_tirocineo from studente1 where matricola=? and accettato='si';";
 	}
 
 
