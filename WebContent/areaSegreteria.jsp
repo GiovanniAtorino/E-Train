@@ -62,7 +62,7 @@ if (utenteS != null) {
         <div class="card elementArea" style="width: 18rem;">
           <img class="card-img-top" src="img/tutor.png" alt="Card image cap">
           <div class="card-body buttonElement">
-            <a href="./visualizzaTutorSegreteria.jsp" class="btn btn-primary">Visualizza Tutor</a>
+            <a href="GetTutorAllServlet" class="btn btn-primary">Visualizza Tutor</a>
           </div>
         </div>
         

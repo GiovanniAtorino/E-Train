@@ -56,6 +56,7 @@ public class DatabaseQuery {
 	private static String queryGetNomeTirociniobyma;
 	private static String queryAddTutorStudente;
 	private static String queryGetStudenteTutorStud;
+	private static String queryGetTutorAll;
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psAddUtente = null;
@@ -206,7 +207,7 @@ public class DatabaseQuery {
 		try{
 			connection = Database.getConnection();
 			psAddTutor = connection.prepareStatement(queryAdd_Tutor);
-			psAddTutor.setInt(1, t.getMatricolaT());
+			psAddTutor.setString(1, t.getMatricolaT());
 			psAddTutor.setString(2, t.getNomeT());
 			psAddTutor.setString(3, t.getCognomeT());
 			psAddTutor.setString(4, t.getEmailT());
@@ -250,7 +251,7 @@ public class DatabaseQuery {
 				tutor.setCognomeT(rs.getString("cognome"));
 				tutor.setPasswordT(rs.getString("password"));
 			
-				tutor.setMatricolaT(rs.getInt("matricola_tutor"));
+				tutor.setMatricolaT(rs.getString("matricola_tutor"));
 				tutor.setNomeAT(rs.getString("nome_azienda"));
 				tutor.setNomeTT(rs.getString("nome_tirocineo"));
 			}
@@ -1214,6 +1215,37 @@ public class DatabaseQuery {
 			return rss;
 		}
 	
+	public synchronized static ArrayList getTutorAll() throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+	ArrayList<Tutor> ta=new ArrayList<>();
+
+	
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryGetTutor);
+			
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+				Tutor tutor = new Tutor();
+				tutor.setEmailT(rs.getString("email"));
+				tutor.setNomeT(rs.getString("nome"));
+				tutor.setCognomeT(rs.getString("cognome"));
+				tutor.setPasswordT(rs.getString("password"));
+			
+				tutor.setMatricolaT(rs.getString("matricola_tutor"));
+				tutor.setNomeAT(rs.getString("nome_azienda"));
+				tutor.setNomeTT(rs.getString("nome_tirocineo"));
+				ta.add(tutor);
+			}
+		
+			return ta;
+	}
+	
 	
 	static {
 		queryAdd_Studente = "INSERT INTO studente1 (matricola, nome, cognome,  email,password,dipartimento) VALUES (?,?,?,?,?,?);";
@@ -1250,6 +1282,7 @@ public class DatabaseQuery {
 	     queryGetNomeTirociniobyma="select nome_tirocineo from studente1 where matricola=? and accettato='si';";
 	     queryAddTutorStudente="insert into tutor_studente(matr_stud,matr_tutor) values(?,?);";
 	     queryGetStudenteTutorStud="select studente1.* from studente1,tutor_studente where tutor_studente.matr_stud=studente1.matricola and tutor_studente.matr_tutor=?;";
+         queryGetTutorAll="select * from tutor;";
 	}
 
 
