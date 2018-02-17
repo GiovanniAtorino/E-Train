@@ -381,7 +381,7 @@ public class DatabaseQuery {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
         ArrayList<Tirocinio> tir=new ArrayList<>();
-		Tirocinio t = new Tirocinio();
+		
 
 		try {
 			connection = Database.getConnection();
@@ -393,7 +393,7 @@ public class DatabaseQuery {
 			connection.commit();
 
 			while (rs.next()) {
-				
+				Tirocinio t = new Tirocinio();
 				t.setNomeTirocinio(rs.getString("nome"));
 				t.setDescrizioneTirocinio(rs.getString("descrizione"));
 				t.setDatainizioTirocinio(rs.getString("data_inizio"));
@@ -566,7 +566,7 @@ public class DatabaseQuery {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
       
-		Studente studente = new Studente();
+		
 
 		try {
 			connection = Database.getConnection();
@@ -578,6 +578,7 @@ public class DatabaseQuery {
 			connection.commit();
                
 			while (rs.next()) {
+				Studente studente = new Studente();
 				studente.setEmail(rs.getString("email"));
 				studente.setNome(rs.getString("nome"));
 				studente.setCognome(rs.getString("cognome"));
@@ -711,7 +712,7 @@ public class DatabaseQuery {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
         ArrayList<Tirocinio> tir=new ArrayList<>();
-		Tirocinio t = new Tirocinio();
+		
 
 		try {
 			connection = Database.getConnection();
@@ -723,7 +724,7 @@ public class DatabaseQuery {
 			connection.commit();
 
 			while (rs.next()) {
-				
+				Tirocinio t = new Tirocinio();
 				t.setNomeTirocinio(rs.getString("nome"));
 				t.setDescrizioneTirocinio(rs.getString("descrizione"));
 				t.setDatainizioTirocinio(rs.getString("data_inizio"));
@@ -816,7 +817,7 @@ public class DatabaseQuery {
 
 		ArrayList<Azienda> a = new ArrayList<>();
 
-		try {
+	
 			connection = Database.getConnection();
 			preparedStatement = connection.prepareStatement(queryGetAziendaByTirocinio);
 		
@@ -836,17 +837,7 @@ public class DatabaseQuery {
 				
 				
 			}
-		} finally {
-			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
-			} finally {
-				Database.releaseConnection(connection);
-			}
-		}
-		if (a.get(0).getEmailA() == null)
-			return null;
-		else
+		
 			return a;
 	}
 	
@@ -947,7 +938,7 @@ public class DatabaseQuery {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
         ArrayList<Studente> rss=new ArrayList<>();
-		Studente studente = new Studente();
+	
 
 		
 			connection = Database.getConnection();
@@ -960,6 +951,7 @@ public class DatabaseQuery {
 			connection.commit();
 
 			while (rs.next()) {
+				Studente studente = new Studente();
 				studente.setMatricola(rs.getString("matricola"));
 				studente.setEmail(rs.getString("email"));
 				studente.setNome(rs.getString("nome"));
@@ -979,7 +971,7 @@ public class DatabaseQuery {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
         ArrayList<Tirocinio> tir=new ArrayList<>();
-		Tirocinio t = new Tirocinio();
+		
 
 		try {
 			connection = Database.getConnection();
@@ -991,7 +983,7 @@ public class DatabaseQuery {
 			connection.commit();
 
 			while (rs.next()) {
-				
+				Tirocinio t = new Tirocinio();
 				t.setNomeTirocinio(rs.getString("nome"));
 				t.setDescrizioneTirocinio(rs.getString("descrizione"));
 				t.setDatainizioTirocinio(rs.getString("data_inizio"));
