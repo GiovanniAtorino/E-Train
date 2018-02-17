@@ -38,14 +38,14 @@ public class GetAziendaAccettataServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		Segreteria s = (Segreteria) session.getAttribute("user_segreteria");
-		Azienda a=new Azienda();
+		
 		ArrayList<Azienda> az=new ArrayList<>();
 		try {
 			
 		
-				a=DatabaseQuery.queryGetAziendaByTirocinio();
-				System.out.println("Azienda" +a.getNomeA());
-				az.add(a);
+				az=DatabaseQuery.queryGetAziendaByTirocinio();
+				System.out.println("Azienda" +az.get(0).getNomeA());
+				
 			
 			request.setAttribute("azienda", az);
 			request.getRequestDispatcher("visualizzaAziendaSegreteria.jsp").forward(request, response);

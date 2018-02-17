@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
 <%
-try{
-Tutor utente = (Tutor) session.getAttribute("user_tutor");
-ArrayList<Studente> s=(ArrayList) request.getAttribute("lista_stud");
+
+Studente utente = (Studente) session.getAttribute("user_stud");
+ArrayList<Tutor> t=(ArrayList) request.getAttribute("tutor");
 
 if (utente != null) {
-	String email = utente.getEmailT();
+	String email = utente.getEmail();
 } else {
-	response.sendRedirect("loginTutor.jsp");
+	response.sendRedirect("loginStudente.jsp");
 }
 	
 %>
@@ -17,65 +17,54 @@ if (utente != null) {
 
 <%@ include file="head.jsp"%>
 
+
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
-  
+ 
+  <!-- HEADER + NAVIGAZIONE MOBILE -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
 	<%@ include file="header.jsp"%>
 	
 	<ul class="navbar-nav">
         <li class="nav-item dropdown">
          <li class="nav-item">
-          <a class="nav-link" href="areaTutor.jsp">
-            <i class="fa fa-fw fa-user"></i>Area Tutor</a>
+          <a class="nav-link" href="areaStudente.jsp">
+            <i class="fa fa-fw fa-graduation-cap"></i>Area Studente</a>
         </li>
-        <li class="nav-item dropdown">
+				<li class="nav-item dropdown">
 			<li class="nav-item">
 				<a class="nav-link">
-					<i class="fa fa-fw fa-user"></i> Visualizza Studente</a>
+					<i class="fa fa-fw fa-user"></i> Visualizza Tutor</a>
       </ul>
+     
 	
-  	<%@ include file="sidenavTutor.jsp"%>
-  </nav>
-  
+  	<%@ include file="sidenavStudente.jsp"%>
+  </nav> 
+ 
   <div class="content-wrapper">
     <div class="container-fluid">
-            <%for(int i=0;i<s.size();i++){ %>
-    Nome studente   <%= s.get(i).getNome()%>
-    Cognome <%=s.get(i).getCognome() %>
-    Email <%= s.get(i).getEmail() %>
-      Matricola <%= s.get(i).getMatricola() %>    
-
-<% }}catch(NullPointerException e) {
-        	  %>Non ci sono studenti<% 
-          } catch( IndexOutOfBoundsException ex){
-        	  %> NOn ci sono utenti <% 
-          }
-          %>
-    
+      <!-- Example DataTables Card-->
+   Non hai nessun tutor, manda una richiesta ad un   <a href="GetTirocinioAccettato" class="btn btn-primary"> Azienda</a>
+     
       </div>
-    </div>
-
-	<!-- FOOTER -->
+    </div>  
+    
+    <!-- FOOTER -->
     <%@ include file="footer.jsp" %> 
-        
-
+    
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
-    <!-- Logout Modal-->
+  <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Disconnet</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Disconnect</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">x</span>
+              <span aria-hidden="true">X</span>
             </button>
           </div>
-    
-          
-          
           <div class="modal-body">Sei sicuro di volerti disconnettere?</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancella</button>
@@ -98,6 +87,6 @@ if (utente != null) {
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
-  
+  </div>
 </body>
 </html>

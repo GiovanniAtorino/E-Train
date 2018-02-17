@@ -810,11 +810,11 @@ public class DatabaseQuery {
 			return azienda;
 	}
 	
-	public synchronized static Azienda queryGetAziendaByTirocinio() throws SQLException {
+	public synchronized static ArrayList queryGetAziendaByTirocinio() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Azienda azienda = new Azienda();
+		ArrayList<Azienda> a = new ArrayList<>();
 
 		try {
 			connection = Database.getConnection();
@@ -826,12 +826,13 @@ public class DatabaseQuery {
 			connection.commit();
 
 			while (rs.next()) {
+				Azienda azienda = new Azienda();
 				azienda.setEmailA(rs.getString("email"));
 				azienda.setNomeA(rs.getString("nome"));
 				azienda.setSedeA(rs.getString("sede"));
 				azienda.setPasswordA(rs.getString("password"));
 			
-			
+			a.add(azienda);
 				
 				
 			}
@@ -843,10 +844,10 @@ public class DatabaseQuery {
 				Database.releaseConnection(connection);
 			}
 		}
-		if (azienda.getEmailA() == null)
+		if (a.get(0).getEmailA() == null)
 			return null;
 		else
-			return azienda;
+			return a;
 	}
 	
 	public synchronized static boolean addRichiestaStudente(String matr,String na,String nt,String n,String c) throws SQLException{

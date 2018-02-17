@@ -49,6 +49,8 @@ public class GetTutorStudente extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (IndexOutOfBoundsException e) {
+			request.getRequestDispatcher("errorStudTutor.jsp").forward(request, response);
 		}
 	}
 
