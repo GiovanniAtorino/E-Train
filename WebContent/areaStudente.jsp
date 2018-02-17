@@ -24,7 +24,7 @@ if (utente != null) {
         <li class="nav-item dropdown">
          <li class="nav-item">
           <a class="nav-link">
-            <i class="fa fa-fw fa-graduation-cap"></i>Area Studente</a>
+            <i class="fa fa-fw fa-graduation-cap"></i>Area Studente <%=utente.getCognome() %></a>
         </li>
       </ul>
 		

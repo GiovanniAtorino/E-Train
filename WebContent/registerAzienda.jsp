@@ -40,7 +40,7 @@
               </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email :</label>
-            <input class="form-control" name="azienda_email" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Inserisci Email" required>
+            <input class="form-control" name="azienda_email" id="exampleInputEmail1" type="email" aria-describedby="emailHelp"  placeholder="Inserisci Email" required>
           </div>
           <div class="form-group">
             <div class="form-row">

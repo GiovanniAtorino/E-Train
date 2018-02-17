@@ -25,7 +25,7 @@ else {
 		<ul class="navbar-nav">
 			<li class="nav-item dropdown">
 			<li class="nav-item"><a class="nav-link"> <i
-					class="fa fa-fw fa-building"></i>Area Azienda
+					class="fa fa-fw fa-building"></i>Area Azienda 
 			</a></li>
 		</ul>
 

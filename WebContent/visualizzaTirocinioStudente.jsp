@@ -44,7 +44,7 @@ if (utente != null) {
     <div class="container-fluid">
     <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Visualizza Tirocinio</div>
+          <i class="fa fa-table"></i> Visualizza Tirocinio a cui partecipi</div>
         <div class="card-body">
          Lista Tirocini a cui partecipi:
       

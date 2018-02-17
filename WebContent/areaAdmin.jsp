@@ -15,7 +15,7 @@
         <li class="nav-item dropdown">
          <li class="nav-item">
           <a class="nav-link">
-            <i class="fa fa-fw fa-graduation-cap"></i>Area Admin</a>
+            <i class="fa fa-fw fa-graduation-cap"></i>Area Admin </a>
         </li>
       </ul>	
 	</nav>

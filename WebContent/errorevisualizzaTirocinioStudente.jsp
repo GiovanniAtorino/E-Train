@@ -40,14 +40,24 @@ if (utente != null) {
   	<%@ include file="sidenavStudente.jsp"%>
   </nav>  
   
-  <div class="content-wrapper">
-    <div class="container-fluid">
-     NON PARTECIPI A NESSUN TIROCINIO <br>
+  
+     <div class="content-wrapper">
+   
+   		<div class="container-fluid">
+        <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Tirocinio</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            
+       NON PARTECIPI A NESSUN TIROCINIO <br>
      INVIA RICHIESTA PER <a href="GetTirocinioAccettato">PARTCIPARE </a>
-    
+          </div>
+        </div>
       </div>
     </div>
-    
+   
+   </div>
     <!-- FOOTER -->
     <%@ include file="footer.jsp" %> 
     
@@ -68,7 +78,7 @@ if (utente != null) {
           <div class="modal-body">Sei sicuro di volerti disconnettere?</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancella</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <a class="btn btn-primary" href="home.jsp?logout=true"">Logout</a>
           </div>
         </div>
       </div>
