@@ -68,7 +68,7 @@ if (utente != null) {
               <div class="card  elementArea" style="width: 18rem;">
                 <img class="card-img-top" src="img/presenze.png" alt="Card image cap">
                 <div class="card-body buttonElement">
-                  <a href="PassaNomeAziendaServlet" class="btn btn-primary">Gestione Presenze</a>
+                  <a href="ConfermaPresenzaServlet" class="btn btn-primary">Gestione Presenze</a>
               </div>
             </div>
       </div>

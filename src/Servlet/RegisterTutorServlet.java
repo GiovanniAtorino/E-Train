@@ -36,7 +36,7 @@ public class RegisterTutorServlet extends HttpServlet {
 		String Email = request.getParameter("tutor_email");
 		System.out.println(Email);
 
-		int matr= Integer.parseInt(request.getParameter("tutor_matricola"));
+		String matr= request.getParameter("tutor_matricola");
 		System.out.println(matr);
 		String Nome = request.getParameter("tutor_nome"); 
 		System.out.println(Nome);

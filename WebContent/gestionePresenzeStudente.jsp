@@ -2,8 +2,7 @@
 	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
 <%
 Studente utente = (Studente) session.getAttribute("user_stud");
-String nomeA=(String)request.getAttribute("nome_azienda");
-
+ArrayList<Presenza> p=(ArrayList) request.getAttribute("list_pre");
 
 if (utente != null) {
 	String email = utente.getEmail();
@@ -17,7 +16,7 @@ if (utente != null) {
 <html lang="en">
 
 <%@ include file="head.jsp"%>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 
 <!-- HEADER + NAVIGAZIONE MOBILE -->
@@ -45,44 +44,42 @@ if (utente != null) {
 			<!-- Example DataTables Card-->
 			<div class="card mb-3">
 			
-				<%if(nomeA != null){ %>
+			
 			
 				<div class="card-header">
 					<i class="fa fa-table"></i> Ore svolte Tirocinio
 				</div>
-			 <form action="RegisteraPresenzaServlet" method="post" id="form">
+			
 				<div class="card-body">
 					<div class="table-responsive">
 						<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 							<thead>
 								<tr>
-									<th>Azienda</th>
-									<th>Matricola</th>
+									<th>Tirocinio</th>
+									
 									<th>Data</th>
 									<th>Ore inizo</th>
 									<th>Ore fine</th>
 									<th>Conferma </th>
 								</tr>
 							</thead>
-							
+							<%for (int i=0;i<p.size();i++){ %>
 							<tbody>
 								<tr>
-									<td><%= nomeA.toString()%></td>
-									<td><%=utente.getMatricola() %></td>
-									<td> <input class="form-control" name="presenza_data" required> </i></td>
-									<td><input class="form-control" name="presenza_orai" required> </i></td>
-								<td><input class="form-control" name="presenza_oraf" required> </i></td>
+									<td><%= p.get(i).getNometP() %></td>
+									<td><%= p.get(i).getData()  %></td>
+									<td><%= p.get(i).getOraInzio()  %></td>
+									<td><%= p.get(i).getOrafine()  %></td>
+								
 									<td>
-										<button class="btn btn-primary" type="submit" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button>
+										<button class="firma" type="submit" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button>
 									</td>
 								</tr>
 							</tbody>
-						</table></form> <% } else {%>
-							
-							Non sei stato ancora accettato  <%} %>
+						</table></form> 
 					</div>
 				</div>
-		</div>
+		</div> <%} %>
 		
 
 
@@ -117,7 +114,7 @@ if (utente != null) {
 						<i class="fa fa-question-circle"></i> Sei sicuro di voler confermare?
 					</div>
 					<div class="modal-footer">
-						<a href="home.jsp" class="btn btn-primary btn-block">Conferma</a>
+						<a href="areaStudente.jsp" class="btn btn-primary btn-block">Conferma</a>
 					</div>
 				</div>
 			</div>
@@ -137,6 +134,25 @@ if (utente != null) {
 		<!-- Custom scripts for this page-->
 		<script src="js/sb-admin-datatables.min.js"></script>
 		<script src="js/sb-admin-charts.min.js"></script>
+		
+		
+		<script type="text/javascript">
+	$(".firma").click(function(){
+		
+		
+		$.ajax({
+			type:"get",
+		url: "PresenzaAccettataServlet",
+		
+			success: function(){
+				
+			}
+		});
+	});
+	
+	
+	
+	</script>
 	
 </body>
 </html>

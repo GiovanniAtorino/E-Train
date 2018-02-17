@@ -10,23 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import Bean.Azienda;
-import Bean.Presenza;
-import Bean.Segreteria;
 import Bean.Studente;
 import Database.DatabaseQuery;
 
 /**
- * Servlet implementation class RegisteraPresenzaServlet
+ * Servlet implementation class PresenzaAccettataServlet
  */
-@WebServlet("/RegisteraPresenzaServlet")
-public class RegisteraPresenzaServlet extends HttpServlet {
+@WebServlet("/PresenzaAccettataServlet")
+public class PresenzaAccettataServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegisteraPresenzaServlet() {
+    public PresenzaAccettataServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,21 +34,10 @@ public class RegisteraPresenzaServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-		Azienda a = (Azienda) session.getAttribute("user_aziend");
-		String matrs=request.getParameter("presenza_matricolas");
-		String nomet=request.getParameter("presenza_nomet");
-		String data= request.getParameter("presenza_data");
-		System.out.println("Data" +data);
-		
-		String orai= request.getParameter("presenza_orai");
-		System.out.println("Orai" +orai);
-		
-		String oraf= request.getParameter("presenza_oraf");
-		System.out.println("Ora" +oraf);
-		
-		Presenza p=new Presenza(matrs,data,orai,oraf,nomet);
+		Studente a = (Studente) session.getAttribute("user_stud");
+		String ms=a.getMatricola();
 		try {
-			DatabaseQuery.addPresenza(p);
+			DatabaseQuery.firma(ms);
 			request.getRequestDispatcher("areaStudente.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

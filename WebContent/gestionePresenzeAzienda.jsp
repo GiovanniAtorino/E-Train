@@ -1,5 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
+<%
+Azienda a=(Azienda) session.getAttribute("user_aziend");
 
+if (a != null) {
+	String nomeA = a.getNomeA();
+	
+} else {
+	response.sendRedirect("loginAzienda.jsp");
+}
+	
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +51,34 @@
   
   <div class="content-wrapper">
     <div class="container-fluid">
-      
+       <form action="RegisteraPresenzaServlet" method="post" id="form">
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+							<thead>
+								<tr>
+									<th>Nome Tirocinio</th>
+									<th>Matricola</th>
+									<th>Data</th>
+									<th>Ore inizo</th>
+									<th>Ore fine</th>
+									<th>Conferma </th>
+								</tr>
+							</thead>
+							
+							<tbody>
+								<tr>
+										<td> <input class="form-control" name="presenza_nomet" required> </i></td>
+									<td> <input class="form-control" name="presenza_matricolas" required> </i></td>
+									<td> <input class="form-control" name="presenza_data" required> </i></td>
+									<td><input class="form-control" name="presenza_orai" required> </i></td>
+								<td><input class="form-control" name="presenza_oraf" required> </i></td>
+									<td>
+										<button class="btn btn-primary" type="submit" data-toggle="modal" data-target=".bs-example-modal-sm">Conferma</button>
+									</td>
+								</tr>
+							</tbody>
+						</table></form>
     
       </div>
     </div>

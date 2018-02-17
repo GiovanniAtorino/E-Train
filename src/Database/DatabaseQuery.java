@@ -58,6 +58,10 @@ public class DatabaseQuery {
 	private static String queryGetStudenteTutorStud;
 	private static String queryGetTutorAll;
 	private static String queryGetPresenzaAll;
+	private static String querySetPresenza;
+	private static String queryGetPresenzabym;
+	
+	
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psAddUtente = null;
@@ -659,7 +663,7 @@ public class DatabaseQuery {
 			psAddUtente.setString(2, pre.getData());
 			psAddUtente.setString(3, pre.getOraInzio());
 			psAddUtente.setString(4, pre.getOrafine());
-		
+			psAddUtente.setString(5, pre.getNometP());
 			
 			
 			System.out.println(psAddUtente.toString());
@@ -1274,6 +1278,59 @@ public class DatabaseQuery {
 			return p;
 	}
 	
+	public synchronized static boolean firma(String ms) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+       
+		try {
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(querySetPresenza);
+			preparedStatement.setString(1, ms);
+			 preparedStatement.executeUpdate();
+
+			connection.commit();
+
+			
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+		return true;
+	
+	}
+	public synchronized static ArrayList getPresenzaByM(String M) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+	ArrayList<Presenza> p=new ArrayList<>();
+
+	
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryGetPresenzabym);
+			preparedStatement.setString(1, M);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+				Presenza pr = new Presenza();
+				pr.setMatricolaP(rs.getString("matricola_studente"));
+				pr.setData(rs.getString("data"));
+				pr.setOraInizio(rs.getString("ora_inizio"));
+				pr.setOraFine(rs.getString("ora_fine"));
+				p.add(pr);
+			}
+		
+			return p;
+	}
+	
+	
+	
 	static {
 		queryAdd_Studente = "INSERT INTO studente1 (matricola, nome, cognome,  email,password,dipartimento) VALUES (?,?,?,?,?,?);";
 		queryGetStudente = "SELECT * FROM studente1 WHERE email=?";
@@ -1291,7 +1348,7 @@ public class DatabaseQuery {
 		queryGetRichiestaTirocinioStudente="select * from studente1 where nome_azienda=? and accettato='no'";
 		queryAccettaStudenteTirocinio="update studente1 set accettato='si' where nome=?;";
 		queryRifiutaStudenteTirocinio="update studente1 set accettato='no' where nome=?;";
-		queryAdd_Presenza = "INSERT INTO presenza (matricola_studente, data,ora_inizio,  ora_fine,firmato) VALUES (?,?,?,?,'si');";
+		queryAdd_Presenza = "INSERT INTO presenza (matricola_studente, data,ora_inizio,  ora_fine,nome_tirocinio) VALUES (?,?,?,?,?);";
 		queryGetNomeAzienda="select nome_azienda from studente1 where nome=? and accettato='si';";
 		queryGetNomeTirocinio="select nome_tirocineo from studente1 where nome=? and accettato='si';";
 		queryGetTirocinioFromNome="SELECT * FROM tirocineo WHERE nome=?;";
@@ -1310,7 +1367,9 @@ public class DatabaseQuery {
 	     queryAddTutorStudente="insert into tutor_studente(matr_stud,matr_tutor) values(?,?);";
 	     queryGetStudenteTutorStud="select studente1.* from studente1,tutor_studente where tutor_studente.matr_stud=studente1.matricola and tutor_studente.matr_tutor=?;";
          queryGetTutorAll="select * from tutor;";
-         queryGetPresenzaAll="select * from prenseza where firmato='si';";
+         queryGetPresenzaAll="select * from presenza where firmato='si';";
+         querySetPresenza=" update presenza set firmato='si' where matricola_studente=?;";
+         queryGetPresenzabym="select * from presenza where firmato='no' and matricola_studente=?;";
 	}
 
 
