@@ -48,6 +48,9 @@ public class ConfermaPresenzaServlet extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (IndexOutOfBoundsException e) {
+			request.getRequestDispatcher("errorpresenza.jsp").forward(request, response);
+			e.printStackTrace();
 		}
 	}
 
