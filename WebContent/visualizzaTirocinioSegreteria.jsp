@@ -51,14 +51,16 @@ if (utenteS != null) {
  
   <div class="content-wrapper">
     <div class="container-fluid">
-      Richieste Tirocinio:
-      
-      <%for(int i=0;i<t.size();i++){ %>
-      
-     Nome: <%=t.get(i).getNomeTirocinio() %> <br>
-       Descrizione: <%=t.get(i).getDescrizioneTirocinio() %> <br>
-       Nome azienda: <%=t.get(i).getNomeaziendaTirocinio() %> <br>
-       	<button type="button" 
+    <div class="card mb-3">
+			<div class="card-header">
+				<i class="fa fa-table"> Richieste Tirocinio: </i> 
+			</div>
+			<% for(int i=0;i<t.size();i++){ %>
+			<div class="card-body">
+				Nome: <%=t.get(i).getNomeTirocinio() %> <br>
+		       Descrizione: <%=t.get(i).getDescrizioneTirocinio() %> <br>
+		       Nome azienda: <%=t.get(i).getNomeaziendaTirocinio() %> <br>
+		       	<button type="button" 
        				onclick="redirectToServlet('AccettaTirocinioServlet', '<%=t.get(i).getNomeTirocinio() %>')">
 				Accetta
 		</button>
@@ -67,7 +69,10 @@ if (utenteS != null) {
        				onclick="redirectToServlet('RifiutaRichiestaServlet', '<%=t.get(i).getNomeTirocinio() %>')">
 				Rifiuta
 		</button><br>
-      <%} %>
+    	 		<HR>
+			</div>
+			<%  }%>
+		</div>
     
       </div>
       

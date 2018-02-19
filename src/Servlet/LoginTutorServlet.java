@@ -20,59 +20,62 @@ import Database.DatabaseQuery;
 @WebServlet("/LoginTutorServlet")
 public class LoginTutorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginTutorServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String email = request.getParameter("tutor_email"); 
-		System.out.print(email);
-		
-		String Password = request.getParameter("tutor_password");
-		System.out.println(Password);
-		
-		Tutor u=new Tutor();
-			 try {
-				u = DatabaseQuery.getTutorByEmail(email);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			 System.out.println("Hey " +u.getCognomeT());
-			if(u!=null)
-			{
-				System.out.println("Siamo entrati " +u.getCognomeT());
-				if(u.getPasswordT().equals(Password))
-				{
-					
-						
-						
-						HttpSession session = request.getSession();
-						session.setAttribute("user_tutor", u);
-					
-						request.getRequestDispatcher("areaTutor.jsp").forward(request, response);
-						
-				}
-				else {
-					request.setAttribute("login_unsuccess", "Login errato password o email errati.");
-					request.getRequestDispatcher("loginTutor.jsp").forward(request, response);
-				}
-			} else {   }
+	public LoginTutorServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String email = request.getParameter("tutor_email");
+		System.out.print(email);
+
+		String Password = request.getParameter("tutor_password");
+		System.out.println(Password);
+
+		Tutor u = new Tutor();
+		try {
+			u = DatabaseQuery.getTutorByEmail(email);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// System.out.println("Hey " +u.getCognomeT());
+		if (u != null) {
+
+			if (u.getPasswordT().equals(Password)) {
+				System.out.println("Siamo entrati " + u.getCognomeT());
+
+				HttpSession session = request.getSession();
+				session.setAttribute("user_tutor", u);
+
+				request.getRequestDispatcher("areaTutor.jsp").forward(request, response);
+
+			} else {
+				request.setAttribute("login_unsuccess", "Login errato password o email errati.");
+				request.getRequestDispatcher("loginTutor.jsp").forward(request, response);
+			}
+		} else {
+			request.setAttribute("login_unsuccess", "Login errato password o email errati.");
+			request.getRequestDispatcher("loginTutor.jsp").forward(request, response);
+		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

@@ -43,7 +43,16 @@ if (utente != null) {
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Example DataTables Card-->
-   Non hai nessun tutor, manda una richiesta ad un   <a href="GetTirocinioAccettato" class="btn btn-primary"> Azienda</a>
+      <div class="container-fluid">
+    <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Tutor </div>
+        <div class="card-body">
+        Non hai nessun tutor, manda una richiesta ad un   <a href="GetTirocinioAccettato" class="btn btn-primary"> Tutor</a>
+    
+      </div>
+    </div>
+   
      
       </div>
     </div>  

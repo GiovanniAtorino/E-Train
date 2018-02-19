@@ -360,3 +360,7 @@ footer.sticky-footer {
 .buttonElement{
   margin: 0 auto;
 }
+
+.lbl{
+	margin-top: 15px;	
+}

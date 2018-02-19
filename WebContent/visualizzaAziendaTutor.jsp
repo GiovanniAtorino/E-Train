@@ -55,15 +55,19 @@ if (utente != null) {
   
   <div class="content-wrapper">
     <div class="container-fluid">
-      Dati azienda;
-      <%=a.getNomeA() %>
-      <%=a.getEmailA() %>
-      <%=a.getSedeA() %>
-    
-    
+      <div class="card mb-3">
+			<div class="card-header">
+				<i class="fa fa-table"> Richieste Tirocinio: </i> 
+			</div>
+			
+			<div class="card-body">
+				Nome: <%=a.getNomeA() %> <br>
+		       Descrizione: <%=a.getEmailA() %> <br>
+		       Nome azienda: <%=a.getSedeA() %> <br>
       </div>
     </div>
-   
+   </div>
+   </div>
    	<!-- FOOTER -->
     <%@ include file="footer.jsp" %> 
     

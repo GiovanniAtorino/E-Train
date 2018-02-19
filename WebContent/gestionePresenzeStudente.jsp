@@ -43,9 +43,6 @@ if (utente != null) {
 		
 			<!-- Example DataTables Card-->
 			<div class="card mb-3">
-			
-			
-			
 				<div class="card-header">
 					<i class="fa fa-table"></i> Ore svolte Tirocinio
 				</div>
@@ -56,7 +53,6 @@ if (utente != null) {
 							<thead>
 								<tr>
 									<th>Tirocinio</th>
-									
 									<th>Data</th>
 									<th>Ore inizo</th>
 									<th>Ore fine</th>

@@ -61,22 +61,22 @@ if (utenteA != null) {
         <form action="InviaRichiestaTirocinioServlet" method="post" id="form">
         <div class="form-group">
             <div class="form-row">
-                <label for="exampleInputName">Nome Tirocinio: </label>
+                <label class="lbl" for="exampleInputName">Nome Tirocinio: </label>
                 <input class="form-control" name="tirocinio_nome" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci Nome Azienda">
             </div>
         <div class="form-group">
             <div class="form-row">
-                <label for="exampleInputName">Descrizione Tirocinio: </label>
+                <label class="lbl" for="exampleInputName">Descrizione Tirocinio: </label>
                 <input class="form-control" name="tirocinio_descrizione" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Inserisci Nome Azienda">
             </div>
         <div class="form-group">
             <div class="form-row">
-                <label for="exampleInputDate">Data inizio Tirocinio: </label>
+                <label class="lbl" for="exampleInputDate">Data inizio Tirocinio: </label>
                 <input class="form-control" name="tirocinio_data" id="exampleInputDate" type="date">
             </div>
               <div class="form-group">
             <div class="form-row">
-                <label for="exampleInputDate">Data fine Tirocinio: </label>
+                <label class="lbl" for="exampleInputDate">Data fine Tirocinio: </label>
                 <input class="form-control" name="tirocinio_dataf" id="exampleInputDate" type="date">
             </div>
             <br><br>

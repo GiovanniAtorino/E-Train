@@ -37,10 +37,9 @@ if (utenteS != null) {
 	<div class="content-wrapper">
 		<div class="container-fluid">
 
-
 			<div class="card mb-3">
 				<div class="card-header">
-					<i class="fa fa-table"></i> Rierca Studente
+					<i class="fa fa-table"></i> Ricerca Studente
 				</div>
 				<div class="card-body">
 					<form action="CercaStudenteServlet" method="post">

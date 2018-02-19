@@ -42,13 +42,13 @@ public class LoginServlet extends HttpServlet {
 		try {
 		Studente u=new Studente();
 			 u = DatabaseQuery.getStudenteByEmail(email);
-			 System.out.println("Hey " +u.getCognome());
+			 //System.out.println("Hey " +u.getCognome());
 			if(u!=null)
 			{
-				System.out.println("Siamo entrati " +u.getCognome());
-				if(u.getPassword().equals(Password))
+				
+				if(u != null  && u.getPassword().equals(Password))
 				{
-					
+						System.out.println("Siamo entrati " +u.getCognome());
 						HttpSession session = request.getSession();
 						session.setAttribute("user_stud", u);
 					
@@ -59,7 +59,9 @@ public class LoginServlet extends HttpServlet {
 					request.setAttribute("login_unsuccess", "Login errato password o email errati.");
 					request.getRequestDispatcher("loginStudente.jsp").forward(request, response);
 				}
-			} else {   }
+			} else
+			{  request.setAttribute("login_unsuccess", "Login errato password o email errati.");
+			request.getRequestDispatcher("loginStudente.jsp").forward(request, response); }
 			
 			} catch (SQLException e) {
 				e.printStackTrace();

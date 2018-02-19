@@ -53,30 +53,26 @@ if (utente != null) {
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                       <th>Azienda</th>
+                  <th>Azienda</th>
                   <th>Nome</th>
                   <th>Descrizione</th>
                   <th>Ore Tirocinio</th>
                   <th>Scelta Azienda<th>
                 </tr>
               </thead>
-             
               <tbody>
                 <tr>
                   <td> <%=t.get(i).getNomeaziendaTirocinio() %></td>
                   <td> <%=t.get(i).getNomeTirocinio() %></td>
                   <td><%=t.get(i).getDescrizioneTirocinio() %></td>
                   <td>150</td>
-                  <td>  <a href="RichiestaTirocinioStudenteServlet?action=<%=t.get(i).getNomeaziendaTirocinio() %>&nomet=<%=t.get(i).getNomeTirocinio()%>">Invia Richiesta </a>
-								</input> </td>
+                  <td>  <a href="RichiestaTirocinioStudenteServlet?action=<%=t.get(i).getNomeaziendaTirocinio() %>&nomet=<%=t.get(i).getNomeTirocinio()%>">Invia Richiesta </a></td>
                 </tr>
-               
               </tbody>
             </table>   <%}}catch(NullPointerException ex){ %>
             Non ci sono aziende <%} %>
           </div>
         </div>
-        <div class="card-footer small text-muted">Ultimo aggiornamento alle 11:59 </div>
       </div>
     </div>  
     

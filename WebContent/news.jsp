@@ -12,16 +12,12 @@
 					</ol>
 					<div class="carousel-inner" role="listbox">
 						<div class="carousel-item active">
-							<img class="d-block img-fluid" src="img/tirocinio.png"
+							<img class="d-block img-fluid" src="img/IBM.png"
 								alt="First slide">
 						</div>
 						<div class="carousel-item">
-							<img class="d-block img-fluid" src="img/tutor.png"
+							<img class="d-block img-fluid" src="img/Samsung.png"
 								alt="Second slide">
-						</div>
-						<div class="carousel-item">
-							<img class="d-block img-fluid" src="img/logov1.2.jpg"
-								alt="Third slide">
 						</div>
 					</div>
 					<a class="carousel-control-prev" href="#carouselExampleIndicators"

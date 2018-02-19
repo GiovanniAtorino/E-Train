@@ -47,15 +47,12 @@ public class LoginAziendaServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			 System.out.println("Hey " +a.getNomeA());
+			 //System.out.println("Hey " +a.getNomeA());
 			if(a!=null)
 			{
 				System.out.println("Siamo entrati " +a.getNomeA());
 				if(a.getPassA().equals(Password))
 				{
-					
-						
-						
 						HttpSession session = request.getSession();
 						session.setAttribute("user_aziend", a);
 					
@@ -65,6 +62,9 @@ public class LoginAziendaServlet extends HttpServlet {
 					request.setAttribute("login_unsuccess", "Login errato password o email errati.");
 					request.getRequestDispatcher("loginAzienda.jsp").forward(request, response);
 				}
+			}else {
+				request.setAttribute("login_unsuccess", "Login errato password o email errati.");
+				request.getRequestDispatcher("loginAzienda.jsp").forward(request, response);
 			}
 	
 	}

@@ -49,10 +49,35 @@ if (utenteS != null) {
  
   <div class="content-wrapper">
     <div class="container-fluid">
-      <% for (int i=0;i<a.size();i++){%>
-    	  Nome: <%= a.get(i).getNomeA() %><br>
-    	 Sede: <%=a.get(i).getSedeA() %>
-     <%  }%>
+	    <div class="card mb-3">
+    <div class="card-header">
+          <i class="fa fa-table"></i> Info Aziende : </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            
+            <table class="table table-bordered" id="" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Sede</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+              <%for(int i=0;i<a.size();i++){ %>
+                <tr>
+                  	<td><%= a.get(i).getNomeA() %></td>
+    	 			<td><%=a.get(i).getSedeA() %></td>
+                </tr>
+               <%} %>
+              </tbody>
+            </table>
+            
+          </div>
+        </div>
+			
+		</div>
+     
     
       </div>
     </div>

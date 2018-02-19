@@ -35,9 +35,18 @@ if (utenteS != null) {
   
   <div class="content-wrapper">
     <div class="container-fluid">
-   <% for(int i=0;i<s.size();i++){ %>
    
- <a href="GetProfiloStudenteServlet?action=<%=s.get(i).getNome() %>&nomet=<%=s.get(i).getCognome()%>"><%=s.get(i).getNome() %> <%=s.get(i).getCognome() %> </a><br>
+   	
+   	<div class="card mb-3">
+		<div class="card-header">
+			<i class="fa fa-table"> Studenti Trovati: </i> 
+		</div>
+		<% for(int i=0;i<s.size();i++){ %>
+		<div class="card-body">
+			<a class="studente" href="GetProfiloStudenteServlet?action=<%=s.get(i).getNome() %>&nomet=<%=s.get(i).getCognome()%>"><%=s.get(i).getNome() %> <%=s.get(i).getCognome() %> </a><br>			
+		</div>
+	</div>
+ 
 								
     
     <%} %>

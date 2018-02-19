@@ -24,6 +24,10 @@ if (utente != null) {
 			<%if(request.getAttribute("signup_success")!=null)
 			   {%>
 				 <div class="alert alert-success"> <strong>Complimenti!</strong> <%=request.getAttribute("signup_success") %></div> 
+			   <%}
+			   if(request.getAttribute("login_unsuccess")!=null)
+			   {%>
+				 <div class="alert alert-danger"> <strong>Spiacenti!</strong> <%=request.getAttribute("login_unsuccess") %></div> 
 			   <%}%>
 				<div class="card-header">Login Tutor</div>
 				<div class="card-body">
@@ -31,7 +35,7 @@ if (utente != null) {
 						<div class="form-group">
 							<label for="exampleInputEmail1">Email: </label> <input
 								class="form-control" name="tutor_email" id="tutor_email"
-								type="email" aria-describedby="emailHelp"
+								type="email" aria-describedby="emailHelp" pattern=".+@unisa.it"
 								placeholder="Inserisci email">
 						</div>
 						<div class="form-group">

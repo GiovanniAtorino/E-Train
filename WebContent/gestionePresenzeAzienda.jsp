@@ -68,21 +68,23 @@ if (a != null) {
 							
 							<tbody>
 								<tr>
-										<td> <input class="form-control" name="presenza_nomet" required> </i></td>
-									<td> <input class="form-control" name="presenza_matricolas" required> </i></td>
-									<td> <input class="form-control" name="presenza_data" required> </i></td>
-									<td><input class="form-control" name="presenza_orai" required> </i></td>
-								<td><input class="form-control" name="presenza_oraf" required> </i></td>
+										<td> <input class="form-control" name="presenza_nomet" required> </td>
+									<td> <input class="form-control" name="presenza_matricolas" required> </td>
+									<td> <input class="form-control" name="presenza_data" required> </td>
+									<td><input class="form-control" name="presenza_orai" required> </td>
+								<td><input class="form-control" name="presenza_oraf" required> </td>
 									<td>
 									<input class="btn btn-primary btn-block" type="submit"
 								name="contact_submitted" value="Conferma" />
 									</td>
 								</tr>
 							</tbody>
-						</table></form>
+						</table>
+						</form>
+						</div>
+					</div>
+			
     
-      </div>
-    </div>
     
     <!-- FOOTER -->
  	<%@ include file="footer.jsp" %>

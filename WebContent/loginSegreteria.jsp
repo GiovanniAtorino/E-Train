@@ -26,13 +26,17 @@ if (utente != null) {
 			  {%>
 				 <div class="alert alert-success"> <strong>Complimenti!</strong> <%=request.getAttribute("signup_success") %></div> 
 			<%}%>
+			<%if(request.getAttribute("messaggio")!=null)
+		     {%>
+		     <div class="alert alert-danger"> <strong>Spiacenti!</strong> <%=request.getAttribute("messaggio") %></div> 
+		   <%}%>
 				<div class="card-header">Login Segreteria</div>
 				<div class="card-body">
 					<form action="LoginSegreteriaServlet" method="post">
 						<div class="form-group">
 							<label for="exampleInputEmail1">Email: </label> <input
 								class="form-control" name="segreteria_email" id="studente_email"
-								type="email" aria-describedby="emailHelp"
+								type="email" aria-describedby="emailHelp"  pattern=".+@segreteria.unisa.it"
 								placeholder="Inserisci email">
 						</div>
 						<div class="form-group">

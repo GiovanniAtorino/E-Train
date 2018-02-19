@@ -55,7 +55,7 @@ if (utenteS != null) {
     <div class="container-fluid">
         <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> File</div>
+          <i class="fa fa-table"></i> Upload File</div>
         <div class="card-body">
           <div class="table-responsive">
     <%if(request.getAttribute("message_success")!=null){%>
@@ -69,7 +69,7 @@ if (utenteS != null) {
     if(request.getAttribute("filenotsupported")!=null){%>
 	<%=request.getAttribute("filenotsupported")%>
    <%}%>
-   <form action="UploadDocument" method="post" enctype="multipart/form-data">
+   <form action="UploadDocument" method="post" enctype="multipart/form-data"t>
 		Seleziona File da caricare: <input type="file"  accept="application/pdf" name="fileName" required>
 		<br>
 		<input type="submit" value="Carica">
@@ -101,14 +101,15 @@ if (utenteS != null) {
               </thead>
               
               <tbody>
+              <%for(int i=0;i<pf.size();i++){ %>
                 <tr>
-                <%for(int i=0;i<pf.size();i++){ %>
+                
                   <td><%=pf.get(i).getNomeF() %></td>
                   <td><a href="<%=pf.get(i).getPathF() %>" target="_blank"> Visualizza File </a></td>
                   <td><a href="<%=pf.get(i).getPathF() %>" download target="_blank"> Scarica File </a></td><br>
-                   <%} %>
+                   
                 </tr>
-               
+               <%} %>
               </tbody>
             </table>
             <%}

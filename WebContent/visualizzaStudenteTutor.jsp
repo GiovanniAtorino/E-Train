@@ -39,14 +39,27 @@ if (utente != null) {
   
   <div class="content-wrapper">
     <div class="container-fluid">
-            <%for(int i=0;i<s.size();i++){ %>
-    Nome studente   <%= s.get(i).getNome()%>
-    Cognome <%=s.get(i).getCognome() %>
-    Email <%= s.get(i).getEmail() %>
-      Matricola <%= s.get(i).getMatricola() %>    
+    <div class="card mb-3">
+			<div class="card-header">
+				<i class="fa fa-table"> Studenti: </i> 
+			</div>
+			<%for(int i=0;i<s.size();i++){ %>
+			<div class="card-body">
+				Nome studente   <%= s.get(i).getNome()%><br>
+			    Cognome <%=s.get(i).getCognome() %><br>
+			    Email <%= s.get(i).getEmail() %><br>
+			    Matricola <%= s.get(i).getMatricola() %><br>    
+      </div>
+    </div>
+            
+    
 
 <% }}catch(NullPointerException e) {
-        	  %>Non ci sono studenti<% 
+        	  %>
+			<div class="card-body">
+				Non ci sono studenti <br>
+      		</div>
+    		</div><% 
           } catch( IndexOutOfBoundsException ex){
         	  %> NOn ci sono utenti <% 
           }

@@ -35,13 +35,19 @@ if (utenteS != null) {
   
   <div class="content-wrapper">
     <div class="container-fluid">
-   <% for(int i=0;i<s.size();i++){ %>
-   <br>
- 
-Nome: <%= s.get(i).getNome() %> <br>	
-Cognome	: <%=s.get(i).getCognome() %> <br>	
-Matricola	: <%=s.get(i).getMatricola() %> <br>					
     
+    <div class="card mb-3">
+		<div class="card-header">
+			<i class="fa fa-table"> Info Studente : </i> 
+		</div>
+		<% for(int i=0;i<s.size();i++){ %>
+		<div class="card-body">
+			Nome: <%= s.get(i).getNome() %> <br>	
+			Cognome	: <%=s.get(i).getCognome() %> <br>	
+			Matricola	: <%=s.get(i).getMatricola() %> <br>		
+		</div>
+	</div>
+ 
     <%} %>
       </div>
     </div>

@@ -35,7 +35,39 @@ if (a != null) {
   	<%@ include file="sidenavAzienda.jsp"%>
   </nav>
   
+  
   <div class="content-wrapper">
+    <div class="container-fluid">
+    <div class="container-fluid">
+        <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Upload File</div>
+        <div class="card-body">
+          <div class="table-responsive">
+    <%if(request.getAttribute("message_success")!=null){%>
+    	<%=request.getAttribute("message_success")%>
+    <%}
+    
+    if(request.getAttribute("message_danger")!=null){%>
+	<%=request.getAttribute("message_danger")%>
+   <%}
+    
+    if(request.getAttribute("filenotsupported")!=null){%>
+	<%=request.getAttribute("filenotsupported")%>
+   <%}%>
+   <form action="UploadDocument" method="post" enctype="multipart/form-data"t>
+		Seleziona File da caricare: <input type="file"  accept="application/pdf" name="fileName" required>
+		<br>
+		<input type="submit" value="Carica">
+		</form>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      
+      
+  
     <div class="container-fluid">
         <div class="card mb-3">
         <div class="card-header">
@@ -77,9 +109,7 @@ if (a != null) {
         </div>
       </div>
     </div>
-    
-    
-      </div>
+   </div>
     
     <!-- FOOTER -->
     <%@ include file="footer.jsp" %> 

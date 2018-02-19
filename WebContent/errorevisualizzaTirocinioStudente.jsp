@@ -51,7 +51,7 @@ if (utente != null) {
           <div class="table-responsive">
             
        NON PARTECIPI A NESSUN TIROCINIO <br>
-     INVIA RICHIESTA PER <a href="GetTirocinioAccettato">PARTCIPARE </a>
+     INVIA RICHIESTA PER <a href="GetTirocinioAccettato">PARTECIPARE </a>
           </div>
         </div>
       </div>

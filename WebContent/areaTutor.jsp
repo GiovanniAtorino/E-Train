@@ -24,7 +24,7 @@ if (utente != null) {
         <li class="nav-item dropdown">
          <li class="nav-item">
           <a class="">
-            <i class="fa fa-fw fa-user"></i>Area Tutor</a>
+            <i class="fa fa-fw fa-user"></i>Area Tutor </a>
         </li>
       </ul>
 		

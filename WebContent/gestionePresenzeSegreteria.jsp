@@ -50,14 +50,48 @@ if (utenteS != null) {
   
   <div class="content-wrapper">
     <div class="container-fluid">
-      Lista Presenze:
-    <%for (int i=0;i<p.size();i++){ %>
-    Matricola Studente <%= p.get(i).getMatricolaP() %>
-    Data <%= p.get(i).getData() %>
-    Ora inizio <%= p.get(i).getOraInzio() %>
-    Ora Fine <%= p.get(i).getOrafine() %>
-    <%} %>
-      </div>
+    <div class="card mb-3">
+    <div class="card-header">
+          <i class="fa fa-table"></i> Lista Presenze: </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            
+            <%
+            	if(p.size() > 0){
+            %>
+            <table class="table table-bordered" id="" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Matricola Studente</th>
+                  <th>Data</th>
+                  <th>Ora Inizio</th>
+                  <th>Data Fine</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+              <%for(int i=0;i<p.size();i++){ %>
+                <tr>
+                
+                  <td><%=p.get(i).getMatricolaP() %></td>
+                  <td><%=p.get(i).getData() %></td>
+                  <td><%=p.get(i).getOraInzio() %></td>
+                  <td><%=p.get(i).getOrafine() %></td>
+                   
+                </tr>
+               <%} %>
+              </tbody>
+            </table>
+            <%}
+            	else{            		
+            %>
+            	<h2>"Nessun file presente"</h2>
+            <%
+            	}
+            %>
+          </div>
+        </div>
+    </div>
     </div>
    	
    	<!-- FOOTER -->

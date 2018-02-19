@@ -11,9 +11,12 @@
 	id="mainNav">
 	<%@ include file="header.jsp"%>
 </nav>
-
+<br><br><br><br><br><br><br>
 IMMESSO DATI ERRATI
 
+<br>
+<%=request.getAttribute("messaggio") %>
+<br>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
 	id="mainNav"></nav>
 

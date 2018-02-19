@@ -18,7 +18,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Visualizza Tutor">
-          <a class="nav-link" href="visualizzaTutorSegreteria.jsp">
+          <a class="nav-link" href="GetTutorAllServlet">
             <i class="fa fa-fw fa-user"></i>
             <span class="nav-link-text">Visualizza Tutor</span>
           </a>
@@ -36,7 +36,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Gestione Presenze">
-          <a class="nav-link" href="gestionePresenzeSegreteria.jsp">
+          <a class="nav-link" href="GetPresenzeServlet">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Gestione Presenze</span>
           </a>

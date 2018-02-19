@@ -27,7 +27,7 @@ if (utenteS != null) {
         <li class="nav-item dropdown">
          <li class="nav-item">
           <a class="nav-link">
-            <i class="fa fa-fw fa-university"></i>Area Segreteria</a>
+            <i class="fa fa-fw fa-university"></i>Area Segreteria </a>
         </li>
       </ul>
 		
@@ -83,7 +83,7 @@ if (utenteS != null) {
               <div class="card  elementArea" style="width: 18rem;">
                 <img class="card-img-top" src="img/presenze.png" alt="Card image cap">
                 <div class="card-body buttonElement">
-                  <a href="GetPresenzaServlet" class="btn btn-primary">Gestione Presenze</a>
+                  <a href="GetPresenzeServlet" class="btn btn-primary">Gestione Presenze</a>
               </div>
             </div>
       </div>
@@ -112,7 +112,7 @@ if (utenteS != null) {
           <div class="modal-body">Sei sicuro di volerti disconnettere?</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancella</button>
-            <a class="btn btn-primary" href="home.jsp">Logout</a>
+            <a class="btn btn-primary" href="home.jsp?logout=true">Logout</a>
           </div>
         </div>
       </div>

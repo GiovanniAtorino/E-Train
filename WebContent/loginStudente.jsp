@@ -37,7 +37,7 @@ if (utente != null) {
 						<div class="form-group">
 							<label for="exampleInputEmail1">Email: </label> <input
 								class="form-control" name="studente_email" id="studente_email"
-								type="email" aria-describedby="emailHelp"
+								type="email" aria-describedby="emailHelp" pattern=".+@studenti.unisa.it"
 								placeholder="Inserisci email">
 						</div>
 						<div class="form-group">

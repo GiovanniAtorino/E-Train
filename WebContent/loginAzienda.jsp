@@ -24,6 +24,10 @@ if (utente != null) {
 			<%if(request.getAttribute("signup_success")!=null)
 			   {%>
 				 <div class="alert alert-success"> <strong>Complimenti!</strong> <%=request.getAttribute("signup_success") %></div> 
+			   <%}
+			  if(request.getAttribute("login_unsuccess")!=null)
+			   {%>
+				 <div class="alert alert-danger"> <strong>Spiacenti!</strong> <%=request.getAttribute("login_unsuccess") %></div> 
 			   <%}%>
 				<div class="card-header">Login Azienda</div>
 	<div class="card-body">

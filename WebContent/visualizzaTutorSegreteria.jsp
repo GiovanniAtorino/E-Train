@@ -50,15 +50,34 @@ if (utenteS != null) {
   
   <div class="content-wrapper">
     <div class="container-fluid">
-    Lista Tutor: <br>
-      <%for (int i=0;i<t.size();i++){ %>
-      Nome <%=t.get(i).getNomeT() %>
-      Cognome <%= t.get(i).getCognomeT() %>
-      
-      
-      <%} %>
-    
-      </div>
+    <div class="card mb-3">
+    <div class="card-header">
+          <i class="fa fa-table"></i> Info Aziende : </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            
+            <table class="table table-bordered" id="" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Cognome</th>
+                  <th>E-Mail</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+              <%for(int i=0;i<t.size();i++){ %>
+                <tr>
+                  	<td><%=t.get(i).getNomeT() %></td>
+    	 			<td><%=t.get(i).getCognomeT() %></td>
+    	 			<td><%=t.get(i).getEmailT() %></td>
+                </tr>
+               <%} %>
+              </tbody>
+            </table>
+            
+          </div>
+        </div>
     </div>
     
     <!-- FOOTER -->
