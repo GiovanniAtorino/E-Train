@@ -60,6 +60,7 @@ public class DatabaseQuery {
 	private static String queryGetPresenzaAll;
 	private static String querySetPresenza;
 	private static String queryGetPresenzabym;
+	private static String queryGetStudentePresenza;
 	
 	
 	public synchronized static boolean addStudente(Studente studente) throws SQLException{
@@ -1325,6 +1326,39 @@ public class DatabaseQuery {
 			return p;
 	}
 	
+	public synchronized static ArrayList GetStudentePresenza(String nomea) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+        ArrayList<Studente> rss=new ArrayList<>();
+	
+
+		
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryGetStudentePresenza);
+			preparedStatement.setString(1, nomea);
+			
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+				Studente studente = new Studente();
+				studente.setMatricola(rs.getString("matricola"));
+				studente.setEmail(rs.getString("email"));
+				studente.setNome(rs.getString("nome"));
+				studente.setCognome(rs.getString("cognome"));
+				studente.setPassword(rs.getString("password"));
+			
+				studente.setDipartimento(rs.getString("dipartimento"));
+				
+				rss.add(studente);
+			}
+		
+	
+			return rss;
+		}
+	
 	
 	
 	static {
@@ -1366,6 +1400,7 @@ public class DatabaseQuery {
          queryGetPresenzaAll="select * from presenza where firmato='si';";
          querySetPresenza=" update presenza set firmato='si' where matricola_studente=?;";
          queryGetPresenzabym="select * from presenza where firmato='no' and matricola_studente=?;";
+         queryGetStudentePresenza="select studente1.* from studente1,azienda where studente1.nome_azienda=?;";
 	}
 
 

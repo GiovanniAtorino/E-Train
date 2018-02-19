@@ -2,7 +2,7 @@
 	import="java.util.*,Bean.*,Database.*,Servlet.*"%>
 <%
 Azienda a=(Azienda) session.getAttribute("user_aziend");
-
+ArrayList<Studente> s=(ArrayList) request.getAttribute("list_stud");
 if (a != null) {
 	String nomeA = a.getNomeA();
 	
@@ -51,7 +51,10 @@ if (a != null) {
   
   <div class="content-wrapper">
     <div class="container-fluid">
+      
+      
        <form action="RegisteraPresenzaServlet" method="post" id="form">
+		<%for (int i=0;i<s.size(); i++ ){ %>
 				<div class="card-body">
 					<div class="table-responsive">
 						<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -59,6 +62,7 @@ if (a != null) {
 								<tr>
 									<th>Nome Tirocinio</th>
 									<th>Matricola</th>
+									<th> Cognome Studente </th>
 									<th>Data</th>
 									<th>Ore inizo</th>
 									<th>Ore fine</th>
@@ -69,11 +73,13 @@ if (a != null) {
 							<tbody>
 								<tr>
 										<td> <input class="form-control" name="presenza_nomet" required> </td>
-									<td> <input class="form-control" name="presenza_matricolas" required> </td>
+									<td>  <input class="form-control" name="presenza_matr" value=" <%= s.get(i).getMatricola() %>" required>
+									<td>  <input class="form-control" name="presenza_cognome" value=" <%= s.get(i).getCognome() %>" required>
 									<td> <input class="form-control" name="presenza_data" required> </td>
 									<td><input class="form-control" name="presenza_orai" required> </td>
 								<td><input class="form-control" name="presenza_oraf" required> </td>
 									<td>
+								
 									<input class="btn btn-primary btn-block" type="submit"
 								name="contact_submitted" value="Conferma" />
 									</td>
@@ -84,7 +90,7 @@ if (a != null) {
 						</div>
 					</div>
 			
-    
+    <%} %>
     
     <!-- FOOTER -->
  	<%@ include file="footer.jsp" %>

@@ -2,6 +2,7 @@ package Servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,21 +12,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Bean.Azienda;
-import Bean.Presenza;
-
+import Bean.Studente;
 import Database.DatabaseQuery;
 
 /**
- * Servlet implementation class RegisteraPresenzaServlet
+ * Servlet implementation class GetStudentePresenzaAzienda
  */
-@WebServlet("/RegisteraPresenzaServlet")
-public class RegisteraPresenzaServlet extends HttpServlet {
+@WebServlet("/GetStudentePresenzaAzienda")
+public class GetStudentePresenzaAzienda extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegisteraPresenzaServlet() {
+    public GetStudentePresenzaAzienda() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,26 +37,16 @@ public class RegisteraPresenzaServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		Azienda a = (Azienda) session.getAttribute("user_aziend");
-		String matrs=request.getParameter("presenza_matr");
-		System.out.println("matr" +matrs);
-		String nomet=request.getParameter("presenza_nomet");
-		String data= request.getParameter("presenza_data");
-		System.out.println("Data" +data);
-		
-		String orai= request.getParameter("presenza_orai");
-		System.out.println("Orai" +orai);
-		
-		String oraf= request.getParameter("presenza_oraf");
-		System.out.println("Ora" +oraf);
-		
-		Presenza p=new Presenza(matrs,data,orai,oraf,nomet);
+		ArrayList<Studente> stud=new ArrayList<>();
 		try {
-			DatabaseQuery.addPresenza(p);
-			request.getRequestDispatcher("areaAzienda.jsp").forward(request, response);
+			stud=DatabaseQuery.GetStudentePresenza(a.getNomeA());
+			request.setAttribute("list_stud", stud);
+			request.getRequestDispatcher("gestionePresenzeAzienda.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 
 	/**

@@ -70,7 +70,7 @@ else {
 		<div class="card  elementArea" style="width: 18rem;">
 			<img class="card-img-top" src="img/presenze.png" alt="Card image cap">
 			<div class="card-body buttonElement">
-				<a href="./gestionePresenzeAzienda.jsp" class="btn btn-primary">Gestione
+				<a href="GetStudentePresenzaAzienda" class="btn btn-primary">Gestione
 					Presenze</a>
 			</div>
 		</div>
